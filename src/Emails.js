@@ -1,3 +1,5 @@
+import Email from "./Email";
+
 function Emails(props) {
   console.log(props);
   return (
@@ -5,26 +7,12 @@ function Emails(props) {
       <ul>
         {props.filteredEmails.map((email, index) => (
           // This is the individual emails <Email>:
-          <li key={index} className={`email ${email.read ? "read" : "unread"}`}>
-            <div className="select">
-              <input
-                className="select-checkbox"
-                type="checkbox"
-                checked={email.read}
-                onChange={() => props.toggleRead(email)}
-              />
-            </div>
-            <div className="star">
-              <input
-                className="star-checkbox"
-                type="checkbox"
-                checked={email.starred}
-                onChange={() => props.toggleStar(email)}
-              />
-            </div>
-            <div className="sender">{email.sender}</div>
-            <div className="title">{email.title}</div>
-          </li>
+          <Email
+            email={email}
+            key={index}
+            toggleRead={props.toggleRead}
+            toggleStar={props.toggleStar}
+          />
         ))}
       </ul>
     </main>
