@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import initialEmails from './data/emails'
+import Emails from './Emails.js'
 
 import './styles/app.css'
 
@@ -87,7 +88,8 @@ function App() {
           </li>
         </ul>
       </nav>
-      <main className="emails">
+      <Emails filteredEmails={filteredEmails} toggleRead={toggleRead} toggleStar={toggleStar}/>
+      {/* <main className="emails">
         <ul>
           {filteredEmails.map((email, index) => (
             <li
@@ -115,7 +117,7 @@ function App() {
             </li>
           ))}
         </ul>
-      </main>
+      </main> */}
     </div>
   )
 }
