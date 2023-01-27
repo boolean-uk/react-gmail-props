@@ -43,7 +43,7 @@
   font-size: 1rem;
 }
 
-.app > .emails {
+/* .app > .emails {
   grid-area: emails;
   padding: 10px 0;
 }
@@ -51,7 +51,7 @@
 .app > .emails > ul {
   list-style: none;
   display: grid;
-}
+} */
 
 .app > .left-menu {
   grid-area: left-menu;
@@ -83,7 +83,7 @@
   background-color: transparent;
 }
 
-.email {
+/* .email {
   display: grid;
   grid-template-columns: 30px 30px 150px 1fr;
   padding: 10px;
@@ -143,4 +143,4 @@
 
 .email .star-checkbox:checked::before {
   background-image: url(https://www.gstatic.com/images/icons/material/system/2x/star_googyellow500_20dp.png);
-}
+} */
