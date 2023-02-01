@@ -4,9 +4,7 @@ import emails from './data/emails'
 function Emails() {
   let filteredEmails = emails
 
-  const getReadEmails = emails => emails.filter(email => !email.read)
-  const getStarredEmails = emails => emails.filter(email => email.starred)
-
+console.log('read', getStarredEmails, getReadEmails)
   return (
     <main className="emails">
       <ul>
@@ -14,7 +12,7 @@ function Emails() {
           <Email
             email={email}
             key={index}
-            toggleStar={getReadEmails}
+            toggleStar={getStarredEmails}
             toggleRead={getReadEmails} />
         ))}
       </ul>

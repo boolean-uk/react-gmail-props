@@ -12,6 +12,7 @@ function Email(props) {
           checked={props.email.read}
           onChange={() => toggleRead(props.toggleRead)}
         />
+        
       </div>
       <div className="star">
         <input
