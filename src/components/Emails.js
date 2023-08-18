@@ -6,7 +6,7 @@ function Emails(props) {
     return (
         <ul>
           {props.filteredEmails.map((email, index) => (
-            <Email key={index} email={email} index={index} toggleRead={props.toggleRead} toggleStar={props.toggleStar}/>
+            <Email key={index} email={email} index={index} toggleRead={props.toggleRead} toggleStar={props.toggleStar} openEmail={props.openEmail}/>
           ))}
         </ul>
     );

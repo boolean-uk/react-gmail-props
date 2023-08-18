@@ -3,6 +3,7 @@ import './styles/app.css'
 import { useState } from 'react'
 import initialEmails from './data/emails'
 import Emails from './components/Emails'
+import SelectedEmail from './components/SelectedEmail'
 
 const getReadEmails = emails => emails.filter(email => !email.read)
 
@@ -12,6 +13,8 @@ function App() {
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
+  const [displayElement, setDisplayElement] = useState('list')
+  const [thisEmail, setThisEmail] = useState(0)
 
   const unreadEmails = emails.filter(email => !email.read)
   const starredEmails = emails.filter(email => email.starred)
@@ -32,6 +35,15 @@ function App() {
         email.id === targetEmail.id ? { ...email, read: !email.read } : email
       )
     setEmails(updatedEmails)
+  }
+
+  const openEmail = (email) => {
+    setThisEmail(email)
+    setDisplayElement('email')
+  }
+
+  const openList = () => {
+    setDisplayElement('list')
   }
 
   let filteredEmails = emails
@@ -88,7 +100,14 @@ function App() {
         </ul>
       </nav>
       <main className="emails">
-        <Emails filteredEmails={filteredEmails} toggleRead={toggleRead} toggleStar={toggleStar}/>
+        {
+          (displayElement === 'list') &&
+          <Emails filteredEmails={filteredEmails} toggleRead={toggleRead} toggleStar={toggleStar} openEmail={openEmail}/>
+        }
+        {
+          (displayElement === 'email') &&
+          <SelectedEmail thisEmail={thisEmail} openList={openList}/>
+        }
       </main>
     </div>
   )
