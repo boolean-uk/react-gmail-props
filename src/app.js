@@ -22,7 +22,7 @@ function App() {
     const [emails, setEmails] = useState(
         initialEmails.map((email, index) => ({
             ...email,
-            content: baseLorem.repeat(email.id*2),
+            content: baseLorem.repeat(email.id * 2),
             img: images[index],
             emailAddress: `example${Math.random() * 11}@mail.com`,
         }))
@@ -112,7 +112,10 @@ function App() {
                         className={`item ${
                             currentTab === "inbox" ? "active" : ""
                         }`}
-                        onClick={() => setCurrentTab("inbox")}
+                        onClick={() => {
+                            setCurrentTab("inbox");
+                            setSelectedEmail(null);
+                        }}
                     >
                         <span className="label">Inbox</span>
                         <span className="count">{unreadEmails.length}</span>
@@ -121,7 +124,10 @@ function App() {
                         className={`item ${
                             currentTab === "starred" ? "active" : ""
                         }`}
-                        onClick={() => setCurrentTab("starred")}
+                        onClick={() => {
+                            setCurrentTab("starred");
+                            setSelectedEmail(null);
+                        }}
                     >
                         <span className="label">Starred</span>
                         <span className="count">{starredEmails.length}</span>
