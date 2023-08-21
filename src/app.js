@@ -4,6 +4,9 @@ import initialEmails from './data/emails'
 
 import './styles/app.css'
 
+import Emails from './Emails';
+import Email from './Email';
+
 const getReadEmails = emails => emails.filter(email => !email.read)
 
 const getStarredEmails = emails => emails.filter(email => email.starred)
@@ -116,6 +119,22 @@ function App() {
           ))}
         </ul>
       </main>
+       <main className="emails">
+        <Emails emails={filteredEmails} toggleRead={toggleRead} toggleStar={toggleStar} />
+              </main>
+              
+              <main className="emails">
+  <ul>
+    {filteredEmails.map((email, index) => (
+      <Email
+        key={index}
+        email={email}
+        toggleRead={toggleRead}
+        toggleStar={toggleStar}
+      />
+    ))}
+  </ul>
+</main>
     </div>
   )
 }
