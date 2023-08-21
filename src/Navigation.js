@@ -1,6 +1,7 @@
 // side navigation
-
+import Stars from "./Stars.js"
 import Checkbox from "./Checkbox.js"
+import EmailCheckbox from "./EmailCheckbox.js";
 function Navigation({ currentTab, setCurrentTab, hideRead, setHideRead, unreadEmails, starredEmails }) {
     return (
       <nav className="left-menu">
@@ -15,7 +16,10 @@ function Navigation({ currentTab, setCurrentTab, hideRead, setHideRead, unreadEm
           </li>
           <li className="item toggle">
             <label htmlFor="hide-read">Hide read</label>
-            <Checkbox id="hide-read" checked={hideRead} onChange={e => setHideRead(e.target.checked)} />
+            <Checkbox 
+            id="hide-read" checked={hideRead} onChange={e => {e.stopPropagation();setHideRead(e.target.checked);
+    }} 
+/>
           </li>
         </ul>
       </nav>

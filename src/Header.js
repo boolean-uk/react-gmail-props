@@ -1,7 +1,6 @@
 // for top header section
 
-import Checkbox from './Checkbox.js'
-function Header() {
+function Header({searchTerm, onSearchChange}) {
     return (
       <header className="header">
         <div className="left-menu">
@@ -14,7 +13,10 @@ function Header() {
           />
         </div>
         <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
+          <input className="search-bar" 
+          placeholder="Search mail" 
+          value = {searchTerm}
+          onChange={e => onSearchChange(e.target.value)}/>
         </div>
       </header>
     )

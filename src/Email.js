@@ -1,18 +1,20 @@
-// You should have an Email component that is a list item
-import Checkbox from "./Checkbox.js"
+// You should have an Email component that is a list item assesment
+import EmailCheckbox from "./EmailCheckbox.js";
 import Stars from "./Stars.js"
-function Email({ email, toggleRead, toggleStar }) {
+function Email({ email, toggleRead, toggleStar, onClick }) {
+
     return (
-      <li className={`email ${email.read ? 'read' : 'unread'}`}>
+      <li className={`email ${email.read ? 'read' : 'unread'}`} onClick={onClick}> 
         <div className="select">
-          <Checkbox
-            className="select-checkbox"
-            checked={email.read}
-            onChange={() => toggleRead(email)}
+          <EmailCheckbox
+            isChecked={email.read}
+            toggleCheck= {() => toggleRead(email)}
           />
         </div>
         <div className="star">
-        <Stars starred={email.starred} toggleStar={() => toggleStar(email)} />
+        <Stars starred={email.starred} 
+        toggleStar={(e) =>{e.stopPropagation()
+           toggleStar(email)}} />
         </div>
         <div className="sender">{email.sender}</div>
         <div className="title">{email.title}</div>
