@@ -1,16 +1,13 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import Email from "./Email";
 
-import App from './app'
+function Emails(props) {
+    return (
+        <ul>
+          {props.filteredEmails.map((email, index) => (
+            <Email key={index} email={email} index={index} toggleRead={props.toggleRead} toggleStar={props.toggleStar}/>
+          ))}
+        </ul>
+    );
+}
 
-import './styles/styles.css'
-
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
-root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
-
-export default Emails;
+export default Emails
