@@ -1,4 +1,5 @@
 import Header from './Components/Header/Header.jsx'
+import LeftMenu from './Components/Left-Menu/Left-menu.jsx'
 import { useState } from 'react'
 
 import initialEmails from './data/emails'
@@ -12,12 +13,9 @@ const getStarredEmails = emails => emails.filter(email => email.starred)
 
 function App() {
 
+  const [currentTab, setCurrentTab] = useState('inbox')
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
-  const [currentTab, setCurrentTab] = useState('inbox')
-
-  const unreadEmails = emails.filter(email => !email.read)
-  const starredEmails = emails.filter(email => email.starred)
 
   const toggleStar = targetEmail => {
     const updatedEmails = emails =>
@@ -46,35 +44,13 @@ function App() {
 
   return (
     <div className="app">
-    <Header></Header>
-      <nav className="left-menu">
-        <ul className="inbox-list">
-          <li
-            className={`item ${currentTab === 'inbox' ? 'active' : ''}`}
-            onClick={() => setCurrentTab('inbox')}
-          >
-            <span className="label">Inbox</span>
-            <span className="count">{unreadEmails.length}</span>
-          </li>
-          <li
-            className={`item ${currentTab === 'starred' ? 'active' : ''}`}
-            onClick={() => setCurrentTab('starred')}
-          >
-            <span className="label">Starred</span>
-            <span className="count">{starredEmails.length}</span>
-          </li>
+      <Header />
+      <LeftMenu emails={emails}
+        currentTab={currentTab}
+        setCurrentTab={setCurrentTab}
+        hideRead={hideRead}
+        setHideRead={setHideRead} />
 
-          <li className="item toggle">
-            <label htmlFor="hide-read">Hide read</label>
-            <input
-              id="hide-read"
-              type="checkbox"
-              checked={hideRead}
-              onChange={e => setHideRead(e.target.checked)}
-            />
-          </li>
-        </ul>
-      </nav>
       <main className="emails">
         <ul>
           {filteredEmails.map((email, index) => (
