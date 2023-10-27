@@ -34,11 +34,14 @@
   }
   
   .email-title {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 10px;
     padding: 1rem;
   }
   
   .email-title h1 {
-    padding-left: 56px;
+    padding-left: 10px;
   
     font-weight: normal;
   }

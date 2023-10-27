@@ -7,20 +7,23 @@ import rubbishButton from '../OpenEmail content/rubbish-bin-delete-button.png'
 
 import './OpenEmail.css'
 
-function OpenEmail() {
+function OpenEmail({showEmail, setShowEmail, emailBody}) {
 
     return (
         <div>
             <article className="email-content">
           <div className="email-title">
-            <h1>Welcome to Flaticon</h1>
+            <button 
+            onClick={() => setShowEmail(!showEmail)}
+            >Go back</button>
+            <h1>{emailBody.title}</h1>
           </div>
           <header className="email-content--header">
             <div className="avatar"></div>
             <div className="email-info">
               <div className="sender-info">
-                <h2>Freepik Company</h2>
-                <em>&lt;no-reply@freepik.com&gt;</em>
+                <h2>{emailBody.sender}</h2>
+                <em>&lt;no-reply@{(emailBody.sender.toLowerCase()).replaceAll(" ", "")}.com&gt;</em>
               </div>
               <div className="user-info">
                 <p>
@@ -53,7 +56,7 @@ function OpenEmail() {
               </ul>
             </div>
           </header>
-          <OpenEmailReply></OpenEmailReply>
+          <OpenEmailReply emailBody={emailBody}></OpenEmailReply>
           <section className="email-body">
             <div className="content">
               <img src={flaticonWelcomeImage} alt="Flaticon welcome message" />

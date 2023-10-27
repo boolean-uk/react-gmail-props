@@ -15,7 +15,7 @@ import menuDotsImage from '../OpenEmail content/menu-dots.svg'
 
 import '../components/OpenEmailReply.css'
 
-function OpenEmailReply() {
+function OpenEmailReply({emailBody}) {
 
     return (
         <div className="reply-email-container">
@@ -26,7 +26,7 @@ function OpenEmailReply() {
                 <div className='recipient-info'>
                     <img className='reply-arrow' src={backArrow} alt="reply button" width={15}/>
                     <p>&#9662;</p>
-                    <p>Freepik Company (no-reply@freepik.com)</p>
+                    <p>{emailBody.sender} (no-reply@{(emailBody.sender.toLowerCase()).replaceAll(" ", "")}.com)</p>
                     <img className='expand-icon' src={expandIcon} alt="expand icon" width={15}/>
                 </div>
                 <div className='email-reply'>

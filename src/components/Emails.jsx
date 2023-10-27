@@ -1,6 +1,6 @@
 import Email from "./Email"
 
-function Emails({emails, setEmails, hideRead, currentTab, showEmail, setShowEmail}) {
+function Emails({emails, setEmails, hideRead, currentTab, showEmail, setShowEmail, setEmailBody}) {
 
     const getReadEmails = emails => emails.filter(email => !email.read)
     const getStarredEmails = emails => emails.filter(email => email.starred)
@@ -16,7 +16,7 @@ function Emails({emails, setEmails, hideRead, currentTab, showEmail, setShowEmai
         <main className="emails">
             <ul>
             {filteredEmails.map((email, index) => (
-                <Email email={email} key={index} setEmails={setEmails} showEmail={showEmail} setShowEmail={setShowEmail} />
+                <Email email={email} key={index} setEmails={setEmails} showEmail={showEmail} setShowEmail={setShowEmail} setEmailBody={setEmailBody} />
             ))}
             </ul>
        </main>
