@@ -1,5 +1,7 @@
 import Email from "./Email"
 
+import '../components/Emails.css'
+
 function Emails({emails, setEmails, hideRead, currentTab}) {
 
     const getReadEmails = emails => emails.filter(email => !email.read)

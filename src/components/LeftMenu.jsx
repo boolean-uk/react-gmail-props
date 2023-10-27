@@ -1,3 +1,5 @@
+import '../components/LeftMenu.css'
+
 function LeftMenu({emails, hideRead, setHideRead, currentTab, setCurrentTab}) {
 
     const unreadEmails = emails.filter(email => !email.read)

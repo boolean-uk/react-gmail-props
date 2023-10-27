@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import './components/Email.css'
+
 import Header from './components/Header'
 import initialEmails from './data/emails'
 import Emails from './components/Emails'
