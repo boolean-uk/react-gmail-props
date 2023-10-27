@@ -4,11 +4,13 @@ import initialEmails from './data/emails'
 
 import './styles/App.css'
 
+// Function to be moved to EMAILS //
 const getReadEmails = emails => emails.filter(email => !email.read)
-
+// Function to be moved to EMAILS //
 const getStarredEmails = emails => emails.filter(email => email.starred)
 
 function App() {
+  // State to be moved to EMAILS //
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
