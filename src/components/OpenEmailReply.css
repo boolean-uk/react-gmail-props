@@ -1,0 +1,78 @@
+.reply-email-container {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    margin: 10px;
+}
+
+.profile-photo {
+    display: grid;
+    justify-items: center;
+}
+
+.profile-photo img {
+    border-radius: 9999px;
+}
+
+.reply-email-content {
+    display: grid;
+    grid-template-rows: 50px 1fr 60px;
+    height: 200px;
+    border: solid 1px rgba(128, 128, 128, 0.414);
+    border-radius: 10px;
+}
+
+.recipient-info {
+    display: grid;
+    grid-template-columns: 30px 20px 1fr 40px;
+    align-items: center;
+    color: gray;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.reply-arrow {
+    justify-self: center;
+}
+
+.email-reply {
+    display: grid;
+    grid-template-rows: 1fr 25px;
+    padding-left: 20px;
+}
+
+.expand-email-menu {
+    background-color: rgba(128, 128, 128, 0.179);
+    height: 15px;
+    border-radius: 10px;
+}
+
+.expand-icon {
+    justify-self: center;
+}
+
+.send-options {
+    display: grid;
+    grid-template-columns: 80px repeat(8, 20px) 1fr;
+    gap: 10px;
+    padding: 10px 20px;
+}
+
+.send-button {
+    font-size: 16px;
+    border: none;
+    background-color: rgb(5, 124, 242);
+    border-radius: 10px;
+    color: white;
+}
+
+.send-options > img {
+    place-self: center;
+}
+
+.extra-options {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-self: end;
+    align-items: center;
+    gap: 10px;
+}

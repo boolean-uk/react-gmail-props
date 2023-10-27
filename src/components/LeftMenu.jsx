@@ -1,4 +1,4 @@
-import '../components/LeftMenu.css'
+import './LeftMenu.css'
 
 function LeftMenu({emails, hideRead, setHideRead, currentTab, setCurrentTab}) {
 
