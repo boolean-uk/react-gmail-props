@@ -8,7 +8,7 @@ const getStarredEmails = (emails) => emails.filter((email) => email.starred);
 
 const getReadEmails = (emails) => emails.filter((email) => !email.read);
 
-const Emails = ({ currentTab, hideRead, emails, setEmails }) => {
+const Emails = ({ currentTab, hideRead, emails, setEmails, setEmailData }) => {
     let filteredEmails = emails;
 
     if (hideRead) filteredEmails = getReadEmails(filteredEmails);
@@ -20,7 +20,12 @@ const Emails = ({ currentTab, hideRead, emails, setEmails }) => {
         <main className="emails">
             <ul>
                 {filteredEmails.map((email, index) => (
-                    <Email email={email} key={index} setEmails={setEmails} />
+                    <Email
+                        email={email}
+                        key={index}
+                        setEmails={setEmails}
+                        setEmailData={setEmailData}
+                    />
                 ))}
             </ul>
         </main>

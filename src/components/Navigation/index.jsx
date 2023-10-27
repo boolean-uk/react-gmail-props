@@ -6,6 +6,7 @@ const Navigation = ({
     currentTab,
     setHideRead,
     setCurrentTab,
+    setEmailData,
 }) => {
     const unreadEmails = emails.filter((email) => !email.read);
     const starredEmails = emails.filter((email) => email.starred);
@@ -15,7 +16,10 @@ const Navigation = ({
             <ul className="inbox-list">
                 <li
                     className={`item ${currentTab === "inbox" ? "active" : ""}`}
-                    onClick={() => setCurrentTab("inbox")}
+                    onClick={() => {
+                        setCurrentTab("inbox");
+                        setEmailData("");
+                    }}
                 >
                     <span className="label">Inbox</span>
                     <span className="count">{unreadEmails.length}</span>
@@ -24,7 +28,10 @@ const Navigation = ({
                     className={`item ${
                         currentTab === "starred" ? "active" : ""
                     }`}
-                    onClick={() => setCurrentTab("starred")}
+                    onClick={() => {
+                        setCurrentTab("starred");
+                        setEmailData("");
+                    }}
                 >
                     <span className="label">Starred</span>
                     <span className="count">{starredEmails.length}</span>

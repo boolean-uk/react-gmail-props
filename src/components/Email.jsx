@@ -1,6 +1,6 @@
 import "./Email.css";
 
-const Email = ({ email, setEmails }) => {
+const Email = ({ email, setEmails, setEmailData }) => {
     const toggleStar = (targetEmail) => {
         const updatedEmails = (emails) =>
             emails.map((email) =>
@@ -22,7 +22,10 @@ const Email = ({ email, setEmails }) => {
     };
 
     return (
-        <li className={`email ${email.read ? "read" : "unread"}`}>
+        <li
+            className={`email ${email.read ? "read" : "unread"}`}
+            onClick={() => setEmailData(email)}
+        >
             <div className="select">
                 <input
                     className="select-checkbox"
