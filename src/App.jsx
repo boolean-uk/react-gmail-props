@@ -3,6 +3,7 @@ import { useState } from 'react'
 import initialEmails from './data/emails'
 
 import './styles/App.css'
+import Emails from './components/Emails'
 
 const getReadEmails = emails => emails.filter(email => !email.read)
 
@@ -88,7 +89,12 @@ function App() {
         </ul>
       </nav>
       <main className="emails">
-        <ul>
+        <Emails 
+          filteredEmails = {filteredEmails}
+          toggleRead = {toggleRead}
+          toggleStarr = {toggleStar}
+        />
+        {/* <ul>
           {filteredEmails.map((email, index) => (
             <li
               key={index}
@@ -114,7 +120,7 @@ function App() {
               <div className="title">{email.title}</div>
             </li>
           ))}
-        </ul>
+        </ul> */}
       </main>
     </div>
   )
