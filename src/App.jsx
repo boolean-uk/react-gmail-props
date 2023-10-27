@@ -15,16 +15,16 @@ function App() {
   const [currentTab, setCurrentTab] = useState('inbox')
 
   // EXTENSION 1 
-  const [showEmail, setShowEmail] = useState(true)
+  const [showEmail, setShowEmail] = useState(false)
 
   return (
     <div className="app">
       <Header></Header>
-      <LeftMenu emails={emails} hideRead={hideRead} setHideRead={setHideRead} currentTab={currentTab} setCurrentTab={setCurrentTab}></LeftMenu>  
-       {!showEmail ? (
-        <Emails emails={emails} setEmails={setEmails} hideRead={hideRead} currentTab={currentTab} />
-      ) : <OpenEmail></OpenEmail>}
-
+      <LeftMenu emails={emails} hideRead={hideRead} setHideRead={setHideRead} currentTab={currentTab} setCurrentTab={setCurrentTab} setShowEmail={setShowEmail} showEmail={showEmail} />  
+      {!showEmail ? (
+        <Emails emails={emails} setEmails={setEmails} hideRead={hideRead} currentTab={currentTab} showEmail={showEmail} setShowEmail={setShowEmail} />
+        ) : <OpenEmail></OpenEmail>
+      }
     </div>
   )
 }

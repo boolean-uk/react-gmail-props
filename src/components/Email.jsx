@@ -1,4 +1,4 @@
-function Email({email, index, setEmails}) {
+function Email({email, index, setEmails, showEmail, setShowEmail}) {
 
     const toggleStar = targetEmail => {
         const updatedEmails = emails =>
@@ -22,6 +22,7 @@ function Email({email, index, setEmails}) {
         <li
         key={index}
         className={`email ${email.read ? 'read' : 'unread'}`}
+        onClick={() => setShowEmail(!showEmail)}
         >
             <div className="select">
                 <input
