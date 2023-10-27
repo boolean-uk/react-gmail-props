@@ -15,10 +15,11 @@ function App() {
     const [hideRead, setHideRead] = useState(false);
     const [currentTab, setCurrentTab] = useState("inbox");
     const [emailData, setEmailData] = useState("");
+    const [search, setSearch] = useState("");
 
     return (
         <div className="app">
-            <Header />
+            <Header emails={emails} search={search} setSearch={setSearch} />
 
             <Navigation
                 emails={emails}
@@ -36,6 +37,7 @@ function App() {
                     emails={emails}
                     setEmails={setEmails}
                     setEmailData={setEmailData}
+                    search={search}
                 />
             ) : (
                 <EmailPage data={emailData} setData={setEmailData} />

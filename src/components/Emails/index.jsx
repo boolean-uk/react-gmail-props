@@ -8,8 +8,17 @@ const getStarredEmails = (emails) => emails.filter((email) => email.starred);
 
 const getReadEmails = (emails) => emails.filter((email) => !email.read);
 
-const Emails = ({ currentTab, hideRead, emails, setEmails, setEmailData }) => {
-    let filteredEmails = emails;
+const Emails = ({
+    currentTab,
+    hideRead,
+    emails,
+    setEmails,
+    setEmailData,
+    search,
+}) => {
+    let filteredEmails = emails.filter((item) =>
+        search === "" ? item : item.sender.toLowerCase().startsWith(search)
+    );
 
     if (hideRead) filteredEmails = getReadEmails(filteredEmails);
 

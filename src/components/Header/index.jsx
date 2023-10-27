@@ -1,6 +1,8 @@
 import "./style.css";
 
-const Header = () => {
+const Header = ({ search, setSearch }) => {
+    const searchHandler = (e) => setSearch(e.target.value.toLowerCase());
+
     return (
         <header className="header">
             <div className="left-menu">
@@ -19,7 +21,12 @@ const Header = () => {
             </div>
 
             <div className="search">
-                <input className="search-bar" placeholder="Search mail" />
+                <input
+                    className="search-bar"
+                    placeholder="Search mail"
+                    value={search}
+                    onChange={searchHandler}
+                />
             </div>
         </header>
     );
