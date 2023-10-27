@@ -1,3 +1,6 @@
+import './Left-Menu.css'
+
+/* eslint-disable react/prop-types */
 function LeftMenu({ currentTab, setCurrentTab, emails, hideRead, setHideRead }) {
 
 
