@@ -59,7 +59,7 @@ function App() {
           </li>
         </ul>
       </nav>
-      <Emails emails={emails} setEmails={setEmails} hideRead={hideRead} currentTab={currentTab}></Emails>
+      <Emails emails={emails} setEmails={setEmails} hideRead={hideRead} currentTab={currentTab} />
     </div>
   )
 }
