@@ -1,3 +1,4 @@
+import './Emails.css'
 import Email from "../Email/Email.jsx"
 /* eslint-disable react/prop-types */
 function Emails({ emails, setEmails, hideRead, currentTab, getReadEmails, getStarredEmails }) {

@@ -1,6 +1,6 @@
 import './Email.css'
 /* eslint-disable react/prop-types */
-function Email({email, toggleStar, toggleRead}) {
+function Email({ email, toggleStar, toggleRead }) {
     return (
         <li
             className={`email ${email.read ? 'read' : 'unread'}`}

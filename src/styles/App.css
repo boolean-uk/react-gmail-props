@@ -7,3 +7,9 @@
     'left-menu emails' 1fr /
     180px 1fr;
 }
+
+.app>.left-menu {
+  grid-area: left-menu;
+  padding: 10px;
+  padding-left: 0;
+}
