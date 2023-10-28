@@ -2,9 +2,7 @@ import Header from './Components/Header/Header.jsx'
 import LeftMenu from './Components/Left-Menu/Left-menu.jsx'
 import Emails from './Components/Emails/Emails.jsx'
 import { useState } from 'react'
-
 import initialEmails from './data/emails'
-
 import './styles/App.css'
 
 
@@ -17,8 +15,6 @@ function App() {
   const [currentTab, setCurrentTab] = useState('inbox')
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
-
-  
 
   return (
     <div className="app">
