@@ -1,3 +1,4 @@
+import './Email.css'
 /* eslint-disable react/prop-types */
 function Email({email, toggleStar, toggleRead}) {
     return (
