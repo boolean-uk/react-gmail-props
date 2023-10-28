@@ -8,7 +8,7 @@
     180px 1fr;
 }
 
-.app > .emails {
+/* .app > .emails {
   grid-area: emails;
   padding: 10px 0;
 }
@@ -16,7 +16,7 @@
 .app > .emails > ul {
   list-style: none;
   display: grid;
-}
+} */
 
 .email {
   display: grid;
