@@ -22,8 +22,8 @@ function Navbar({emails, hideRead, setHideRead, currentTab, setCurrentTab}) {
             <span className="label">Starred</span>
             <span className="count">{starredEmails.length}</span>
           </li>
-
-          <li className="item toggle">
+          
+            <li className="item toggle">
             <label htmlFor="hide-read">Hide read</label>
             <input
               id="hide-read"
