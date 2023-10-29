@@ -33,5 +33,12 @@ export default [
     title: `Updated invitation: Coding chat with Nico`,
     starred: true,
     read: false
+  },
+  {
+    id: 6,
+    sender: `Ayush`,
+    title: `Hi,Good Morning`,
+    starred: true,
+    read: false
   }
 ]
