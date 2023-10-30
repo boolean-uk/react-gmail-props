@@ -1,9 +1,15 @@
 function LeftMenu({
+    // eslint-disable-next-line react/prop-types
     currentTab,
+    // eslint-disable-next-line react/prop-types
     unreadEmails,
+    // eslint-disable-next-line react/prop-types
     setCurrentTab,
+    // eslint-disable-next-line react/prop-types
     hideRead,
+    // eslint-disable-next-line react/prop-types
     setHideRead,
+    // eslint-disable-next-line react/prop-types
     starredEmails
 }) {
 

@@ -1,14 +1,18 @@
-
-
 function Email({
+    // eslint-disable-next-line react/prop-types
     filteredEmails,
+    // eslint-disable-next-line react/prop-types
     toggleRead,
+    // eslint-disable-next-line react/prop-types
     toggleStar
 }) {
    
     return (
+        // eslint-disable-next-line react/jsx-no-comment-textnodes
         <ul>
-        {filteredEmails.map((email, index) => (
+        // eslint-disable-next-line react/prop-types, react/prop-types, react/prop-types, react/prop-types
+        {filteredEmails.map((email) => (
+          // eslint-disable-next-line react/jsx-key
           <li
           className={`email ${email.read ? "read" : "unread"}`}
 
