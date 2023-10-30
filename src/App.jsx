@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 import initialEmails from './data/emails'
-import emails from './components/emails'
 
 import './styles/App.css'
 import Emails from './components/emails'
@@ -73,7 +72,7 @@ function App() {
         </ul>
       </nav>
       <main className="emails">
-        <Emails filteredEmails={filteredEmails} setEmails={setEmails} />
+        <Emails filteredEmails={filteredEmails} emailState={[emails, setEmails]} />
       </main>
     </div>
   )
