@@ -72,7 +72,7 @@ function App() {
         </ul>
       </nav>
       <main className="emails">
-        <Emails filteredEmails={filteredEmails} />
+        <Emails filteredEmails={filteredEmails} setEmails={setEmails} />
       </main>
     </div>
   )
