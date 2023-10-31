@@ -1,4 +1,4 @@
-// App.jsx
+
 import React, { useState } from 'react';
 import Header from './components/Header';
 import Emails from './components/Emails';

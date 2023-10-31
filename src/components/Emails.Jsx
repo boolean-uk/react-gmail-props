@@ -1,4 +1,4 @@
-// components/Emails.jsx
+
 import React from 'react';
 import Email from './Email';
 import '../styles/Emails.css';
