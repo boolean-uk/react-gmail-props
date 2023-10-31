@@ -1,6 +1,6 @@
 
 import React from 'react';
-import '../styles/Nav.css';
+
 
 const Nav = (props) => {
   const unreadEmails = props.emails.filter(email => !email.read);

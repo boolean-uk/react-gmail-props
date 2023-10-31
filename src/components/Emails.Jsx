@@ -1,7 +1,6 @@
 
 import React from 'react';
-import Email from './Email';
-import '../styles/Emails.css';
+
 
 const Emails = (props) => {
   const getReadEmails = (emails) => emails.filter((email) => !email.read);
@@ -30,8 +29,16 @@ const Emails = (props) => {
     <main className="emails">
       <ul>
         {filteredEmails.map((email, index) => (
-          <Email key={index} email={email} toggleRead={toggleRead} toggleStar={toggleStar} />
+          <li key={index} >
+            <div classNam="select"
+            > <input type="checkbox" onChange={() => toggleRead(email)}  className='select-checkbox'/>
+            </div>
+            <div className='star'>
+              <input type="checkbox" onChange={() => toggleStar(email)} className='star-checkbox' />
+            </div>
+          </li>
         ))}
+
       </ul>
     </main>
   );
