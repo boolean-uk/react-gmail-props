@@ -1,6 +1,4 @@
 export default function Email({item, setEmails}) {
-  const {id, sender} = item
-  console.log(sender, "we're in email.jsx")
   const toggleStar = targetEmail => {
     const updatedEmails = emailState =>
       emailState.map(email =>
