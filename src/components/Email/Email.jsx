@@ -1,8 +1,9 @@
-import Email from '../components/Email.css'
+import ImportedEmail from '../Email/Email.jsx';
 
-function Email({ email, toggleRead, toggleStar }) {
+// Change the component name to ImportedEmail
+const ImportEmail = ({ email, index, toggleRead, toggleStar }) => {
   return (
-    <li className={`email ${email.read ? 'read' : 'unread'}`}>
+    <li key={index} className={`email ${email.read ? "read" : "unread"}`}>
       <div className="select">
         <input
           className="select-checkbox"
@@ -23,6 +24,6 @@ function Email({ email, toggleRead, toggleStar }) {
       <div className="title">{email.title}</div>
     </li>
   );
-}
+};
 
-export default Email;
+export default ImportEmail;
