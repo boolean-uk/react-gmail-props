@@ -6,10 +6,22 @@
 }
 
 .current-email-header > h1 {
-    font-size: 30px;
+    font-size: 20px;
     position:absolute;
     left: 300px;
 }
+
 .current-email-header > img {
     width: 2rem;
+}
+
+.current-email-title{
+    top: 6rem;
+    font-style: italic;
+}
+
+.current-email-text{
+    top: 12rem;
+    font-weight: 200;
+    font-family:Georgia, 'Times New Roman', Times, serif
 }
