@@ -1,0 +1,40 @@
+.email .title {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.email .star-checkbox {
+	appearance: none;
+	position: relative;
+	display: grid;
+	align-content: center;
+}
+
+.email .star-checkbox:focus {
+	outline: none;
+}
+
+.email .star-checkbox:checked::before,
+.email .star-checkbox::before {
+	content: "";
+	background-size: cover;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: -3px;
+}
+
+.email .star-checkbox::before {
+	background-image: url(https://www.gstatic.com/images/icons/material/system/2x/star_border_black_20dp.png);
+}
+
+.email .star-checkbox:checked::before {
+	background-image: url(https://www.gstatic.com/images/icons/material/system/2x/star_googyellow500_20dp.png);
+}
+
+.email .sender {
+	cursor: pointer;
+}
+.email .title {
+	cursor: pointer;
+}
