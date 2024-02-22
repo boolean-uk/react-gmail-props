@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/EmailDetail.css";
+import "../../styles/EmailDetail.css";
 
 export default function EmailDetail({ email, onClick }) {
   return (
