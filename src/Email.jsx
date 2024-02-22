@@ -1,8 +1,15 @@
 import PropTypes from "prop-types";
 
 function Email(props) {
+  const handleClick = (event) => {
+    console.log(`clicked on email from ${event.currentTarget.innerText} `);
+
+    props.openMyEmail(event.currentTarget);
+  };
+
   return (
     <li
+      onClick={handleClick}
       key={props.key}
       className={`email ${props.email.read ? "read" : "unread"}`}
     >
@@ -38,6 +45,7 @@ Email.propTypes = {
   key: PropTypes.number,
   toggleStar: PropTypes.func,
   toggleRead: PropTypes.func,
+  openMyEmail: PropTypes.func,
 };
 
 export default Email;

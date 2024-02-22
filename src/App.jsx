@@ -5,6 +5,7 @@ import initialEmails from "./data/emails";
 import "./styles/App.css";
 
 import Emails from "./Emails.jsx";
+import DisplayEmail from "./DisplayEmail.jsx";
 
 const getReadEmails = (emails) => emails.filter((email) => !email.read);
 
@@ -14,6 +15,7 @@ function App() {
   const [emails, setEmails] = useState(initialEmails);
   const [hideRead, setHideRead] = useState(false);
   const [currentTab, setCurrentTab] = useState("inbox");
+  const [openEmail, setOpenEmail] = useState(false);
 
   const unreadEmails = emails.filter((email) => !email.read);
   const starredEmails = emails.filter((email) => email.starred);
@@ -42,6 +44,16 @@ function App() {
 
   if (currentTab === "starred")
     filteredEmails = getStarredEmails(filteredEmails);
+
+  let displayData;
+  const openMyEmail = (data) => {
+    setOpenEmail(true);
+    displayData = data;
+  };
+
+  const closeMyEmail = () => {
+    setOpenEmail(false);
+  };
 
   return (
     <div className="app">
@@ -89,12 +101,17 @@ function App() {
           </li>
         </ul>
       </nav>
-      <Emails
-        filteredEmails={filteredEmails}
-        toggleStar={toggleStar}
-        toggleRead={toggleRead}
-      />
-
+      {/*something in here to possibly replacing Emails to display a single email */}
+      {openEmail ? (
+        <DisplayEmail closeMyEmail={closeMyEmail} displayData={displayData} />
+      ) : (
+        <Emails
+          openMyEmail={openMyEmail}
+          filteredEmails={filteredEmails}
+          toggleStar={toggleStar}
+          toggleRead={toggleRead}
+        />
+      )}
       {/*
       <main className="emails">
         <ul>

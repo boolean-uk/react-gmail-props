@@ -8,6 +8,7 @@ function Emails(props) {
           <Email
             key={index}
             email={email}
+            openMyEmail={props.openMyEmail}
             toggleStar={props.toggleStar}
             toggleRead={props.toggleRead}
           />
@@ -28,5 +29,6 @@ Emails.propTypes = {
   ),
   toggleStar: PropTypes.func,
   toggleRead: PropTypes.func,
+  openMyEmail: PropTypes.func,
 };
 export default Emails;
