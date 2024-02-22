@@ -3,8 +3,8 @@
 
   display: grid;
   grid-template:
-    'header header' 50px
-    'left-menu emails' 1fr /
+    "header header" 50px
+    "left-menu emails" 1fr /
     180px 1fr;
 }
 
@@ -92,6 +92,11 @@
 
   border-bottom: solid 1px #00000020;
 }
+.email .content {
+  grid-column: span 4; /* Span all columns */
+  white-space: pre-wrap; /* Preserve line breaks */
+  padding: 10px; /* Add padding */
+}
 
 .email:first-child {
   border-top: solid 1px #00000020;
@@ -129,7 +134,7 @@
 
 .email .star-checkbox:checked::before,
 .email .star-checkbox::before {
-  content: '';
+  content: "";
   background-size: cover;
   width: 20px;
   height: 20px;
@@ -143,4 +148,22 @@
 
 .email .star-checkbox:checked::before {
   background-image: url(https://www.gstatic.com/images/icons/material/system/2x/star_googyellow500_20dp.png);
+}
+
+.email .back-button {
+  cursor: pointer;
+  display: inline-block;
+  padding: 8px 45px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  line-height: 24px; /* Adjust the line height to match the button's height */
+}
+
+.email .back-button:hover {
+  background-color: #0056b3;
 }
