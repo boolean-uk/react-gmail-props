@@ -1,45 +1,84 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import initialEmails from './data/emails'
+import initialEmails from "./data/emails";
 
-import './styles/App.css'
+import "./styles/App.css";
+import Emails from "./Emails";
+import DisplayEmail from "./DisplayEmail";
 
-const getReadEmails = emails => emails.filter(email => !email.read)
+const getReadEmails = (emails) => emails.filter((email) => !email.read);
 
-const getStarredEmails = emails => emails.filter(email => email.starred)
+const getStarredEmails = (emails) => emails.filter((email) => email.starred);
 
 function App() {
-  const [emails, setEmails] = useState(initialEmails)
-  const [hideRead, setHideRead] = useState(false)
-  const [currentTab, setCurrentTab] = useState('inbox')
+  const [emails, setEmails] = useState(initialEmails);
+  const [hideRead, setHideRead] = useState(false);
+  const [currentTab, setCurrentTab] = useState("inbox");
+  const [searchInput, setSearchInput] = useState("");
 
-  const unreadEmails = emails.filter(email => !email.read)
-  const starredEmails = emails.filter(email => email.starred)
+  const searchItems = (val) => {
+    if (val === "") {
+      setSearchInput("");
+      setEmails(initialEmails);
+    } else {
+      setSearchInput(val);
+      const filteredEmails = emails.filter((email) => {
+        return email.title.toLowerCase().includes(searchInput.toLowerCase());
+      });
+      setEmails(filteredEmails);
+    }
+  };
 
-  const toggleStar = targetEmail => {
-    const updatedEmails = emails =>
-      emails.map(email =>
+  const unreadEmails = emails.filter((email) => !email.read);
+  const starredEmails = emails.filter((email) => email.starred);
+
+  const toggleStar = (targetEmail) => {
+    const updatedEmails = (emails) =>
+      emails.map((email) =>
         email.id === targetEmail.id
           ? { ...email, starred: !email.starred }
           : email
-      )
-    setEmails(updatedEmails)
-  }
+      );
+    setEmails(updatedEmails);
+  };
 
-  const toggleRead = targetEmail => {
-    const updatedEmails = emails =>
-      emails.map(email =>
+  const toggleReturn = () => {
+    setEmails(initialEmails);
+  };
+
+  const toggleRead = (targetEmail) => {
+    const updatedEmails = (emails) =>
+      emails.map((email) =>
         email.id === targetEmail.id ? { ...email, read: !email.read } : email
-      )
-    setEmails(updatedEmails)
-  }
+      );
+    setEmails(updatedEmails);
+  };
 
-  let filteredEmails = emails
+  const toggleShow = (targetEmail) => {
+    const setShowToTrue = (emails) =>
+      emails.map((email) =>
+        email.id === targetEmail.id
+          ? { ...email, show: !email.show }
+          : { ...email, show: false }
+      );
+    setEmails(setShowToTrue); // changes the emails value to show
+  };
 
-  if (hideRead) filteredEmails = getReadEmails(filteredEmails)
+  let filteredEmails = emails;
 
-  if (currentTab === 'starred')
-    filteredEmails = getStarredEmails(filteredEmails)
+  if (hideRead) filteredEmails = getReadEmails(filteredEmails);
+
+  if (currentTab === "starred")
+    filteredEmails = getStarredEmails(filteredEmails);
+
+  let check = emails.some((el) => el.show === true);
+
+  var result = filteredEmails.filter((obj) => {
+    return obj.show === true;
+  });
+
+  console.log("check is: ", check);
+  console.log(result);
 
   return (
     <div className="app">
@@ -56,21 +95,26 @@ function App() {
         </div>
 
         <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
+          <input
+            className="search-bar"
+            placeholder="Search mail"
+            onChange={(e) => searchItems(e.target.value)}
+          />
         </div>
       </header>
+
       <nav className="left-menu">
         <ul className="inbox-list">
           <li
-            className={`item ${currentTab === 'inbox' ? 'active' : ''}`}
-            onClick={() => setCurrentTab('inbox')}
+            className={`item ${currentTab === "inbox" ? "active" : ""}`}
+            onClick={() => setCurrentTab("inbox")}
           >
             <span className="label">Inbox</span>
             <span className="count">{unreadEmails.length}</span>
           </li>
           <li
-            className={`item ${currentTab === 'starred' ? 'active' : ''}`}
-            onClick={() => setCurrentTab('starred')}
+            className={`item ${currentTab === "starred" ? "active" : ""}`}
+            onClick={() => setCurrentTab("starred")}
           >
             <span className="label">Starred</span>
             <span className="count">{starredEmails.length}</span>
@@ -82,42 +126,31 @@ function App() {
               id="hide-read"
               type="checkbox"
               checked={hideRead}
-              onChange={e => setHideRead(e.target.checked)}
+              onChange={(e) => setHideRead(e.target.checked)}
             />
           </li>
         </ul>
       </nav>
-      <main className="emails">
-        <ul>
-          {filteredEmails.map((email, index) => (
-            <li
-              key={index}
-              className={`email ${email.read ? 'read' : 'unread'}`}
-            >
-              <div className="select">
-                <input
-                  className="select-checkbox"
-                  type="checkbox"
-                  checked={email.read}
-                  onChange={() => toggleRead(email)}
-                />
-              </div>
-              <div className="star">
-                <input
-                  className="star-checkbox"
-                  type="checkbox"
-                  checked={email.starred}
-                  onChange={() => toggleStar(email)}
-                />
-              </div>
-              <div className="sender">{email.sender}</div>
-              <div className="title">{email.title}</div>
-            </li>
-          ))}
-        </ul>
-      </main>
+
+      {check ? (
+        <div className="display">
+          <DisplayEmail
+            sender={result[0].sender}
+            title={result[0].title}
+            text={result[0].text}
+            toggleReturn={toggleReturn}
+          />
+        </div>
+      ) : (
+        <Emails
+          filteredEmails={filteredEmails}
+          toggleRead={toggleRead}
+          toggleStar={toggleStar}
+          toggleShow={toggleShow}
+        />
+      )}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
