@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 // import PropTypes from "prop-types";
-
+import "./styles/App.css";
 function Email(props) {
   return (
     <>
@@ -24,8 +24,12 @@ function Email(props) {
             onChange={() => props.toggleStar(props.email)}
           />
         </div>
-        <div className="sender">{props.email.sender}</div>
-        <div className="title">{props.email.title}</div>
+        <div className="sender" onClick={() => props.SetOpen()}>
+          {props.email.sender}
+        </div>
+        <div className="title" onClick={() => props.SetOpen()}>
+          {props.email.title}
+        </div>
       </li>
     </>
   );

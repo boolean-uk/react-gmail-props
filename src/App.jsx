@@ -6,6 +6,7 @@ import "./styles/App.css";
 import Emails from "./Emails.jsx";
 import Header from "./Header";
 import LeftMenu from "./LeftMenu";
+import OpenEmail from "./OpenEmail.jsx";
 
 const getReadEmails = (emails) => emails.filter((email) => !email.read);
 
@@ -15,6 +16,7 @@ function App() {
   const [emails, setEmails] = useState(initialEmails);
   const [hideRead, setHideRead] = useState(false);
   const [currentTab, setCurrentTab] = useState("inbox");
+  const [opened, setOpenEmail] = useState(false);
 
   const unreadEmails = emails.filter((email) => !email.read);
   const starredEmails = emails.filter((email) => email.starred);
@@ -44,6 +46,15 @@ function App() {
   if (currentTab === "starred")
     filteredEmails = getStarredEmails(filteredEmails);
 
+  const SetOpen = () => {
+    setOpenEmail(true);
+    console.log("Opening");
+  };
+  const SetClosed = () => {
+    setOpenEmail(false);
+    console.log("Closing");
+  };
+
   return (
     <div className="app">
       <Header />
@@ -55,11 +66,18 @@ function App() {
         starredEmails={starredEmails}
         hideRead={hideRead}
       />
-      <Emails
-        filteredEmails={filteredEmails}
-        toggleRead={toggleRead}
-        toggleStar={toggleStar}
-      />
+      <div>
+        {opened ? (
+          <OpenEmail SetClosed={SetClosed} />
+        ) : (
+          <Emails
+            filteredEmails={filteredEmails}
+            toggleRead={toggleRead}
+            toggleStar={toggleStar}
+            SetOpen={SetOpen}
+          />
+        )}
+      </div>
     </div>
   );
 }

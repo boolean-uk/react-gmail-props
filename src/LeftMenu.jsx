@@ -1,3 +1,4 @@
+import "./styles/App.css";
 import PropTypes from "prop-types";
 function LeftMenu(props) {
   return (

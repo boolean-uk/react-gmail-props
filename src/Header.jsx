@@ -1,3 +1,4 @@
+import "./styles/App.css";
 function Header() {
   return (
     <>

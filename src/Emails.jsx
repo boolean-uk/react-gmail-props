@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import Email from "./Email";
-
+import "./styles/App.css";
 function Emails(props) {
   return (
     <>
@@ -12,6 +12,7 @@ function Emails(props) {
               email={email}
               toggleRead={props.toggleRead}
               toggleStar={props.toggleStar}
+              SetOpen={props.SetOpen}
             />
           ))}
         </ul>
@@ -31,5 +32,6 @@ Emails.propTypes = {
   ),
   toggleRead: PropTypes.func,
   toggleStar: PropTypes.func,
+  SetOpen: PropTypes.func,
 };
 export default Emails;
