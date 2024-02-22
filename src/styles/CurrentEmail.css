@@ -1,0 +1,15 @@
+.current-email-header {
+    padding: 10px;
+    border: solid 1px black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.current-email-header > h1 {
+    font-size: 30px;
+    position:absolute;
+    left: 300px;
+}
+.current-email-header > img {
+    width: 2rem;
+}

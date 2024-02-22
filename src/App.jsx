@@ -57,8 +57,8 @@ function App() {
       </header>
     <LeftMenu emails={emails} currentTab={currentTab} setCurrentTab={setCurrentTab} hideRead={hideRead} setHideRead={setHideRead}/>
 
-    {showEmail === null && <Emails filteredEmails={filteredEmails} toggleRead={toggleRead} toggleStar={toggleStar}/>}
-    {showEmail !== null && <CurrentEmail />}
+    {showEmail === null && <Emails filteredEmails={filteredEmails} toggleRead={toggleRead} toggleStar={toggleStar} setShowEmail={setShowEmail}/>}
+    {showEmail !== null && <CurrentEmail email={showEmail} setShowEmail={setShowEmail} />}
     </div>
   )
 }

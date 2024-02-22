@@ -1,14 +1,18 @@
 import PropTypes from "prop-types"
 
-function Email({email, index, toggleRead, toggleStar}){
+function Email({email, index, toggleRead, toggleStar, setShowEmail}){
     //The code in the select and star button runs before the onclick for the whole email
+    const showEmail = () =>{
+        if (!email.read) toggleRead(email)
+        setShowEmail(email)
+    }
+
     return(
         <li
         key={index}
         className={`email ${email.read ? 'read' : 'unread'}`}
-        onClick={() => {console.log("Open email")}}
       >
-        <div className="select" onClick={() => {console.log("Don't open email")}}>
+        <div className="select">
           <input
             className="select-checkbox"
             type="checkbox"
@@ -24,8 +28,8 @@ function Email({email, index, toggleRead, toggleStar}){
             onChange={() => toggleStar(email)}
           />
         </div>
-        <div className="sender">{email.sender}</div>
-        <div className="title">{email.title}</div>
+        <div className="sender" onClick={(e) => showEmail()}>{email.sender}</div>
+        <div className="title" onClick={(e) => showEmail()}>{email.title}</div>
       </li>
     )
 }
@@ -35,7 +39,8 @@ Email.propTypes = {
     index : PropTypes.number,
     email: PropTypes.object,
     toggleStar: PropTypes.func,
-    toggleRead : PropTypes.func
+    toggleRead : PropTypes.func,
+    setShowEmail : PropTypes.func
 }
 
 
