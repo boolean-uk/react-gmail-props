@@ -9,6 +9,13 @@ function App() {
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
   const [emails, setEmails] = useState(initialEmails)
+  
+  const [searchTitle, setSearchTitle] = useState('')
+
+  const changeSearch = (event) =>
+  {
+    setSearchTitle(event.target.value)
+  }
 
   const unreadEmails = emails.filter(email => !email.read)
   const starredEmails = emails.filter(email => email.starred)
@@ -28,7 +35,7 @@ function App() {
         </div>
 
         <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
+          <input className="search-bar" placeholder="Search mail" onChange={() => changeSearch(event)} />
         </div>
       </header>
       <nav className="left-menu">
@@ -60,7 +67,8 @@ function App() {
         </ul>
       </nav>
       <main className="emails">
-        <EmailList hideRead={hideRead} currentTab={currentTab} emails={emails} setEmails={setEmails} />
+        <EmailList hideRead={hideRead} currentTab={currentTab}
+        emails={emails} setEmails={setEmails} searchTitle={searchTitle} />
       </main>
     </div>
   )
