@@ -4,34 +4,39 @@ export default [
     sender: `Zoom`,
     title: `Cloud Recording - Nicolas Marcora's Personal Meeting Room is now available`,
     starred: false,
-    read: true
+    read: true,
+    body: `Hello, your cloud recording for Nicolas Marcora's Personal Meeting Room is now ready to view. Please click the link below to access the recording. Best regards, The Zoom Team`,
   },
   {
     id: 2,
     sender: `Zoom`,
     title: `Sean Davison has joined your Personal Meeting Room`,
     starred: false,
-    read: false
+    read: false,
+    body: `Hi there, Sean Davison has just entered your Personal Meeting Room. If you're ready to start the meeting, join now. Cheers, The Zoom Team`,
   },
   {
     id: 3,
     sender: `Notion`,
     title: `1 update in Boolean`,
     starred: true,
-    read: true
+    read: true,
+    body: `Greetings, There's an update in the Boolean page that you follow. Click here to see what's new. Stay organized, The Notion Team`,
   },
   {
     id: 4,
     sender: `The Calendly Team`,
     title: `Use more than one calendar?`,
     starred: false,
-    read: false
+    read: false,
+    body: `Hello! Did you know Calendly can sync with multiple calendars to prevent double-booking? Learn how to manage multiple calendars today. Best, The Calendly Team`,
   },
   {
     id: 5,
     sender: `Patrick`,
     title: `Updated invitation: Coding chat with Nico`,
     starred: true,
-    read: false
-  }
-]
+    read: false,
+    body: `Hey, I've updated our meeting invitation for the coding chat with Nico. Please check the new date and time and let me know if it works for you. Cheers, Patrick`,
+  },
+];
