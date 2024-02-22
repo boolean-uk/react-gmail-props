@@ -3,8 +3,9 @@ import { useState } from "react";
 import initialEmails from "./data/emails";
 
 import "./styles/App.css";
-import Emails from "./components/Emails";
-import EmailDetail from "./components/EmailDetail";
+import Emails from "./components/email/Emails";
+import EmailDetail from "./components/email/EmailDetail";
+import SearchBar from "./components/search/SearchBar";
 
 const getReadEmails = (emails) => emails.filter((email) => !email.read);
 
@@ -15,6 +16,7 @@ function App() {
   const [selectedEmail, setSelectedEmail] = useState();
   const [hideRead, setHideRead] = useState(false);
   const [currentTab, setCurrentTab] = useState("inbox");
+  const [search, setSearch] = useState("");
 
   const unreadEmails = emails.filter((email) => !email.read);
   const starredEmails = emails.filter((email) => email.starred);
@@ -25,6 +27,10 @@ function App() {
 
   if (currentTab === "starred")
     filteredEmails = getStarredEmails(filteredEmails);
+
+  filteredEmails = filteredEmails.filter((x) =>
+    x.title.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="app">
@@ -40,9 +46,7 @@ function App() {
           />
         </div>
 
-        <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
-        </div>
+        <SearchBar setSearch={setSearch} />
       </header>
       <nav className="left-menu">
         <ul className="inbox-list">
