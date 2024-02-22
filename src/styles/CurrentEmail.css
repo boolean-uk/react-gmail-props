@@ -1,0 +1,27 @@
+.current-email-header {
+    padding: 10px;
+    border: solid 1px black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.current-email-header > h1 {
+    font-size: 20px;
+    position:absolute;
+    left: 300px;
+}
+
+.current-email-header > img {
+    width: 2rem;
+}
+
+.current-email-title{
+    top: 6rem;
+    font-style: italic;
+}
+
+.current-email-text{
+    top: 12rem;
+    font-weight: 200;
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
