@@ -40,6 +40,6 @@ LeftMenu.propTypes = {
   currentTab: PropTypes.string,
   unreadEmails: PropTypes.array,
   starredEmails: PropTypes.array,
-  hideRead: PropTypes.boolean,
+  hideRead: PropTypes.bool,
 };
 export default LeftMenu;
