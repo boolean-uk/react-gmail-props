@@ -1,7 +1,5 @@
 import "./EmailContent.css";
 
-// import flaticonWelcomeImage from "/src/assets/images/flaticon-welcome-image.png";
-import WriteEmail from "./WriteEmail";
 import PropType from "prop-types";
 
 export default function EmailContent({ email }) {
@@ -29,7 +27,6 @@ export default function EmailContent({ email }) {
 			</header>
 			<section className="email-body">
 				<div className="content">
-					{/* <img src={flaticonWelcomeImage} alt="Flaticon welcome message" /> */}
 					<p>{email.content}</p>
 				</div>
 			</section>
@@ -37,7 +34,6 @@ export default function EmailContent({ email }) {
 				<button>Reply</button>
 				<button>Forward</button>
 			</section>
-			<WriteEmail />
 		</article>
 	);
 }

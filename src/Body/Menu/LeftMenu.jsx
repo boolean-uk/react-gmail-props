@@ -1,6 +1,6 @@
 import "./LeftMenu.css";
 
-import PropTypes from "prop-types";
+import PropType from "prop-types";
 
 export default function LeftMenu({
 	currentTab,
@@ -43,10 +43,10 @@ export default function LeftMenu({
 }
 
 LeftMenu.propTypes = {
-	currentTab: PropTypes.string,
-	setCurrentTab: PropTypes.func,
-	unreadEmails: PropTypes.array,
-	starredEmails: PropTypes.array,
-	hideRead: PropTypes.bool,
-	setHideRead: PropTypes.func,
+	currentTab: PropType.string,
+	setCurrentTab: PropType.func,
+	unreadEmails: PropType.array,
+	starredEmails: PropType.array,
+	hideRead: PropType.bool,
+	setHideRead: PropType.func,
 };

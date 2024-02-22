@@ -1,4 +1,7 @@
-export default function Header() {
+import Searchbar from "./Searchbar";
+import PropType from "prop-types";
+
+export default function Header({ setSearchTerm }) {
 	return (
 		<header className="header">
 			<div className="left-menu">
@@ -11,10 +14,11 @@ export default function Header() {
 					alt="gmail logo"
 				/>
 			</div>
-
-			<div className="search">
-				<input className="search-bar" placeholder="Search mail" />
-			</div>
+			<Searchbar setSearchTerm={setSearchTerm} />
 		</header>
 	);
 }
+
+Header.propTypes = {
+	setSearchTerm: PropType.func,
+};

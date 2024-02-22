@@ -4,7 +4,7 @@ import initialEmails from "./data/emails";
 
 import "./styles/App.css";
 
-import Header from "./Header";
+import Header from "./Head/Header";
 import LeftMenu from "./Body/Menu/LeftMenu";
 import EmailsPreviewList from "./Body/Email/EmailsPreviewList";
 
@@ -16,6 +16,7 @@ function App() {
 	const [emails, setEmails] = useState(initialEmails);
 	const [hideRead, setHideRead] = useState(false);
 	const [currentTab, setCurrentTab] = useState("inbox");
+	const [searchTerm, setSearchTerm] = useState("");
 
 	const unreadEmails = emails.filter((email) => !email.read);
 	const starredEmails = emails.filter((email) => email.starred);
@@ -40,14 +41,23 @@ function App() {
 
 	let filteredEmails = emails;
 
-	if (hideRead) filteredEmails = getReadEmails(filteredEmails);
+	if (hideRead) {
+		filteredEmails = getReadEmails(filteredEmails);
+	}
 
-	if (currentTab === "starred")
+	if (currentTab === "starred") {
 		filteredEmails = getStarredEmails(filteredEmails);
+	}
+
+	if (searchTerm.length > 0) {
+		filteredEmails = emails.filter((email) =>
+			email.title.toLowerCase().includes(searchTerm.toLowerCase())
+		);
+	}
 
 	return (
 		<div className="app">
-			<Header />
+			<Header setSearchTerm={setSearchTerm} />
 			<LeftMenu
 				currentTab={currentTab}
 				setCurrentTab={setCurrentTab}

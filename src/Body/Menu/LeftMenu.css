@@ -21,3 +21,7 @@
 .inbox-list .item.toggle {
 	background-color: transparent;
 }
+
+.inbox-list .item:not(.item.toggle) {
+	cursor: pointer;
+}
