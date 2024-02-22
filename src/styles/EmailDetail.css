@@ -1,0 +1,21 @@
+.email-detail {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+}
+
+.email-detail > .back-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: white;
+  background-image: url("https://www.svgrepo.com/show/67631/back-arrow.svg");
+  background-size: contain;
+  border-radius: 0.3em;
+  cursor: pointer;
+}
+
+.email-detail > .info {
+  padding-left: 10px;
+}
