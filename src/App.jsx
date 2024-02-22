@@ -13,6 +13,7 @@ function App() {
   const [emails, setEmails] = useState(initialEmails);
   const [hideRead, setHideRead] = useState(false);
   const [currentTab, setCurrentTab] = useState("inbox");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const unreadEmails = emails.filter((email) => !email.read);
   const starredEmails = emails.filter((email) => email.starred);
@@ -35,12 +36,21 @@ function App() {
     setEmails(updatedEmails);
   };
 
-  let filteredEmails = emails;
+  // let filteredEmails = emails;
 
-  if (hideRead) filteredEmails = getReadEmails(filteredEmails);
+  // if (hideRead) filteredEmails = getReadEmails(filteredEmails);
 
-  if (currentTab === "starred")
-    filteredEmails = getStarredEmails(filteredEmails);
+  // if (currentTab === "starred")
+  //   filteredEmails = getStarredEmails(filteredEmails);
+
+  const filteredEmails = emails.filter((email) => {
+    if (hideRead && email.read) return false;
+    if (currentTab === "starred" && !email.starred) return false;
+    if (searchQuery.trim() !== "") {
+      return email.title.toLowerCase().includes(searchQuery.toLowerCase());
+    }
+    return true;
+  });
 
   return (
     <div className="app">
@@ -57,7 +67,12 @@ function App() {
         </div>
 
         <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
+          <input
+            className="search-bar"
+            placeholder="Search mail"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
         </div>
       </header>
       <nav className="left-menu">
