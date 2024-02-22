@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Email.css";
 
-export default function Email({ email, index, setEmails }) {
+export default function Email({ email, index, setEmails, onClick }) {
   const toggleStar = (targetEmail) => {
     const updatedEmails = (emails) =>
       emails.map((email) =>
@@ -19,14 +19,20 @@ export default function Email({ email, index, setEmails }) {
       );
     setEmails(updatedEmails);
   };
+
   return (
-    <li key={index} className={`email ${email.read ? "read" : "unread"}`}>
+    <li
+      key={index}
+      className={`email ${email.read ? "read" : "unread"}`}
+      onClick={onClick}
+    >
       <div className="select">
         <input
           className="select-checkbox"
           type="checkbox"
           checked={email.read}
           onChange={() => toggleRead(email)}
+          onClick={(e) => e.stopPropagation()}
         />
       </div>
       <div className="star">
@@ -35,6 +41,7 @@ export default function Email({ email, index, setEmails }) {
           type="checkbox"
           checked={email.starred}
           onChange={() => toggleStar(email)}
+          onClick={(e) => e.stopPropagation()}
         />
       </div>
       <div className="sender">{email.sender}</div>

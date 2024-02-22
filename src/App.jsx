@@ -4,6 +4,7 @@ import initialEmails from "./data/emails";
 
 import "./styles/App.css";
 import Emails from "./components/Emails";
+import EmailDetail from "./components/EmailDetail";
 
 const getReadEmails = (emails) => emails.filter((email) => !email.read);
 
@@ -11,6 +12,7 @@ const getStarredEmails = (emails) => emails.filter((email) => email.starred);
 
 function App() {
   const [emails, setEmails] = useState(initialEmails);
+  const [selectedEmail, setSelectedEmail] = useState();
   const [hideRead, setHideRead] = useState(false);
   const [currentTab, setCurrentTab] = useState("inbox");
 
@@ -70,7 +72,18 @@ function App() {
           </li>
         </ul>
       </nav>
-      <Emails emails={filteredEmails} setEmails={setEmails} />
+      {!selectedEmail ? (
+        <Emails
+          emails={filteredEmails}
+          setEmails={setEmails}
+          selectEmail={setSelectedEmail}
+        />
+      ) : (
+        <EmailDetail
+          email={selectedEmail}
+          onClick={() => setSelectedEmail("")}
+        />
+      )}
     </div>
   );
 }
