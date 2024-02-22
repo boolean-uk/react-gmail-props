@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-export default function Email({email, key, setEmails})
+export default function DisplayEmail({email, setEmails})
 {
     const toggleStar = targetEmail =>
     {
@@ -13,38 +13,20 @@ export default function Email({email, key, setEmails})
         setEmails(updatedEmails)
     }
 
-    const toggleRead = targetEmail => 
+    const GoBack = targetEmail =>
     {
         const updatedEmails = emails =>
         emails.map(email =>
-            email.id === targetEmail.id ? { ...email, read: !email.read } : email
+            email.id === targetEmail.id ? { ...email, open: false } : email
         )
         setEmails(updatedEmails)
     }
 
-    const OpenEmail = targetEmail =>
-    {
-        const updatedEmails = emails =>
-        emails.map(email =>
-            email.id === targetEmail.id ? { ...email, open: true, read: true } : email
-        )
-        setEmails(updatedEmails)
-    }
-
-    return (
+return (
         <>
             <li
-              key={key}
               className={`email ${email.read ? 'read' : 'unread'}`}
             >
-              <div className="select">
-                <input
-                  className="select-checkbox"
-                  type="checkbox"
-                  checked={email.read}
-                  onChange={() => toggleRead(email)}
-                />
-              </div>
               <div className="star">
                 <input
                   className="star-checkbox"
@@ -55,15 +37,14 @@ export default function Email({email, key, setEmails})
               </div>
               <div className="sender">{email.sender}</div>
               <div className="title">{email.title}</div>
-              <button onClick={() => OpenEmail(email)}>Open</button>
+              <button onClick={() => GoBack(email)}>Back</button>
             </li>
         </>
     )
 }
 
-Email.propTypes =
+DisplayEmail.propTypes =
 {
     email: PropTypes.object,
-    key: PropTypes.number,
     setEmails: PropTypes.func
 }
