@@ -12,13 +12,6 @@ const Emails = ({filteredEmails, toggleStar, toggleRead}) => {
         setSelectedEmail(email)
     }
 
-    const isSelected = (email) => {
-        if(selectedEmail === email) {
-            return true
-        }
-        return false;
-    }
-    
     return (
         <main className="emails">
             {selectedEmail === null ? 
@@ -34,7 +27,8 @@ const Emails = ({filteredEmails, toggleStar, toggleRead}) => {
                 ))}
             </ul>
             ) :
-            <OpenEmail email={selectedEmail} onClick={()=> handleSelectEmail(null)}/> 
+            <OpenEmail email={selectedEmail} onClick={()=> handleSelectEmail(null)} />
+             
             }
            
         </main>

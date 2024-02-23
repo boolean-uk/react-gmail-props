@@ -1,6 +1,5 @@
 import React from 'react';
 import '../styles/Email.css'
-import OpenEmail from './OpenEmail';
 
 const Email = ({email, toggleRead, toggleStar, onClick}) => {
     return (
