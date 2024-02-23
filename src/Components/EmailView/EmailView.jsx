@@ -4,8 +4,7 @@ import EmailTools from "./EmailTools/EmailTools.jsx"
 import EmailHeader from "./EmailHeader/EmailHeader.jsx"
 import EmailBody from "./EmailBody/EmailBody.jsx"
 
-const EmailExpanded = ({email, setTarget, emailCount, setEmails, updateEmail, showDetails}) => {
-    console.log(email)
+const EmailView = ({email, setTarget, emailCount, setEmails, showDetails}) => {
     return (
         <>
         <article>
@@ -14,7 +13,6 @@ const EmailExpanded = ({email, setTarget, emailCount, setEmails, updateEmail, sh
                 setTarget={setTarget} 
                 email={email}
                 setEmails={setEmails}
-                updateEmail={updateEmail}
                 emailCount={emailCount}
                 showDetails={showDetails}
             />
@@ -25,13 +23,12 @@ const EmailExpanded = ({email, setTarget, emailCount, setEmails, updateEmail, sh
     )
 }
 
-EmailExpanded.propTypes = {
+EmailView.propTypes = {
     email: PropTypes.object,
     setTarget: PropTypes.func,
     emailCount: PropTypes.number,
-    updateEmail: PropTypes.func,
     setEmails: PropTypes.func,
     showDetails: PropTypes.func,
 }
 
-export default EmailExpanded
+export default EmailView

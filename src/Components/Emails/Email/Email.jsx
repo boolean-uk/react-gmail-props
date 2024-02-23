@@ -53,7 +53,6 @@ const Email = ({email, setEmails, setTarget, showDetails}) => {
 }
 
 Email.propTypes = {
-    key: PropTypes.number,
     email: PropTypes.object,
     setEmails: PropTypes.func,
     setTarget: PropTypes.func,

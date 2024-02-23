@@ -42,7 +42,7 @@ const EmailTools = ({currentTargetId, setTarget, email, setEmails, emailCount, s
           <img 
             className="icon" 
             src={backArrow} 
-            alt="reply button" 
+            alt="return button" 
             onClick={() => resetEmailTarget()}
           />
           {!email.starred ? (
@@ -71,11 +71,12 @@ const EmailTools = ({currentTargetId, setTarget, email, setEmails, emailCount, s
 }
 
 EmailTools.propTypes = {
+  currentTargetId: PropTypes.number,
   setTarget: PropTypes.func,
   email: PropTypes.object,
-  emailCount: PropTypes.number,
-  currentTargetId: PropTypes.number,
   setEmails: PropTypes.func,
+  emailCount: PropTypes.number,
+  showDetails: PropTypes.func,
 }
 
 export default EmailTools

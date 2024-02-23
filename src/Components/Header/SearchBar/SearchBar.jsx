@@ -7,13 +7,13 @@ const SearchBar = ({setSearchQuery}) => {
 
     return (        
     <div className="search">
-        <input className="search-bar" placeholder="type mail" onChange={(e) => handleInputChange(e)}/>
+        <input className="search-bar" placeholder="Search by mail sender or title" onChange={(e) => handleInputChange(e)}/>
     </div>
     )
 }
 
 SearchBar.propTypes = {
-    SearchBar: PropTypes.func,
+    setSearchQuery: PropTypes.func,
 }
 
 export default SearchBar

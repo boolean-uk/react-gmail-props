@@ -33,7 +33,12 @@ const Emails = ({emails, setEmails, hideRead, currentTab, setTarget, showDetails
       {filteredEmails.map((email) => {
         return(
           <li key={email.id} className={`email ${email.read ? 'read' : 'unread'}`}>
-          <Email email={email} setEmails={setEmails} setTarget={setTarget} showDetails={showDetails}/>
+          <Email 
+            email={email} 
+            setEmails={setEmails} 
+            setTarget={setTarget} 
+            showDetails={showDetails}
+          />
         </li>
         )
       })}
@@ -49,6 +54,7 @@ Emails.propTypes = {
     currentTab: PropTypes.string,
     setTarget: PropTypes.func,
     showDetails: PropTypes.func,
+    searchQuery: PropTypes.string,
 }
 
 export default Emails
