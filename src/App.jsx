@@ -7,7 +7,6 @@ import Emails from "./Emails";
 import DisplayEmail from "./DisplayEmail";
 
 const getReadEmails = (emails) => emails.filter((email) => !email.read);
-
 const getStarredEmails = (emails) => emails.filter((email) => email.starred);
 
 function App() {
@@ -15,6 +14,8 @@ function App() {
   const [hideRead, setHideRead] = useState(false);
   const [currentTab, setCurrentTab] = useState("inbox");
   const [searchInput, setSearchInput] = useState("");
+  const [showEmail, setShowedEmail] = useState("");
+  const [showToggle, setShowToggle] = useState(false);
 
   const searchItems = (val) => {
     if (val === "") {
@@ -44,6 +45,13 @@ function App() {
 
   const toggleReturn = () => {
     setEmails(initialEmails);
+    setShowedEmail("");
+    setShowToggle(false);
+  };
+
+  const showState = (email) => {
+    setShowToggle(true);
+    setShowedEmail(email);
   };
 
   const toggleRead = (targetEmail) => {
@@ -54,31 +62,12 @@ function App() {
     setEmails(updatedEmails);
   };
 
-  const toggleShow = (targetEmail) => {
-    const setShowToTrue = (emails) =>
-      emails.map((email) =>
-        email.id === targetEmail.id
-          ? { ...email, show: !email.show }
-          : { ...email, show: false }
-      );
-    setEmails(setShowToTrue); // changes the emails value to show
-  };
-
   let filteredEmails = emails;
 
   if (hideRead) filteredEmails = getReadEmails(filteredEmails);
 
   if (currentTab === "starred")
     filteredEmails = getStarredEmails(filteredEmails);
-
-  let check = emails.some((el) => el.show === true);
-
-  var result = filteredEmails.filter((obj) => {
-    return obj.show === true;
-  });
-
-  console.log("check is: ", check);
-  console.log(result);
 
   return (
     <div className="app">
@@ -132,12 +121,12 @@ function App() {
         </ul>
       </nav>
 
-      {check ? (
+      {showToggle ? (
         <div className="display">
           <DisplayEmail
-            sender={result[0].sender}
-            title={result[0].title}
-            text={result[0].text}
+            sender={showEmail.sender}
+            title={showEmail.title}
+            text={showEmail.text}
             toggleReturn={toggleReturn}
           />
         </div>
@@ -146,7 +135,8 @@ function App() {
           filteredEmails={filteredEmails}
           toggleRead={toggleRead}
           toggleStar={toggleStar}
-          toggleShow={toggleShow}
+          showState={showState}
+          showToggle={showToggle}
         />
       )}
     </div>

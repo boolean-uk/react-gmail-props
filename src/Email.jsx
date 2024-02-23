@@ -2,14 +2,10 @@ import PropTypes from "prop-types";
 import "./styles/Email.css";
 
 function Email(props) {
-  const { email, index, toggleRead, toggleStar, toggleShow } = props;
+  const { email, index, toggleRead, toggleStar, showState } = props;
 
   return (
-    <li
-      key={index}
-      className={`email ${email.read ? "read" : "unread"}`}
-      onClick={() => toggleShow(email)} // sends the whole email forward
-    >
+    <li key={index} className={`email ${email.read ? "read" : "unread"}`}>
       <div className="select">
         <input
           className="select-checkbox"
@@ -26,8 +22,16 @@ function Email(props) {
           onChange={() => toggleStar(email)}
         />
       </div>
+
       <div className="sender">{email.sender}</div>
       <div className="title">{email.title}</div>
+      <button
+        key={`button-${index}`}
+        className="button-show"
+        onClick={() => showState(email)}
+      >
+        Show
+      </button>
     </li>
   );
 }
@@ -37,7 +41,7 @@ Email.propTypes = {
   index: PropTypes.number,
   toggleRead: PropTypes.func,
   toggleStar: PropTypes.func,
-  toggleShow: PropTypes.func,
+  showState: PropTypes.func,
   toggleReturn: PropTypes.func,
 };
 

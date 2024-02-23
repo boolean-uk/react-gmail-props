@@ -6,7 +6,6 @@ export default [
     text: "Text content for email 1",
     starred: false,
     read: true,
-    show: false,
   },
   {
     id: 2,
@@ -15,7 +14,6 @@ export default [
     text: "Text content for email 2",
     starred: false,
     read: false,
-    show: false,
   },
   {
     id: 3,
@@ -24,7 +22,6 @@ export default [
     text: "Text content for email 3",
     starred: true,
     read: true,
-    show: false,
   },
   {
     id: 4,
@@ -33,7 +30,6 @@ export default [
     text: "Text content for email 4",
     starred: false,
     read: false,
-    show: false,
   },
   {
     id: 5,
@@ -42,6 +38,5 @@ export default [
     text: "Text content for email 5",
     starred: true,
     read: false,
-    show: false,
   },
 ];
