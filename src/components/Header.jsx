@@ -1,5 +1,30 @@
 import '../styles/App.css'
-function Header() {
+import PropTypes from 'prop-types';
+import { useState } from 'react'
+
+
+
+function Header(props) {
+  Header.propTypes = {
+    emails: PropTypes.array,
+    setEmails: PropTypes.func
+  }
+  //is there a way without saving all the previous emails in memory?
+  const [originalEmails] = useState(props.emails);
+  const handleSearchChange = (event) => {
+    const searchTerm = event.target.value.toLowerCase();
+    
+    if (searchTerm === '') {
+      // If search term is empty, revert to the original list
+      props.setEmails(originalEmails);
+    } else {
+      // Filter emails based on the search term
+      const filteredEmails = originalEmails.filter((email) =>
+        email.title.toLowerCase().includes(searchTerm)
+      );
+      props.setEmails(filteredEmails);
+    }
+  };
   return (
     <header className="header">
         <div className="left-menu">
@@ -14,7 +39,7 @@ function Header() {
         </div>
 
         <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
+          <input className="search-bar" placeholder="Search mail" onChange={handleSearchChange} />
         </div>
       </header>
   )

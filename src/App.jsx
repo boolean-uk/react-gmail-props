@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header/>
+      <Header emails = {emails} setEmails={setEmails}/>
       <LeftMenu currentTab = {currentTab} setCurrentTab = {setCurrentTab} emails = {emails} hideRead = {hideRead} setHideRead={setHideRead}/>
       <Emails currentTab = {currentTab} setCurrentTab = {setCurrentTab} emails = {emails} setEmails={setEmails} hideRead = {hideRead} setHideRead={setHideRead}/>
     </div>
