@@ -1,20 +1,20 @@
 import { useState } from 'react'
 
 import initialEmails from './data/emails'
-import { DisplayEmails } from './Main/DisplayEmails'
+import { ContentArea } from './ContentArea/ContentArea'
 import './styles/App.css'
-import { DisplayHeader } from './Header'
-import { DisplayLeftMenu } from './LeftMenu'
+import { Header } from './Header'
+import { LeftMenu } from './LeftMenu'
 
 
 const getReadEmails = emails => emails.filter(email => !email.read)
-
 const getStarredEmails = emails => emails.filter(email => email.starred)
 
 function App() {
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
+  const [openEmail, setOpenEmail] = useState(-1)
 
   const unreadEmails = emails.filter(email => !email.read)
   const starredEmails = emails.filter(email => email.starred)
@@ -37,6 +37,12 @@ function App() {
     setEmails(updatedEmails)
   }
 
+  // Selecting a tab closes the oppen email-content
+  const selectTab = (tabName) => {
+    setOpenEmail(-1);
+    setCurrentTab(tabName)
+  }
+
   let filteredEmails = emails
 
   if (hideRead) filteredEmails = getReadEmails(filteredEmails)
@@ -46,21 +52,23 @@ function App() {
 
   return (
     <div className="app">
-      <DisplayHeader />
+      <Header />
 
-      <DisplayLeftMenu
+      <LeftMenu
         currentTab={currentTab}
-        setCurrentTab={setCurrentTab}
+        selectTab={selectTab}
         unreadEmails={unreadEmails}
         starredEmails={starredEmails}
         hideRead={hideRead}
         setHideRead={setHideRead}
       />
 
-      <DisplayEmails
+      <ContentArea
         filteredEmails={filteredEmails}
         toggleRead={toggleRead}
         toggleStar={toggleStar}
+        openEmail={openEmail}
+        setOpenEmail={setOpenEmail}
       />
     </div>
   );

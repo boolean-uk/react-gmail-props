@@ -1,37 +1,52 @@
 export default [
   {
     id: 1,
-    sender: `Zoom`,
+    sender: 'Zoom',
     title: `Cloud Recording - Nicolas Marcora's Personal Meeting Room is now available`,
+    email: 'zoom@example.com',
+    date: '17 March 2021, 09:33',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac quam sit amet magna consequat lacinia.',
     starred: false,
-    read: true
+    read: true,
   },
   {
     id: 2,
-    sender: `Zoom`,
+    sender: 'Zoom',
     title: `Sean Davison has joined your Personal Meeting Room`,
+    email: 'zoom@example.com',
+    date: '18 March 2021, 10:15',
+    content: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
     starred: false,
-    read: false
+    read: false,
   },
   {
     id: 3,
-    sender: `Notion`,
+    sender: 'Notion',
     title: `1 update in Boolean`,
+    email: 'notion@example.com',
+    date: '19 March 2021, 11:22',
+    content: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     starred: true,
-    read: true
+    read: true,
   },
   {
     id: 4,
-    sender: `The Calendly Team`,
+    sender: 'The Calendly Team',
     title: `Use more than one calendar?`,
+    email: 'calendly@example.com',
+    date: '20 March 2021, 12:45',
+    content: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     starred: false,
-    read: false
+    read: false,
   },
   {
     id: 5,
-    sender: `Patrick`,
+    sender: 'Patrick',
     title: `Updated invitation: Coding chat with Nico`,
+    email: 'patrick@example.com',
+    date: '21 March 2021, 14:00',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     starred: true,
-    read: false
-  }
-]
+    read: false,
+  },
+];

@@ -1,6 +1,7 @@
-export const DisplayEmail = ({index, email, toggleRead, toggleStar}) => {
+/* eslint-disable react/prop-types */
+export const EmailLine = ({email, toggleRead, toggleStar}) => {
     return (
-      <li key={index} className={`email ${email.read ? "read" : "unread"}`}>
+      <li className={`email ${email.read ? "read" : "unread"}`}>
         <div className="select">
           <input
             className="select-checkbox"
