@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import Email from "./Email";
 
-function Emails({ emails, toggleStar, toggleRead }) {
+function Emails({ emails, toggleStar, toggleRead, onSelectEmail }) {
   return (
     <main className="emails">
       <ul>
@@ -11,6 +11,7 @@ function Emails({ emails, toggleStar, toggleRead }) {
             email={email}
             toggleStar={toggleStar}
             toggleRead={toggleRead}
+            onSelect={onSelectEmail}
           />
         ))}
       </ul>
@@ -22,6 +23,7 @@ Emails.propTypes = {
   emails: PropTypes.arrayOf(PropTypes.object).isRequired,
   toggleStar: PropTypes.func.isRequired,
   toggleRead: PropTypes.func.isRequired,
+  onSelectEmail: PropTypes.func.isRequired,
 };
 
 export default Emails;

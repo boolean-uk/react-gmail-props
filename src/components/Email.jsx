@@ -1,9 +1,12 @@
 import PropTypes from "prop-types";
 import "../styles/Email.css";
 
-function Email({ email, toggleStar, toggleRead }) {
+function Email({ email, toggleStar, toggleRead, onSelect }) {
   return (
-    <li className={`email ${email.read ? "read" : "unread"}`}>
+    <li
+      className={`email ${email.read ? "read" : "unread"}`}
+      onClick={() => onSelect(email)}
+    >
       <div className="select">
         <input
           className="select-checkbox"
@@ -35,6 +38,7 @@ Email.propTypes = {
   }).isRequired,
   toggleStar: PropTypes.func.isRequired,
   toggleRead: PropTypes.func.isRequired,
+  onSelect: PropTypes.func.isRequired,
 };
 
 export default Email;

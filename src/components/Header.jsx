@@ -1,6 +1,7 @@
+import PropTypes from "prop-types";
 import "../styles/Header.css";
 
-function Header() {
+function Header({ onSearch }) {
   return (
     <header className="header">
       <div className="left-menu">
@@ -15,10 +16,19 @@ function Header() {
       </div>
 
       <div className="search">
-        <input className="search-bar" placeholder="Search mail" />
+        <input
+          className="search-bar"
+          placeholder="Search mail"
+          onChange={onSearch}
+        />{" "}
+        {/* call the onSearch function when the input changes */}
       </div>
     </header>
   );
 }
+
+Header.propTypes = {
+  onSearch: PropTypes.func.isRequired,
+};
 
 export default Header;
