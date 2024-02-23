@@ -1,0 +1,30 @@
+.email-action-icons ul {
+    padding: 0;
+    margin: 0;
+  
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0.25rem;
+  
+    list-style-type: none;
+  }
+  
+  .email-action-icons .icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .email-actions {
+    padding: 1rem 0.5rem;
+  }
+  
+  .email-actions button {
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+  
+    border-radius: 0.5rem;
+    border: 1px solid #a1a1a1;
+    background-color: transparent;
+  
+    font-weight: bold;
+  }

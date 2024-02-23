@@ -1,0 +1,15 @@
+.email-content--header {
+    padding: 0.5rem 1rem;
+  
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 1rem;
+  }
+  
+  .email-content--header .avatar {
+    width: 56px;
+    height: 56px;
+  
+    border-radius: 100%;
+    background-color: #eee;
+  }

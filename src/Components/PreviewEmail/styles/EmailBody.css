@@ -1,0 +1,8 @@
+.email-body .content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .email-body .content img {
+    width: 100%;
+  }

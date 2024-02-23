@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles/Email.css'
 
-function Email({email, index, toggleRead, toggleStar}) {
+function Email({email, index, toggleRead, toggleStar, setCurrentTab, setCurrentEmail}) {
   return (
     <li
     key={index}
@@ -24,7 +24,13 @@ function Email({email, index, toggleRead, toggleStar}) {
         />
     </div>
     <div className="sender">{email.sender}</div>
-    <div className="title">{email.title}</div>
+    <div className="title" 
+      onClick={() => {
+        setCurrentEmail(email.id)
+        setCurrentTab('emails')
+        }
+    }
+    >{email.title}</div>
     </li>
   )
 }
