@@ -18,7 +18,7 @@ function EmailContent(props) {
                 <div className="email-info">
                   <div className="sender-info">
                     <h2>{props.email.sender}</h2>
-                    <em>&lt;no-reply@freepik.com&gt;</em>
+                    <em>&lt;no-reply@{props.email.sender}.com&gt;</em>
                   </div>
                   <div className="user-info">
                     <p>
