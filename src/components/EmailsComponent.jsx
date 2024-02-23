@@ -3,11 +3,11 @@
 
 import EmailComponent from './EmailComponent'
 
-function EmailsComponent({filteredEmails, toggleStar, toggleRead}) {
+function EmailsComponent({filteredEmails, toggleStar, toggleRead, setCurrentTab}) {
   return (
     <ul>
         {filteredEmails.map((email, index) => (
-            <EmailComponent key = {index} email = {email} index = {index} toggleRead={toggleRead} toggleStar={toggleStar}/>
+            <EmailComponent key = {index} email = {email} index = {index} toggleRead={toggleRead} toggleStar={toggleStar} setCurrentTab = {setCurrentTab}/>
         ))}
     </ul>
   )

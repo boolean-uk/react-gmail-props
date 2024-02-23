@@ -1,0 +1,34 @@
+.email-toolbar {
+    padding: 0.5rem 2rem;
+  
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+  
+    border-bottom: 1px solid #eee;
+  }
+  
+  .email-toolbar > * {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .email-toolbar > ul {
+    list-style-type: none;
+  }
+  
+  .email-toolbar .icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .email-toolbar button {
+    padding: 0.25rem 0.5rem 0.4rem;
+  
+    border-radius: 0.5rem;
+    border: 1px solid #a1a1a1;
+    background-color: transparent;
+  
+    font-weight: bold;
+  }

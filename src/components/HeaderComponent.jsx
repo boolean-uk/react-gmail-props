@@ -1,6 +1,12 @@
 import React from 'react'
 
-function HeaderComponent() {
+function HeaderComponent({setCurrentTab, setSearchValue, searchValue}) {
+  const updateInputValue = event => {
+    setCurrentTab("inbox")
+    setSearchValue(event.target.value)
+  }
+
+
   return (
     <header className="header">
         <div className="left-menu">
@@ -15,7 +21,7 @@ function HeaderComponent() {
         </div>
 
         <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
+          <input className="search-bar" placeholder="Search mail" value = {searchValue} onChange={updateInputValue}/>
         </div>
       </header>
   )
