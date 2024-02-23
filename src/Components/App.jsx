@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
-import initialEmails from './data/emails'
+import initialEmails from '/src/data/emails'
 import { ContentArea } from './ContentArea/ContentArea'
-import './styles/App.css'
+import '/src/styles/App.css'
 import { Header } from './Header'
 import { LeftMenu } from './LeftMenu'
 
