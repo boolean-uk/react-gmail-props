@@ -16,6 +16,7 @@ function App() {
     const [hideRead, setHideRead] = useState(false);
     const [currentTab, setCurrentTab] = useState("inbox");
     const [emailDisplayIndex, setEmailDisplayIndex] = useState(-1);
+    const [searchbar, setSearchbar] = useState("");
 
     const unreadEmails = emails.filter((email) => !email.read);
     const starredEmails = emails.filter((email) => email.starred);
@@ -47,9 +48,17 @@ function App() {
     if (currentTab === "starred")
         filteredEmails = getStarredEmails(filteredEmails);
 
+    filteredEmails = filteredEmails.filter((email) =>
+        email.title.toLowerCase().includes(searchbar.toLowerCase())
+    );
+
     return (
         <div className="app">
-            <MainNavigation />
+            <MainNavigation
+                searchbar={searchbar}
+                setSearchbar={setSearchbar}
+                setEmailDisplayIndex={setEmailDisplayIndex}
+            />
             <SideMenu
                 currentTab={currentTab}
                 unreadEmails={unreadEmails}

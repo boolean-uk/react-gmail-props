@@ -1,6 +1,12 @@
 import "../../styles/Layout/MainNavigation.css";
 
-const MainNavigation = () => {
+/* eslint-disable react/prop-types */
+const MainNavigation = ({ searchbar, setSearchbar, setEmailDisplayIndex }) => {
+    const updateSearch = (event) => {
+        setEmailDisplayIndex(-1);
+        setSearchbar(event.target.value);
+    };
+
     return (
         <header className="header">
             <div className="left-menu">
@@ -19,7 +25,12 @@ const MainNavigation = () => {
             </div>
 
             <div className="search">
-                <input className="search-bar" placeholder="Search mail" />
+                <input
+                    className="search-bar"
+                    placeholder="Search mail"
+                    value={searchbar}
+                    onChange={updateSearch}
+                />
             </div>
         </header>
     );
