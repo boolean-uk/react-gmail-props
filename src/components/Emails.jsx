@@ -1,16 +1,18 @@
 import PropTypes from 'prop-types';
 import Email from './Email';
+import { useState } from 'react'
 
 
 function Emails(props) {
   Emails.propTypes = {
-    emails: PropTypes.object,
-    setEmails: PropTypes.object,
-    currentTab: PropTypes.object,
-    setCurrentTab: PropTypes.object,
-    hideRead: PropTypes.object,
-    setHideRead: PropTypes.object
+    emails: PropTypes.array,
+    setEmails: PropTypes.func,
+    currentTab: PropTypes.string,
+    setCurrentTab: PropTypes.func,
+    hideRead: PropTypes.bool,
+    setHideRead: PropTypes.func
   }
+  const [selected, setSelected] = useState(null)
 
   const getReadEmails = emails => emails.filter(email => !email.read)
 
@@ -28,7 +30,7 @@ function Emails(props) {
     <main className="emails">
         <ul>
           {filteredEmails.map((email, index) => (
-            <Email email = {email} key ={index} setEmails={props.setEmails} />
+            <Email email = {email} key ={index} setEmails={props.setEmails} setSelected={setSelected} selected= {selected} />
           ))}
         </ul>
       </main>
