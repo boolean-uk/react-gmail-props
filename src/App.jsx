@@ -78,6 +78,7 @@ function App() {
           </li>
         </ul>
       </nav>
+
       {selectedEmail ? (
         <DisplayEmail email={selectedEmail} onClick={() => setSelectedEmail(null)} />
       )
@@ -87,6 +88,7 @@ function App() {
         )
       }
     </div>
+    
   )
 }
 

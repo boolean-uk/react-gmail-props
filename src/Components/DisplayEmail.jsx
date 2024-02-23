@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-
+/* eslint react/prop-types:0 */
 
 export default function DisplayEmail({ email, onClick }) {
     return (

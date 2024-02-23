@@ -1,4 +1,7 @@
-import React from "react";
+/* eslint react/prop-types:0 */
+/* eslint no-unused-vars:0 */
+
+import { useState } from "react";
 
 
 export default function Email({ email, index, setEmails, onClick }) {
