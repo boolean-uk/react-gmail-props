@@ -1,0 +1,18 @@
+.selected-email {
+    padding: 0.5rem 1rem;
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+}
+
+.back-button {
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+
+    height: 50px;
+    width: 50px;
+}
+
+p {
+    margin-top: 100px;
+}

@@ -1,0 +1,12 @@
+.app > .header > .search {
+    display: grid;
+    padding: 6px;
+  }
+  
+  .app > .header > .search .search-bar {
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(240, 240, 240);
+    padding: 0 10px;
+    font-size: 1rem;
+  }
