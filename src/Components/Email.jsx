@@ -1,10 +1,12 @@
 import React from 'react';
 import '../styles/Email.css'
+import OpenEmail from './OpenEmail';
 
-const Email = ({email, toggleRead, toggleStar}) => {
+const Email = ({email, toggleRead, toggleStar, onClick}) => {
     return (
-        <li
+            <li
             className={`email ${email.read ? 'read' : 'unread'}`}
+            onClick={onClick}
         >
             <div className="select">
                 <input
