@@ -46,9 +46,15 @@ function App() {
   if (currentTab === 'starred')
     filteredEmails = getStarredEmails(filteredEmails)
 
+
+  const [search, setSearch] = useState('');
+  if ( search != '')
+    filteredEmails = emails.filter(email => email.title.includes(search))
+
+
   return (
     <div className="app">
-      <Header />
+      <Header emails={emails} search={search} setSearch={setSearch}/>
       <LeftMenu unreadEmails={unreadEmails} starredEmails={starredEmails} currentTab={currentTab} setCurrentTab={setCurrentTab} hideRead={hideRead} setHideRead={setHideRead}/>
       {currentTab === 'emails' ? 
           <PreviewEmail email={emails.find((email) => email.id == currentEmail)} emails={emails} currentEmail={currentEmail} setCurrentEmail={setCurrentEmail}/>

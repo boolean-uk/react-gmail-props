@@ -1,7 +1,9 @@
 import React from 'react'
+import { useState } from 'react'
 import './styles/header.css'
 
-function Header() {
+function Header({search, setSearch}) {
+
   return (
     <header className="header">
     <div className="left-menu">
@@ -16,7 +18,7 @@ function Header() {
     </div>
 
     <div className="search">
-    <input className="search-bar" placeholder="Search mail" />
+    <input className="search-bar" placeholder="Search mail (case sensitive)" value={search} onChange={(change) => setSearch(change.target.value)}/>
     </div>
   </header>
   )
