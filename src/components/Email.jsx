@@ -18,7 +18,6 @@ export default function Email(props){
     return (
         !expand ? (
         <li
-        onClick={() => {handleChange()}}
         key={index}
         className={`email ${email.read ? 'read' : 'unread'}`}
       >
@@ -39,7 +38,7 @@ export default function Email(props){
           />
         </div>
         <div className="sender">{email.sender}</div>
-        <div className="title">{email.title}</div>
+        <div className="title" onClick={() => {handleChange()}}>{email.title}</div>
       </li> )
     : ( <ReadEmail email={email} onClick={handleChange} /> )
     )      

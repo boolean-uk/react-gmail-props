@@ -1,27 +1,23 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
+import initialEmails from './data/emails';
+import './styles/App.css';
+import Emails from './components/Emails';
 
-import initialEmails from './data/emails'
-
-import './styles/App.css'
-import Emails from './components/Emails'
-
-const getReadEmails = emails => emails.filter(email => !email.read)
-const getStarredEmails = emails => emails.filter(email => email.starred)
+const getReadEmails = emails => emails.filter(email => !email.read);
+const getStarredEmails = emails => emails.filter(email => email.starred);
 
 function App() {
-  const [emails, setEmails] = useState(initialEmails)
-  const [hideRead, setHideRead] = useState(false)
-  const [currentTab, setCurrentTab] = useState('inbox')
-  const [filteredEmails, setFilteredEmails] = useState(emails)
+  const [emails, setEmails] = useState(initialEmails);
+  const [hideRead, setHideRead] = useState(false);
+  const [currentTab, setCurrentTab] = useState('inbox');
+  const [filteredEmails, setFilteredEmails] = useState([]);
 
-  const unreadEmails = emails.filter(email => !email.read)
-  const starredEmails = emails.filter(email => email.starred)
-
-  //let filteredEmails = emails
-
-  if (hideRead) setFilteredEmails(getReadEmails(filteredEmails))
-
-  if (currentTab === 'starred') setFilteredEmails(getStarredEmails(filteredEmails))
+  useEffect(() => {
+    let updatedEmails = emails;
+    if (hideRead) updatedEmails = getReadEmails(updatedEmails);
+    if (currentTab === 'starred') updatedEmails = getStarredEmails(updatedEmails);
+    setFilteredEmails(updatedEmails);
+  }, [emails, hideRead, currentTab]);
 
   const toggleRead = targetEmail => {
     const updatedEmails = emails.map(email =>
@@ -43,13 +39,12 @@ function App() {
         typeof value === 'string' && value.toLowerCase().includes(searchTerm.toLowerCase())
       )
     );
-    return filteredEmails;
+    setFilteredEmails(filteredEmails);
   };
 
   const handleSearchChange = (e) => {
-    const searchItem = e.target.value;
-    const filteredEmails = searchForContent(searchItem)
-    setFilteredEmails(filteredEmails);
+    const searchTerm = e.target.value;
+    searchForContent(searchTerm);
   }
 
   return (
@@ -76,14 +71,14 @@ function App() {
             onClick={() => setCurrentTab('inbox')}
           >
             <span className="label">Inbox</span>
-            <span className="count">{unreadEmails.length}</span>
+            <span className="count">{getReadEmails(emails).length}</span>
           </li>
           <li
             className={`item ${currentTab === 'starred' ? 'active' : ''}`}
             onClick={() => setCurrentTab('starred')}
           >
             <span className="label">Starred</span>
-            <span className="count">{starredEmails.length}</span>
+            <span className="count">{getStarredEmails(emails).length}</span>
           </li>
 
           <li className="item toggle">
@@ -99,7 +94,7 @@ function App() {
       </nav>
       <Emails filteredEmails={filteredEmails} toggleRead={toggleRead} toggleStar={toggleStar} /> 
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
