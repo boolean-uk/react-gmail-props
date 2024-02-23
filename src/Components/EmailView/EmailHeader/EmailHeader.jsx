@@ -14,7 +14,7 @@ const EmailHeader = ({email}) => {
             <div className="email-info">
                 <div className="sender-info">
                     <h2>{email.sender}</h2>
-                    <em>&lt;{email.sender}@email.com&gt;</em>
+                    <em>&lt;{email.sender.replaceAll(" ", "_")}@email.com&gt;</em>
                 </div>
             </div>
             <div className="date-info">

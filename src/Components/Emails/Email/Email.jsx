@@ -22,6 +22,9 @@ const Email = ({email, setEmails, setTarget, showDetails}) => {
 
     const ShowEmailDetails = () => {
         setTarget(email.id - 1)
+        if (!email.read) {
+            toggleRead(email)
+        }
         showDetails(true)
       }
 

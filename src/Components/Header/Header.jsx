@@ -1,6 +1,8 @@
 import "./Header.css"
+import SearchBar from "./SearchBar/SearchBar.jsx"
+import PropTypes from 'prop-types';
 
-const Header = () => {
+const Header = ({setSearchQuery}) => {
     return (
         <header className="header">
         <div className="left-menu">
@@ -14,11 +16,13 @@ const Header = () => {
           />
         </div>
 
-        <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
-        </div>
+        <SearchBar setSearchQuery={setSearchQuery}/>
       </header>
     )
+}
+
+Header.propTypes = {
+  setSearchQuery: PropTypes.func,
 }
 
 export default Header

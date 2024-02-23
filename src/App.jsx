@@ -10,9 +10,12 @@ function App() {
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
+
   const [showEmailDetails, setShowEmailDetails] = useState(false)
   const [targetEmailIndex, setTargetEmailIndex] = useState(0)
   const [email, setEmail] = useState(emails[0])
+
+  const [searchQuery, setSearchQuery] = useState("")
 
   
   useEffect(() => {
@@ -22,7 +25,7 @@ function App() {
   
   return (
     <div className="app">
-      <Header/>
+      <Header setSearchQuery={setSearchQuery}/>
       <Navigation 
         currentTab={currentTab}
         setCurrentTab={setCurrentTab}
@@ -46,6 +49,7 @@ function App() {
         currentTab={currentTab}
         setTarget={setTargetEmailIndex}
         showDetails={setShowEmailDetails}
+        searchQuery={searchQuery}
       />)}
     </div>
   )
