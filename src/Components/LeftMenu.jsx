@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/LeftMenu.css'
 
 const LeftMenu = ({unreadEmails, hideRead, starredEmails, currentTab, setCurrentTab, setHideRead}) => {
     return (

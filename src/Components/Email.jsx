@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Email.css'
 
 const Email = ({email, toggleRead, toggleStar}) => {
     return (
