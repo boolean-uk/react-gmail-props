@@ -1,7 +1,11 @@
 import "../../styles/Email/Email.css";
 
 /* eslint-disable react/prop-types */
-const Email = ({ email, toggleRead, toggleStar }) => {
+const Email = ({ email, toggleRead, toggleStar, setEmailDisplayIndex }) => {
+    const openEmail = () => {
+        setEmailDisplayIndex(email.id);
+    };
+
     return (
         <li className={`email ${email.read ? "read" : "unread"}`}>
             <div className="select">
@@ -21,7 +25,9 @@ const Email = ({ email, toggleRead, toggleStar }) => {
                 />
             </div>
             <div className="sender">{email.sender}</div>
-            <div className="title">{email.title}</div>
+            <div className="title" onClick={openEmail}>
+                {email.title}
+            </div>
         </li>
     );
 };

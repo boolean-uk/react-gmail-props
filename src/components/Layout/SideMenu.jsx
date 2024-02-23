@@ -8,13 +8,17 @@ const SideMenu = ({
     hideRead,
     setCurrentTab,
     setHideRead,
+    setEmailDisplayIndex,
 }) => {
     return (
         <nav className="left-menu">
             <ul className="inbox-list">
                 <li
                     className={`item ${currentTab === "inbox" ? "active" : ""}`}
-                    onClick={() => setCurrentTab("inbox")}
+                    onClick={() => {
+                        setEmailDisplayIndex(-1);
+                        setCurrentTab("inbox");
+                    }}
                 >
                     <span className="label">Inbox</span>
                     <span className="count">{unreadEmails.length}</span>
@@ -23,7 +27,10 @@ const SideMenu = ({
                     className={`item ${
                         currentTab === "starred" ? "active" : ""
                     }`}
-                    onClick={() => setCurrentTab("starred")}
+                    onClick={() => {
+                        setEmailDisplayIndex(-1);
+                        setCurrentTab("starred");
+                    }}
                 >
                     <span className="label">Starred</span>
                     <span className="count">{starredEmails.length}</span>
@@ -35,7 +42,10 @@ const SideMenu = ({
                         id="hide-read"
                         type="checkbox"
                         checked={hideRead}
-                        onChange={(e) => setHideRead(e.target.checked)}
+                        onChange={(e) => {
+                            setEmailDisplayIndex(-1);
+                            setHideRead(e.target.checked);
+                        }}
                     />
                 </li>
             </ul>
