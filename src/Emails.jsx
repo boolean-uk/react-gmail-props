@@ -1,17 +1,20 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/jsx-key */
+/* eslint-disable react/prop-types */
+import React from 'react'
 import Email from './Email'
 
-//emails component
-function Emails({ emails, filteredEmails, toggleRead, toggleStar }) {
-    return (
-      <main className="emails">
-        <ul>
-          {/* Render individual email items */}
-          {filteredEmails.map((email, index) => (
-            <Email key={index} email={email} toggleRead={toggleRead} toggleStar={toggleStar} />
-          ))}
-        </ul>
-      </main>
-    );
-  }
+function Emails({filteredEmails, toggleRead, toggleStar}) {
 
-  export default Emails;
+  return (
+    <main className="emails">
+        <ul>
+        {filteredEmails.map((email, index) => (
+            <Email email={email} index={index} toggleRead={toggleRead} toggleStar={toggleStar}/>
+        ))}
+        </ul>
+    </main>
+  )
+}
+
+export default Emails
