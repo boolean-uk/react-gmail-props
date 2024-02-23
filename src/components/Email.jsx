@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "../styles/Email.css";
 
 function Email({ email, toggleStar, toggleRead }) {
   return (
