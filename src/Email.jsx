@@ -4,7 +4,7 @@ function Email(props) {
   const handleClick = (event) => {
     console.log(`clicked on email from ${event.currentTarget.innerText} `);
 
-    props.openMyEmail(event.currentTarget);
+    props.openMyEmail(props.email);
   };
 
   return (

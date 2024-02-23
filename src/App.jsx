@@ -16,6 +16,7 @@ function App() {
   const [hideRead, setHideRead] = useState(false);
   const [currentTab, setCurrentTab] = useState("inbox");
   const [openEmail, setOpenEmail] = useState(false);
+  const [emailToDisplay, setSelectedEmail] = useState(null);
 
   const unreadEmails = emails.filter((email) => !email.read);
   const starredEmails = emails.filter((email) => email.starred);
@@ -45,14 +46,16 @@ function App() {
   if (currentTab === "starred")
     filteredEmails = getStarredEmails(filteredEmails);
 
-  let displayData;
-  const openMyEmail = (data) => {
+  const openMyEmail = (emailData) => {
     setOpenEmail(true);
-    displayData = data;
+
+    console.log(emailData);
+    setSelectedEmail(emailData);
   };
 
   const closeMyEmail = () => {
     setOpenEmail(false);
+    setSelectedEmail(null);
   };
 
   return (
@@ -103,7 +106,10 @@ function App() {
       </nav>
       {/*something in here to possibly replacing Emails to display a single email */}
       {openEmail ? (
-        <DisplayEmail closeMyEmail={closeMyEmail} displayData={displayData} />
+        <DisplayEmail
+          closeMyEmail={closeMyEmail}
+          emailToDisplay={emailToDisplay}
+        />
       ) : (
         <Emails
           openMyEmail={openMyEmail}
