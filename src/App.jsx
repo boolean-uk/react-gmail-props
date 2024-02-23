@@ -12,30 +12,45 @@ function App() {
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
+  const [filteredEmails, setFilteredEmails] = useState(emails)
 
   const unreadEmails = emails.filter(email => !email.read)
   const starredEmails = emails.filter(email => email.starred)
 
-  let filteredEmails = emails
+  //let filteredEmails = emails
 
-  if (hideRead) filteredEmails = getReadEmails(filteredEmails)
+  if (hideRead) setFilteredEmails(getReadEmails(filteredEmails))
 
-  if (currentTab === 'starred')
-    filteredEmails = getStarredEmails(filteredEmails)
+  if (currentTab === 'starred') setFilteredEmails(getStarredEmails(filteredEmails))
 
-    const toggleRead = targetEmail => {
-      const updatedEmails = emails.map(email =>
-        email.id === targetEmail.id ? { ...email, read: !email.read } : email
-      );
-      setEmails(updatedEmails);
-    };
-  
-    const toggleStar = targetEmail => {
-      const updatedEmails = emails.map(email =>
-        email.id === targetEmail.id ? { ...email, starred: !email.starred } : email
-      );
-      setEmails(updatedEmails);
-    };
+  const toggleRead = targetEmail => {
+    const updatedEmails = emails.map(email =>
+      email.id === targetEmail.id ? { ...email, read: !email.read } : email
+    );
+    setEmails(updatedEmails);
+  };
+
+  const toggleStar = targetEmail => {
+    const updatedEmails = emails.map(email =>
+      email.id === targetEmail.id ? { ...email, starred: !email.starred } : email
+    );
+    setEmails(updatedEmails);
+  };
+
+  const searchForContent = (searchTerm) => {
+    const filteredEmails = emails.filter(item =>
+      Object.values(item).some(value => 
+        typeof value === 'string' && value.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    );
+    return filteredEmails;
+  };
+
+  const handleSearchChange = (e) => {
+    const searchItem = e.target.value;
+    const filteredEmails = searchForContent(searchItem)
+    setFilteredEmails(filteredEmails);
+  }
 
   return (
     <div className="app">
@@ -50,9 +65,8 @@ function App() {
             alt="gmail logo"
           />
         </div>
-
         <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
+          <input className="search-bar" placeholder="Search mail" onChange={handleSearchChange} />
         </div>
       </header>
       <nav className="left-menu">
