@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import "./Email.css"
 
-const Email = ({index, email, setEmails}) => {
+const Email = ({email, setEmails, setTarget, showDetails}) => {
     const toggleStar = targetEmail => {
         const updatedEmails = emails =>
             emails.map(email =>
@@ -10,9 +10,9 @@ const Email = ({index, email, setEmails}) => {
             : email
         )
         setEmails(updatedEmails)
-        }
+    }
 
-        const toggleRead = targetEmail => {
+    const toggleRead = targetEmail => {
         const updatedEmails = emails =>
             emails.map(email =>
             email.id === targetEmail.id ? { ...email, read: !email.read } : email
@@ -20,15 +20,20 @@ const Email = ({index, email, setEmails}) => {
         setEmails(updatedEmails)
     }
 
+    const ShowEmailDetails = () => {
+        setTarget(email.id - 1)
+        showDetails(true)
+      }
+
     return (
-        <li key={index} className={`email ${email.read ? 'read' : 'unread'}`}>
+        <>
             <div className="select">
                 <input
                     className="select-checkbox"
                     type="checkbox"
                     checked={email.read}
                     onChange={() => toggleRead(email)}
-                />
+                    />
             </div>
             <div className="star">
                 <input
@@ -36,18 +41,20 @@ const Email = ({index, email, setEmails}) => {
                     type="checkbox"
                     checked={email.starred}
                     onChange={() => toggleStar(email)}
-                />
+                    />
             </div>
-            <div className="sender">{email.sender}</div>
-            <div className="title">{email.title}</div>
-        </li>
+            <div className="sender" onClick={() => ShowEmailDetails()}>{email.sender}</div>
+            <div className="title" onClick={() => ShowEmailDetails()}>{email.title}</div>
+        </>
     )
 }
 
 Email.propTypes = {
-    index: PropTypes.number,
+    key: PropTypes.number,
     email: PropTypes.object,
     setEmails: PropTypes.func,
+    setTarget: PropTypes.func,
+    showDetails: PropTypes.func,
 }
 
 export default Email

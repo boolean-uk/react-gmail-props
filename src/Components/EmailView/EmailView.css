@@ -1,0 +1,24 @@
+.email-title {
+    padding: 1rem;
+}
+  
+.email-title h1 {
+    padding-left: 56px;
+    font-weight: normal;
+}
+
+.email-content--header .avatar {
+    width: 56px;
+    height: 56px;
+  
+    border-radius: 100%;
+    background-color: #eee;
+}
+
+.email-content--header {
+    padding: 0.5rem 1rem;
+  
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 1rem;
+}
