@@ -3,15 +3,26 @@ import "./styles/Email.css";
 
 function Email(props) {
   const { email, index, toggleRead, toggleStar, showState } = props;
+  const forbiddenElements = ["star-checkbox", "select-checkbox"];
 
   return (
-    <li key={index} className={`email ${email.read ? "read" : "unread"}`}>
+    <li
+      key={index}
+      className={`email ${email.read ? "read" : "unread"}`}
+      onClick={(e) => {
+        if (forbiddenElements.includes(e.target.className)) return;
+        showState(email, e);
+      }}
+    >
       <div className="select">
         <input
           className="select-checkbox"
           type="checkbox"
           checked={email.read}
-          onChange={() => toggleRead(email)}
+          onChange={(e) => {
+            if (e.currentTarget != e.target) return;
+            toggleRead(email);
+          }}
         />
       </div>
       <div className="star">
@@ -19,19 +30,15 @@ function Email(props) {
           className="star-checkbox"
           type="checkbox"
           checked={email.starred}
-          onChange={() => toggleStar(email)}
+          onChange={(e) => {
+            if (e.currentTarget != e.target) return;
+            toggleStar(email);
+          }}
         />
       </div>
 
       <div className="sender">{email.sender}</div>
       <div className="title">{email.title}</div>
-      <button
-        key={`button-${index}`}
-        className="button-show"
-        onClick={() => showState(email)}
-      >
-        Show
-      </button>
     </li>
   );
 }
