@@ -1,19 +1,18 @@
 import { useState } from 'react'
-
 import initialEmails from './data/emails'
-
 import './styles/App.css'
+import EmailsComponent from './components/EmailsComponent'
 
 const getReadEmails = emails => emails.filter(email => !email.read)
 
 const getStarredEmails = emails => emails.filter(email => email.starred)
 
 function App() {
-  const [emails, setEmails] = useState(initialEmails)
-  const [hideRead, setHideRead] = useState(false)
-  const [currentTab, setCurrentTab] = useState('inbox')
+  const [emails, setEmails] = useState(initialEmails)     // All emails
+  const [hideRead, setHideRead] = useState(false)         // Read or unread?
+  const [currentTab, setCurrentTab] = useState('inbox')   // Which tab in the sidebar
 
-  const unreadEmails = emails.filter(email => !email.read)
+  const unreadEmails = emails.filter(email => !email.read)      // Filter that: email.read !== true
   const starredEmails = emails.filter(email => email.starred)
 
   const toggleStar = targetEmail => {
@@ -43,6 +42,7 @@ function App() {
 
   return (
     <div className="app">
+
       <header className="header">
         <div className="left-menu">
           <svg className="menu-icon" focusable="false" viewBox="0 0 24 24">
@@ -59,6 +59,7 @@ function App() {
           <input className="search-bar" placeholder="Search mail" />
         </div>
       </header>
+
       <nav className="left-menu">
         <ul className="inbox-list">
           <li
@@ -87,7 +88,12 @@ function App() {
           </li>
         </ul>
       </nav>
-      <main className="emails">
+      
+      {/* Important! pass filteredEmails instead of Emails. */}
+      <EmailsComponent emails={filteredEmails
+        } toggleRead={toggleRead} toggleStar={toggleStar}/>
+
+      {/* <main className="emails">
         <ul>
           {filteredEmails.map((email, index) => (
             <li
@@ -102,6 +108,7 @@ function App() {
                   onChange={() => toggleRead(email)}
                 />
               </div>
+
               <div className="star">
                 <input
                   className="star-checkbox"
@@ -115,7 +122,9 @@ function App() {
             </li>
           ))}
         </ul>
-      </main>
+      </main> */}
+
+
     </div>
   )
 }
