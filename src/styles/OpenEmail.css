@@ -1,0 +1,9 @@
+.email-container {
+    display:flex;
+    flex-direction: column;
+
+}
+.return-button {
+    width: 10%;
+    
+}
