@@ -1,4 +1,4 @@
-.compose-area > .compose-header{
+.compose-area > .compose-header {
     display: inline-block;
     height: 40px;
     justify-content: center;
@@ -15,7 +15,7 @@
     margin-right: 5px;
 }
 
-.compose-header > span, .compose-header > img{
+.compose-header > span, .compose-header > img {
     margin-top: 10px;
     margin-left: 15px; 
 }
