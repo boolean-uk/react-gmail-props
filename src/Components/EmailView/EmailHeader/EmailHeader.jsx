@@ -1,14 +1,20 @@
 import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react'
 import "./EmailHeader.css"
 
 const EmailHeader = ({email}) => {
+    const [data, setData] = useState(email)
+
+    useEffect(() => {
+        setData(email)
+    }, [email])
 
     // This would be contained wihtin an actual email
     const emailSendDate = new Date().toLocaleString()
     return (
         <>
         <div className="email-title">
-            <h1>{email.title}</h1>
+            <h1>{data.title}</h1>
         </div>
         <header className="email-content--header">
             <div className="avatar">

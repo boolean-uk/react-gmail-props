@@ -1,0 +1,21 @@
+.compose-area > .compose-header{
+    display: inline-block;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.compose-area > .compose-header > * {
+    align-items: center;
+}
+
+.compose-header > img {
+    display: inline;
+    height: 20px; 
+    margin-right: 5px;
+}
+
+.compose-header > span, .compose-header > img{
+    margin-top: 10px;
+    margin-left: 15px; 
+}

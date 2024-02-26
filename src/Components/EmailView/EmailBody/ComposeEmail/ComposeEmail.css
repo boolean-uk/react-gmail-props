@@ -1,0 +1,12 @@
+.email-composer {
+    height: 300px;
+}
+
+.compose-area {
+    border: solid gray 1px;
+    border-radius: 5px;
+    height: 300px;
+    margin: 10px;
+}
+
+

@@ -1,0 +1,6 @@
+.compose-area > .compose-footer-right {
+    align-items: center;
+    display: flex;
+    position: relative;
+    left: 92%;
+}
