@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import './styles/email.css'
 
-function EmailComponent({index, email, toggleRead, toggleStar}) {
+function EmailComponent({index, email, toggleRead, toggleStar, onClick}) {
     return (<li
         key={index}
         className={`email ${email.read ? 'read' : 'unread'}`}
+        onClick={onClick}
       >
         <div className="select">
           <input
