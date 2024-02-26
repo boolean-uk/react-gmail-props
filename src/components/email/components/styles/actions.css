@@ -1,0 +1,15 @@
+.email-actions {
+    padding: 1rem 0.5rem;
+}
+
+.email-actions button {
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+
+    border-radius: 0.5rem;
+    border: 1px solid #a1a1a1;
+    background-color: transparent;
+
+    font-weight: bold;
+    cursor: pointer;
+}

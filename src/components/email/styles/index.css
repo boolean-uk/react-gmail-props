@@ -1,0 +1,9 @@
+.title {
+  padding: 1rem;
+}
+
+.title h1 {
+  padding-left: 56px;
+
+  font-weight: normal;
+}
