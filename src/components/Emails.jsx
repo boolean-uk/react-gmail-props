@@ -10,10 +10,12 @@ const Emails = (props) => {
         emails: ProtoType.string,
         setEmails : ProtoType.func,
         hideRead: ProtoType.bool,
-        currentTab: ProtoType.string
+        currentTab: ProtoType.string,
+        setShowEmail: ProtoType.bool,
+        setEmailToShow: ProtoType.func
     }
 
-    const {emails, setEmails, hideRead, currentTab} = props 
+    const {emails, setEmails, hideRead, currentTab, setShowEmail, setEmailToShow} = props 
 
     
     const getReadEmails = emails => emails.filter(email => !email.read)
@@ -50,7 +52,7 @@ const Emails = (props) => {
         <main className="emails">
         <ul>
           {filteredEmails.map((email, index) => (
-            <Email {...{email, toggleRead, toggleStar}} key={index}/>
+            <Email {...{email, toggleRead, toggleStar, setShowEmail, setEmailToShow}} key={index}/>
           ))}
         </ul>
         </main>

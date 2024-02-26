@@ -7,14 +7,21 @@ const Email = (props) => {
     Email.ProtoType = {
         email: ProtoType.object,
         toggleRead: ProtoType.func,
-        toggleStar: ProtoType.func
+        toggleStar: ProtoType.func,
+        setShowEmail: ProtoType.bool,
+        setEmailToShow: ProtoType.func
     }
 
-    const {email, toggleRead, toggleStar} = props ?? {}
+    const {email, toggleRead, toggleStar, setShowEmail, setEmailToShow} = props ?? {}
     return (
     <li
 
     className={`email ${email.read ? 'read' : 'unread'}`}
+    onClick={() => {
+        setEmailToShow(email)
+        setShowEmail(true)
+    }
+    }
   >
     <div className="select">
       <input
