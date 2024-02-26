@@ -19,6 +19,12 @@ function App() {
   const unreadEmails = emails.filter(email => !email.read)
   const starredEmails = emails.filter(email => email.starred)
 
+  const [search, setSearch] = useState("")
+
+  const searchEmails = emails => 
+      emails.filter(email => 
+        email.title.toLowerCase().includes(search.toLowerCase()) || email.sender.toLowerCase().includes(search.toLowerCase()))
+
   const toggleStar = targetEmail => {
     const updatedEmails = emails =>
       emails.map(email =>
@@ -44,9 +50,11 @@ function App() {
   if (currentTab === 'starred')
     filteredEmails = getStarredEmails(filteredEmails)
 
+  if (search !== "") filteredEmails = searchEmails(filteredEmails)
+
   return (
     <div className="app">
-      <Header />
+      <Header search={search} setSearch={setSearch}/>
       <LeftMenu
         unreadEmails={unreadEmails}
         starredEmails={starredEmails}

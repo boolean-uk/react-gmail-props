@@ -1,7 +1,6 @@
-import React from 'react';
 import '../styles/Header.css'
 
-const Header = () => {
+const Header = ({setSearch}) => {
     return (
         <header className="header">
             <div className="left-menu">
@@ -16,7 +15,7 @@ const Header = () => {
             </div>
 
             <div className="search">
-                <input className="search-bar" placeholder="Search mail" />
+                <input className="search-bar" onChange={e => setSearch(e.target.value)} placeholder="Search mail" />
             </div>
         </header>
     );
