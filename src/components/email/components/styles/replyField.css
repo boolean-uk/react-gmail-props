@@ -1,0 +1,28 @@
+.reply {
+    /* padding: 1rem 0.5rem; */
+    margin: 1rem 0;
+}
+
+.reply button {
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+
+    border-radius: 0.5rem;
+    border: 1px solid #a1a1a1;
+    background-color: transparent;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.send {
+    background-color: #4CAF50 !important;
+}
+
+.reply-field {
+    display: flex;
+    align-items: start;
+    width: 500px;
+    height: 100px;
+}
