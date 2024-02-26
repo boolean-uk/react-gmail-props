@@ -17,11 +17,7 @@ const Email = (props) => {
     <li
 
     className={`email ${email.read ? 'read' : 'unread'}`}
-    onClick={() => {
-        setEmailToShow(email)
-        setShowEmail(true)
-    }
-    }
+
   >
     <div className="select">
       <input
@@ -40,7 +36,11 @@ const Email = (props) => {
       />
     </div>
     <div className="sender">{email.sender}</div>
-    <div className="title">{email.title}</div>
+    <div className="title"     onClick={() => {
+        setEmailToShow(email)
+        setShowEmail(true)
+    }
+    }>{email.title}</div>
   </li>
     )
 }
