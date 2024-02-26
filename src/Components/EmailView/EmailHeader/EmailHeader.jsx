@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import "./EmailHeader.css"
 
 const EmailHeader = ({email}) => {
 
@@ -10,10 +11,12 @@ const EmailHeader = ({email}) => {
             <h1>{email.title}</h1>
         </div>
         <header className="email-content--header">
-            <div className="avatar"/>
+            <div className="avatar">
+                <img className="avatar" src="https://fer-uig.glitch.me" alt="user-icon"/>
+            </div>
             <div className="email-info">
                 <div className="sender-info">
-                    <h2>{email.sender}</h2>
+                    <h2 style={{display: 'inline'}}>{email.sender}</h2>
                     <em>&lt;{email.sender.replaceAll(" ", "_")}@email.com&gt;</em>
                 </div>
             </div>
