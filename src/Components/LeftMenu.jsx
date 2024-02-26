@@ -1,18 +1,18 @@
 /* eslint-disable react/prop-types */
-export const LeftMenu = ({currentTab, selectTab, unreadEmails, starredEmails, hideRead, setHideRead }) => {
+export const LeftMenu = ({currentTab, setCurrentTab, unreadEmails, starredEmails, hideRead, setHideRead }) => {
   return (
     <nav className="left-menu">
       <ul className="inbox-list">
         <li
           className={`item ${currentTab === "inbox" ? "active" : ""}`}
-          onClick={() => selectTab("inbox")}
+          onClick={() => setCurrentTab("inbox")}
         >
           <span className="label">Inbox</span>
           <span className="count">{unreadEmails.length}</span>
         </li>
         <li
           className={`item ${currentTab === "starred" ? "active" : ""}`}
-          onClick={() => selectTab("starred")}
+          onClick={() => setCurrentTab("starred")}
         >
           <span className="label">Starred</span>
           <span className="count">{starredEmails.length}</span>
