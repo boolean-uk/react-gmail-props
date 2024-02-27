@@ -71,12 +71,13 @@ function App() {
           </li>
         </ul>
       </nav>
-      <Emails emails={filteredEmails} setEmails={setEmails} />
+      <Emails emails={filteredEmails} setEmails={setEmails} />  
     </div>
   )
 }
 
 function Email ({ email, index, setEmails }) {
+  const [isRendered, setIsRendered] = useState(false);
 
   const toggleStar = targetEmail => {
     const updatedEmails = emails =>
@@ -97,7 +98,9 @@ function Email ({ email, index, setEmails }) {
   };
 
   return (
+    <>
     <li
+      onClick={() => setIsRendered(!isRendered)}
       key={index}
       className={`email ${email.read ? 'read' : 'unread'}`}
     >
@@ -120,6 +123,8 @@ function Email ({ email, index, setEmails }) {
     <div className="sender">{email.sender}</div>
     <div className="title">{email.title}</div>
     </li>
+    {isRendered && <RenderEmail email={email} />}
+    </>
   )
 
 }
@@ -129,11 +134,21 @@ function Emails ({ emails, setEmails }) {
     <main className="emails">
       <ul>
         {emails.map((email, index) => (
-          <Email  email={email} index={index} setEmails={setEmails}/>
-          
-        ))}
+          <Email  email={email} index={index} setEmails={setEmails}/> ))}
       </ul>
     </main>
+  )
+
+}
+
+function RenderEmail({ email }){
+  return (
+    <div className="render-email">   
+      <p>{email.title}</p>
+      <p>Email image</p>
+      <p>This is your email information</p>
+      <button className='btn-reply'>Reply</button>
+    </div>
   )
 
 }
