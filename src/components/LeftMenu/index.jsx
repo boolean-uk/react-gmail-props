@@ -9,14 +9,14 @@ function LeftMenu(props) {
       <ul className="inbox-list">
         <li
           className={`item ${props.currentTab === "inbox" ? "active" : ""}`}
-          onClick={() => props.setCurrentTab("inbox")}
+          onClick={() => {props.setCurrentTab("inbox"); props.setCurrentEmail(null)}}
         >
           <span className="label">Inbox</span>
           <span className="count">{unreadEmails.length}</span>
         </li>
         <li
           className={`item ${props.currentTab === "starred" ? "active" : ""}`}
-          onClick={() => props.setCurrentTab("starred")}
+          onClick={() => {props.setCurrentTab("starred"); props.setCurrentEmail(null)}}
         >
           <span className="label">Starred</span>
           <span className="count">{starredEmails.length}</span>
@@ -28,7 +28,7 @@ function LeftMenu(props) {
             id="hide-read"
             type="checkbox"
             checked={props.hideRead}
-            onChange={(e) => props.setHideRead(e.target.checked)}
+            onChange={(e) => {props.setHideRead(e.target.checked); props.setCurrentEmail(null)}}
           />
         </li>
       </ul>

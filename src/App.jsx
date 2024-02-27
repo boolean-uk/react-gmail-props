@@ -15,6 +15,7 @@ function App() {
   const [emails, setEmails] = useState(initialEmails);
   const [hideRead, setHideRead] = useState(false);
   const [currentTab, setCurrentTab] = useState("inbox");
+  const [currentEmail, setCurrentEmail] = useState(null);
 
   let filteredEmails = emails;
 
@@ -32,8 +33,9 @@ function App() {
         setCurrentTab={setCurrentTab}
         hideRead={hideRead}
         setHideRead={setHideRead}
+        setCurrentEmail={setCurrentEmail}
       />
-      <Emails filteredEmails={filteredEmails} setEmails={setEmails} />
+      <Emails filteredEmails={filteredEmails} setEmails={setEmails} currentEmail= {currentEmail} setCurrentEmail = {setCurrentEmail}/>
     </div>
   );
 }

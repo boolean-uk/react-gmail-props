@@ -4,34 +4,44 @@ export default [
     sender: `Zoom`,
     title: `Cloud Recording - Nicolas Marcora's Personal Meeting Room is now available`,
     starred: false,
-    read: true
+    read: true,
+    text: "",
+    img: null,
   },
   {
     id: 2,
     sender: `Zoom`,
     title: `Sean Davison has joined your Personal Meeting Room`,
     starred: false,
-    read: false
+    read: false,
+    text: "email 2",
+    img: null,
   },
   {
     id: 3,
     sender: `Notion`,
     title: `1 update in Boolean`,
     starred: true,
-    read: true
+    read: true,
+    text: "email 3",
+    img: null,
   },
   {
     id: 4,
     sender: `The Calendly Team`,
     title: `Use more than one calendar?`,
     starred: false,
-    read: false
+    read: false,
+    text: "email 4",
+    img: null,
   },
   {
     id: 5,
     sender: `Patrick`,
     title: `Updated invitation: Coding chat with Nico`,
     starred: true,
-    read: false
-  }
-]
+    read: false,
+    text: "email 5",
+    img: null,
+  },
+];
