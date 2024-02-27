@@ -1,7 +1,7 @@
 export default function Email(props) {
   //const { email, toggleRead, toggleStar } = props;
   return (
-    <li key={props.email.id} className={`email ${props.email.read ? "read" : "unread"}`}>
+    <li key={props.email.id} className={`email ${props.email.read ? "read" : "unread"}`} onClick={() => props.onClick(props.email)}>
       <div className="select">
         <input
           className="select-checkbox"
