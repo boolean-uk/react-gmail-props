@@ -47,6 +47,7 @@
   grid-area: left-menu;
   padding: 10px;
   padding-left: 0;
+  height:100vh;
 }
 
 .app > .left-menu .inbox-list {

@@ -5,7 +5,7 @@ function singleEmail(props){
     return(
 <>
         <li id={props.id} className={`email ${props.email.read ? 'read' : 'unread'}`}
-      >
+        >
         <div className="select">
           <input
             className="select-checkbox"
@@ -23,7 +23,7 @@ function singleEmail(props){
           />
         </div>
         <div className="sender">{props.email.sender}</div>
-        <div className="title">{props.email.title}</div>
+        <div className="title" onClick={(e)=>{props.setActive(e); props.setStatusRead(props.email)}}>{props.email.title}</div>
       </li>
       </>
     )
