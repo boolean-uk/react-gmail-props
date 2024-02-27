@@ -17,12 +17,7 @@ function Emails(props) {
     <main className="emails">
       <ul>
         {filteredEmails.map((email, index) => (
-          <Email
-            key={index}
-            email={email}
-            index={index}
-            setEmails={props.setEmails}
-          />
+          <Email key={index} email={email} setEmails={props.setEmails} />
         ))}
       </ul>
     </main>
