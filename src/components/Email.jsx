@@ -1,8 +1,10 @@
-import React from 'react'
+import PropTypes from 'prop-types'
 
 function Email(props) {
+
   return (
     <li
+    onClick={() => props.setShowOpenMail(true)}
     key={props.index}
     className={`email ${props.email.read ? 'read' : 'unread'}`}
   >
@@ -26,6 +28,14 @@ function Email(props) {
     <div className="title">{props.email.title}</div>
   </li>
   )
+}
+
+Email.propTypes = {
+    index: PropTypes.number,
+    email: PropTypes.object,
+    toggleRead: PropTypes.func,
+    toggleStar: PropTypes.func,
+    setShowOpenMail: PropTypes.func
 }
 
 export default Email
