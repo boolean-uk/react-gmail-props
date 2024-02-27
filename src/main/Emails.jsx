@@ -7,8 +7,15 @@ export default function Emails(props) {
   const [selectedEmail, setSelectedEmail] = useState(null);
 
   const handleEmailClick = (email) => {
-    setSelectedEmail(email)
-    console.log("clicked on <li> email dom element")
+    // Fold the open mail if already selected
+    if (selectedEmail === email) {
+        setSelectedEmail(null)
+    // Open the mail if null is selected
+    } else {
+      props.setEmails([])
+      setSelectedEmail(email)
+      console.log("clicked on <li> email dom element")
+    }
   }
 
   return (
@@ -20,10 +27,15 @@ export default function Emails(props) {
             email={email}
             toggleRead={props.toggleRead}
             toggleStar={props.toggleStar}
+            initialEmails={props.initialEmails}
             onClick={() => handleEmailClick(email)}/>
         ))}
       </ul>
-      {selectedEmail && <EmailContent email={selectedEmail} />}
+      {selectedEmail && <EmailContent 
+                          email={selectedEmail}
+                          setEmails={props.setEmails}
+                          initialEmails={props.initialEmails}/>
+                          }
     </main>
   );
 }

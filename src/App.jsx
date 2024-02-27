@@ -59,6 +59,10 @@ function App() {
         filteredEmails={filteredEmails}
         toggleRead={toggleRead}
         toggleStar={toggleStar}
+        // Extension below
+        initialEmails={initialEmails}
+        emails={emails}
+        setEmails={setEmails}
         />
     </div>
   )

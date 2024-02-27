@@ -1,0 +1,47 @@
+.email-content {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .email-sender {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .email-title {
+    margin-bottom: 10px;
+  }
+  
+  .email-body {
+    margin-bottom: 20px;
+  }
+  
+  .reply-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .send-reply {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .return-to-inbox {
+    background-color: #fbbc05;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
