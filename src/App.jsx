@@ -1,7 +1,5 @@
 import { useState } from 'react'
-
 import initialEmails from './data/emails'
-
 import './styles/App.css'
 import Emails from './Components/Emails'
 

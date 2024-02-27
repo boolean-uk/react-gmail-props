@@ -6,9 +6,10 @@ function Emails(props) {
     <ul>
       {props.filteredEmails.map((email, index) => (
         <Email
-          key={email.text}
-          index={index}
+          key={index}
           email={email}
+          toggleRead={props.toggleRead}
+          toggleStar={props.toggleStar}
         />
       ))}
     </ul>
@@ -16,7 +17,9 @@ function Emails(props) {
 }
 
 Emails.propTypes = {
-    filteredEmails: PropTypes.arrayOf(PropTypes.object),
+  filteredEmails: PropTypes.arrayOf(PropTypes.object),
+  toggleRead: PropTypes.func,
+  toggleStar: PropTypes.func,
 };
 
 export default Emails;
