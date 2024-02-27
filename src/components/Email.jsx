@@ -1,9 +1,9 @@
 
 //Defning an Email component that takes email, toggleRead and toggleStar 
 function Email(props){
-    const {email, toggleRead, toggleStar} = props
+    const {index, email, toggleRead, toggleStar} = props
     return (
-        <li className={`email ${email.read ? 'read' : 'unread'}`}>
+        <li key={index} className={`email ${email.read ? 'read' : 'unread'}`}>
             <div className="select">
                 <input
                     className="select-checkbox"
