@@ -18,6 +18,12 @@ function Email(props) {
       );
     props.setEmails(updatedEmails);
   };
+
+  const openEmail = () => {
+    props.setCurrentEmail(props.email);
+    props.email.read = true;
+  };
+
   return (
     <li
       key={props.key}
@@ -39,13 +45,10 @@ function Email(props) {
           onChange={() => toggleStar(props.email)}
         />
       </div>
-      <div
-        className="sender"
-        onClick={() => props.setCurrentEmail(props.email)}
-      >
+      <div className="sender" onClick={openEmail}>
         {props.email.sender}
       </div>
-      <div className="title" onClick={() => props.setCurrentEmail(props.email)}>
+      <div className="title" onClick={openEmail}>
         {props.email.title}
       </div>
     </li>

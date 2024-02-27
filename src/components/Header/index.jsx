@@ -1,6 +1,6 @@
 import "./index.css";
 
-function Header() {
+function Header(props) {
   return (
     <header className="header">
       <div className="left-menu">
@@ -8,14 +8,18 @@ function Header() {
           <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
         </svg>
 
-        <img
+        <img 
           src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r2.png"
           alt="gmail logo"
         />
       </div>
 
       <div className="search">
-        <input className="search-bar" placeholder="Search mail" />
+        <input
+          className="search-bar"
+          placeholder="Search mail"
+          onChange={(event) => props.setCurrentSearch(event.target.value)}
+        />
       </div>
     </header>
   );
