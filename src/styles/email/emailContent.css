@@ -1,0 +1,37 @@
+
+.email-content--header {
+    padding: 0.5rem 1rem;
+  
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 1rem;
+  }
+  
+  .email-content--header .avatar {
+    width: 56px;
+    height: 56px;
+  
+    border-radius: 100%;
+    background-color: #eee;
+  }
+
+  
+.email-info {
+    padding: 0.25rem 0;
+  }
+  
+  .email-info .sender-info h2 {
+    margin-right: 1rem;
+  
+    display: inline-block;
+  
+    font-size: 0.925rem;
+  }
+  
+  .email-info .user-info {
+    margin-top: 0.5rem;
+  }
+  
+  .email-info .user-info p {
+    font-size: 0.825rem;
+  }
