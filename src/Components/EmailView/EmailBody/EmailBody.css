@@ -1,0 +1,9 @@
+.email-body {
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-bottom: 60px;
+}
+
+.email-body > p {
+    width: 80%;
+}

@@ -1,0 +1,13 @@
+.email-text-container > textarea {
+    resize: none;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.email-text-container {
+    position: absolute;
+    width:79%;
+    height: 200px;
+    padding: 5px;
+}

@@ -1,0 +1,27 @@
+.compose-area > .compose-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 96%;
+    top: 70%;
+    left: 2%;
+}
+
+.compose-footer-left > button:hover, .compose-footer-right > button:hover {
+    background-color: lightgray;
+}
+
+.compose-footer-right > button, .compose-footer-left > button {
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    background: none;
+    border-radius: 30%;
+    border: none;
+}
+
+.compose-footer-right > button > img, .compose-footer-left > button > img {
+    max-width: 15px;
+    max-height: 15px;
+}
