@@ -8,6 +8,10 @@
     180px 1fr;
 }
 
+input {
+  cursor: pointer;
+}
+
 .app > .header {
   grid-area: header;
 
@@ -28,6 +32,7 @@
   width: 25px;
   height: 25px;
   margin: 10px;
+  cursor: pointer;
 }
 
 .app > .header > .search {
@@ -70,6 +75,7 @@
   grid-auto-flow: column;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -81,6 +87,10 @@
 
 .app > .left-menu .inbox-list .item.toggle {
   background-color: transparent;
+  margin-top: 0px;
+  padding-top: 18px;
+  border-radius: 0;
+  border-top: 1px solid lightgray;
 }
 
 .email {
@@ -121,6 +131,7 @@
   position: relative;
   display: grid;
   align-content: center;
+  cursor: pointer;
 }
 
 .email .star-checkbox:focus {
