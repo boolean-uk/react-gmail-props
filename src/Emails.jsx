@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import Email from "./Email";
 
+import "./styles/Emails.css";
+
 const getReadEmails = (emails) => emails.filter((email) => !email.read);
 
 const getStarredEmails = (emails) => emails.filter((email) => email.starred);

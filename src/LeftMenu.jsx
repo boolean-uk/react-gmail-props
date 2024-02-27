@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 
+import "./styles/LeftMenu.css";
+
 function LeftMenu(props) {
   const unreadEmails = props.emails.filter((email) => !email.read);
   const starredEmails = props.emails.filter((email) => email.starred);

@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 
+import "./styles/Email.css";
+
 function Email(props) {
   const toggleStar = (targetEmail) => {
     const updatedEmails = (emails) =>
