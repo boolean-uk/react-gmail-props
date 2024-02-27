@@ -1,8 +1,10 @@
 import { useState } from 'react'
 
 import initialEmails from './data/emails'
+import Emails from './Emails'
 
 import './styles/App.css'
+import EmailDisplayed from './EmailDisplayed'
 
 const getReadEmails = emails => emails.filter(email => !email.read)
 
@@ -12,27 +14,10 @@ function App() {
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
-
+  const [openEmail, setOpenEmail] = useState()
+  
   const unreadEmails = emails.filter(email => !email.read)
   const starredEmails = emails.filter(email => email.starred)
-
-  const toggleStar = targetEmail => {
-    const updatedEmails = emails =>
-      emails.map(email =>
-        email.id === targetEmail.id
-          ? { ...email, starred: !email.starred }
-          : email
-      )
-    setEmails(updatedEmails)
-  }
-
-  const toggleRead = targetEmail => {
-    const updatedEmails = emails =>
-      emails.map(email =>
-        email.id === targetEmail.id ? { ...email, read: !email.read } : email
-      )
-    setEmails(updatedEmails)
-  }
 
   let filteredEmails = emails
 
@@ -87,35 +72,20 @@ function App() {
           </li>
         </ul>
       </nav>
-      <main className="emails">
-        <ul>
-          {filteredEmails.map((email, index) => (
-            <li
-              key={index}
-              className={`email ${email.read ? 'read' : 'unread'}`}
-            >
-              <div className="select">
-                <input
-                  className="select-checkbox"
-                  type="checkbox"
-                  checked={email.read}
-                  onChange={() => toggleRead(email)}
-                />
-              </div>
-              <div className="star">
-                <input
-                  className="star-checkbox"
-                  type="checkbox"
-                  checked={email.starred}
-                  onChange={() => toggleStar(email)}
-                />
-              </div>
-              <div className="sender">{email.sender}</div>
-              <div className="title">{email.title}</div>
-            </li>
-          ))}
-        </ul>
-      </main>
+      {}
+        {openEmail 
+        ? <EmailDisplayed
+          title={openEmail.title}
+          sender={openEmail.sender}
+        /> 
+        : <Emails
+          filteredEmails={filteredEmails}
+          initialEmails={initialEmails}
+          setEmails={setEmails}
+          emails={emails}
+          setOpenEmail={setOpenEmail}
+        />
+        }
     </div>
   )
 }
