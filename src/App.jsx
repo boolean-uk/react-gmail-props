@@ -3,10 +3,12 @@ import { useState } from 'react'
 import initialEmails from './data/emails'
 
 import './styles/App.css'
+import Emails from './emails/Emails.jsx'
 
 const getReadEmails = emails => emails.filter(email => !email.read)
 
 const getStarredEmails = emails => emails.filter(email => email.starred)
+
 
 function App() {
   const [emails, setEmails] = useState(initialEmails)
@@ -15,6 +17,8 @@ function App() {
 
   const unreadEmails = emails.filter(email => !email.read)
   const starredEmails = emails.filter(email => email.starred)
+
+
 
   const toggleStar = targetEmail => {
     const updatedEmails = emails =>
@@ -33,6 +37,8 @@ function App() {
       )
     setEmails(updatedEmails)
   }
+
+
 
   let filteredEmails = emails
 
@@ -56,7 +62,7 @@ function App() {
         </div>
 
         <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
+          <input className="search-bar" placeholder="Search mail" onChange={(e) => searchByTitle(e.target.value)}/>
         </div>
       </header>
       <nav className="left-menu">
@@ -87,35 +93,7 @@ function App() {
           </li>
         </ul>
       </nav>
-      <main className="emails">
-        <ul>
-          {filteredEmails.map((email, index) => (
-            <li
-              key={index}
-              className={`email ${email.read ? 'read' : 'unread'}`}
-            >
-              <div className="select">
-                <input
-                  className="select-checkbox"
-                  type="checkbox"
-                  checked={email.read}
-                  onChange={() => toggleRead(email)}
-                />
-              </div>
-              <div className="star">
-                <input
-                  className="star-checkbox"
-                  type="checkbox"
-                  checked={email.starred}
-                  onChange={() => toggleStar(email)}
-                />
-              </div>
-              <div className="sender">{email.sender}</div>
-              <div className="title">{email.title}</div>
-            </li>
-          ))}
-        </ul>
-      </main>
+      <Emails filteredEmails={filteredEmails} toggleRead={toggleRead} toggleStar={toggleStar}/>
     </div>
   )
 }
