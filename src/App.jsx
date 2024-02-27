@@ -5,7 +5,7 @@ import initialEmails from './data/emails'
 import './styles/App.css'
 import Header from './components/Header'
 import LeftMenu from './components/LeftMenu'
-import Emails from './data/emails'
+import Emails from './components/Emails'
 
 const getReadEmails = emails => emails.filter(email => !email.read)
 
