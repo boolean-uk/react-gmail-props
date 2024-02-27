@@ -34,8 +34,7 @@ function Emails(props) {
           ))}
         </ul>
       </main>
-    )
-          
+    )       
 }
 
 Emails.propTypes = {

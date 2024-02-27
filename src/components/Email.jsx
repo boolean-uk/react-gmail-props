@@ -28,6 +28,7 @@ function Email(props) {
     )
 }
 Email.propTypes = {
+  key: PropTypes.any,
   email: PropTypes.object.isRequired,
   toggleStar: PropTypes.any.isRequired,
   toggleRead: PropTypes.any.isRequired

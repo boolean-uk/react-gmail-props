@@ -1,5 +1,8 @@
 
-function Header (){
+function Header (props){
+
+
+
     return(
         <header className="header">
             <div className="left-menu">
@@ -14,7 +17,9 @@ function Header (){
             </div>
 
             <div className="search">
-                <input className="search-bar" placeholder="Search mail" />
+                <input className="search-bar" placeholder="Search mail"
+                value={props.searchTerm}
+                onChange={(e) => props.setSearchTerm(e.target.value)} />
             </div>
         </header>
     )
