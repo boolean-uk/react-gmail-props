@@ -1,8 +1,18 @@
 import '../styles/header.css'
 import '../styles/leftMenu.css'
+import Prototype from 'prop-types'
 
+const Header = (props) => {
 
-const Header = () => {
+  Header.Prototype = {
+    emails: Prototype.array,
+    setEmails: Prototype.func,
+    initialEmails: Prototype.array,
+    currentTab: Prototype.string,
+    hideRead: Prototype.bool
+  }
+
+  const {setEmails, initialEmails} = props ?? {}
 
 
     return (
@@ -19,7 +29,14 @@ const Header = () => {
         </div>
 
         <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
+          <input className="search-bar" placeholder="Search mail" 
+          onChange={(e) => {
+            
+            const updatedEmails = initialEmails.filter(email => email.sender.toLowerCase().includes(e.target.value.toLowerCase()))
+            setEmails(updatedEmails)
+          }
+          }/>
+
         </div>
       </header>
     )

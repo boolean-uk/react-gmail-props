@@ -62,7 +62,7 @@ const EmailContent = (props) => {
               </ul>
             </div>
           </header>
-          <EmailBody />
+          <EmailBody emailToShow={emailToShow}/>
           <EmailActions />
         </article>
       ) 

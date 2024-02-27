@@ -1,21 +1,25 @@
-import React from 'react'
 import '../../styles/email/EmailBody.css'
+import Prototype from 'prop-types'
 
 
 
 
 
-class EmailBody extends React.Component {
-    render() {
-      return(
-        <section className="email-body">
-        <div className="content">
-          asddddddddddd
-        </div>
-      </section>
-      ) 
-      
-      }
+const EmailBody = (props) => {
+
+  EmailBody.Prototype = {
+    emailToShow: Prototype.object
+  }
+
+  const {emailToShow} = props ?? {}
+
+  return(
+    <section className="email-body">
+    <div className="content">
+      {emailToShow.title}
+    </div>
+  </section>
+  ) 
     }
 
     export default EmailBody;

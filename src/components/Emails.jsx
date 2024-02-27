@@ -12,10 +12,11 @@ const Emails = (props) => {
         hideRead: ProtoType.bool,
         currentTab: ProtoType.string,
         setShowEmail: ProtoType.bool,
-        setEmailToShow: ProtoType.func
+        setEmailToShow: ProtoType.func,
+        setBaseEmails: ProtoType.func
     }
 
-    const {emails, setEmails, hideRead, currentTab, setShowEmail, setEmailToShow} = props 
+    const {emails, setEmails, hideRead, currentTab, setShowEmail, setEmailToShow, setBaseEmails} = props ?? {}
 
     
     const getReadEmails = emails => emails.filter(email => !email.read)
@@ -37,6 +38,7 @@ const Emails = (props) => {
               ? { ...email, starred: !email.starred }
               : email
           )
+        setBaseEmails(updatedEmails)
         setEmails(updatedEmails)
       }
     
@@ -45,6 +47,7 @@ const Emails = (props) => {
             emails.map(email =>
                 email.id === targetEmail.id ? { ...email, read: !email.read } : email
           )
+        setBaseEmails(updatedEmails)
         setEmails(updatedEmails)
       }
     

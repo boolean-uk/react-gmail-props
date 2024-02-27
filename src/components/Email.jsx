@@ -13,6 +13,7 @@ const Email = (props) => {
     }
 
     const {email, toggleRead, toggleStar, setShowEmail, setEmailToShow} = props ?? {}
+
     return (
     <li
 
@@ -36,7 +37,7 @@ const Email = (props) => {
       />
     </div>
     <div className="sender">{email.sender}</div>
-    <div className="title"     onClick={() => {
+    <div className="title"  onClick={() => {
         setEmailToShow(email)
         setShowEmail(true)
     }
