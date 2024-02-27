@@ -1,0 +1,117 @@
+/* email-response */
+.email-response {
+    display: grid;
+    grid-template-columns: 70px auto;
+}
+
+/* PFP */
+.profile {
+    width: 40px;
+    height: 40px;
+    margin: 8px
+}
+
+/* The Response Box*/
+.writing-box {
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    border: 1px solid gray;
+    border-radius: 1%/7%;
+    padding: 15px;
+    min-height: 200px;
+}
+
+.writing-box-options {
+    height: 11px;
+    width: 19px;
+}
+
+
+/* Header */
+.writing-box-header {
+    display: flex;
+    flex-direction: row;
+    max-height: 20px;
+}
+
+.reply {
+    height: 14px;
+    width: 13px;
+}
+
+.reply-options {
+    height: 14px;
+    width: 13px;
+    margin-right: 10px;
+    margin-left: 3px;
+}
+
+.email-recepient {
+    flex-grow: 1;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    margin: 0;
+}
+
+.share {
+    height: 14px;
+    width: 14px;
+}
+
+
+
+/* Text Area */
+.writing-box-textarea {
+    width: 100%;
+    flex-grow: 1;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    vertical-align: top;
+    line-height: 1;
+    resize: none;
+}
+
+/* Actions */
+.writing-box-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.send-button {
+    padding: 6px 20px 6px 10px;
+    color: white;
+    background-color: rgb(35, 156, 255);
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    border-radius: 8% 0 0 8%;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.select-send-button {
+    padding: 5px 0px 5px 0px;
+    color: white;
+    background-color: rgb(35, 156, 255);
+    border-radius: 0 8% 8% 0;
+    box-sizing: border-box;
+    border: none;
+    border-left: 0.3px solid gray;
+    outline: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.actions {
+    margin-left: 10px;
+    height: 30px;
+}
+
+.dand {
+    margin-left: auto;
+    height: 25px;
+}
