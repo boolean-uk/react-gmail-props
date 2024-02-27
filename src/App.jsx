@@ -1,8 +1,9 @@
 import { useState } from 'react'
 
 import initialEmails from './data/emails'
-import Header from './Header.jsx'
-import Leftmenu from './Leftmenu.jsx'
+import Emails from './main/Emails.jsx'
+import Header from './header/Header.jsx'
+import Leftmenu from './navigation/Leftmenu.jsx'
 
 import './styles/App.css'
 
@@ -48,42 +49,17 @@ function App() {
      <Header />
      <Leftmenu 
         currentTab={currentTab} 
-        setCurrentTab={setCurrentTab} 
         unreadEmails={unreadEmails} 
         starredEmails={starredEmails}
-        setHideRead={setHideRead}
         hideRead={hideRead}
+        setHideRead={setHideRead}
+        setCurrentTab={setCurrentTab} 
         />
-     
-      <main className="emails">
-        <ul>
-          {filteredEmails.map((email, index) => (
-            <li
-              key={index}
-              className={`email ${email.read ? 'read' : 'unread'}`}
-            >
-              <div className="select">
-                <input
-                  className="select-checkbox"
-                  type="checkbox"
-                  checked={email.read}
-                  onChange={() => toggleRead(email)}
-                />
-              </div>
-              <div className="star">
-                <input
-                  className="star-checkbox"
-                  type="checkbox"
-                  checked={email.starred}
-                  onChange={() => toggleStar(email)}
-                />
-              </div>
-              <div className="sender">{email.sender}</div>
-              <div className="title">{email.title}</div>
-            </li>
-          ))}
-        </ul>
-      </main>
+      <Emails 
+        filteredEmails={filteredEmails}
+        toggleRead={toggleRead}
+        toggleStar={toggleStar}
+        />
     </div>
   )
 }
