@@ -1,6 +1,6 @@
 import Email from './EmailComponent';
 
-function Emails( { filteredEmails, toggleRead, toggleStar} ) {
+function Emails( { filteredEmails, toggleRead, toggleStar, setDisplayEmail} ) {
     return (  
 <main className="emails">
         <ul>
@@ -10,6 +10,7 @@ function Emails( { filteredEmails, toggleRead, toggleStar} ) {
                 email={email}
                 toggleRead={toggleRead}
                 toggleStar={toggleStar}
+                setDisplayEmail={setDisplayEmail}
             />
 
           ))}

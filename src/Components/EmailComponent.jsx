@@ -1,7 +1,8 @@
-const  Email = ({email, toggleRead, toggleStar}) => {
+const  Email = ({email, toggleRead, toggleStar, setDisplayEmail}) => {
     return ( 
         <li
-            className={`email ${email.read ? 'read' : 'unread'}`}>
+            className={`email ${email.read ? 'read' : 'unread'}`}
+            onClick={() => setDisplayEmail(email)}>
             <div className="select">
             <input
                 className="select-checkbox"

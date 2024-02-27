@@ -6,6 +6,7 @@ import './styles/App.css'
 import Header from './Components/Header'
 import Emails from './Components/Emails'
 import LeftMenu from './Components/LeftMenu'
+import EmailDisplay from './Components/EmailDisplay'
 
 const getReadEmails = emails => emails.filter(email => !email.read)
 
@@ -15,6 +16,9 @@ function App() {
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
+
+  //Extension 1
+  const [displayEmail, setDisplayEmail] = useState("");
   
 
 
@@ -47,6 +51,16 @@ function App() {
   if (currentTab === 'starred')
     filteredEmails = getStarredEmails(filteredEmails)
 
+
+  //Extension 1 Start
+
+
+  let display = < Emails filteredEmails={filteredEmails} toggleRead={toggleRead} toggleStar={toggleStar} setDisplayEmail={setDisplayEmail}/>
+  if (displayEmail !== "") {
+    display = < EmailDisplay displayEmail={displayEmail} setDisplayEmail={setDisplayEmail}/>
+  }
+
+  // Extension 1 End
 
 
   // Extension 2 start
@@ -88,7 +102,7 @@ function App() {
         setHideRead={setHideRead}
         />
 
-      < Emails filteredEmails={filteredEmails} toggleRead={toggleRead} toggleStar={toggleStar}/>
+      {display}
     </div>
   )
 }
