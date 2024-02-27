@@ -23,7 +23,7 @@ function Email(props) {
 
       <div className="sender">{props.email.sender}</div>
 
-      
+      <div className="title">{props.email.title}</div>
 
 
     </li>
