@@ -1,0 +1,74 @@
+.container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
+}
+.container-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.reply-input {
+    padding: 1rem;
+    border: 1px solid black;
+        border-radius: 8px;
+}
+
+
+.reply-input> form {
+    padding: 10px;
+}
+
+.reply-input> form> input {
+    margin-bottom: 10px;
+    max-width: 100%;
+    width:1200px;
+    min-height: 30vh;
+    max-height: max-content;
+    border-top: 1px;
+    border: none;
+}
+
+.reply-input> form .send-btn {
+    background-color: #008CBA;
+    color:azure;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 5px;
+    border: 1px solid #a1a1a1;
+  
+    font-weight: bold;
+    max-width: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+
+.reply-input> form img {
+    display: block;
+    margin-left: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    align-items: self-end;
+    padding: auto;
+    max-width: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+
+.reply-input> form> .right{
+    
+    padding-right: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #a1a1a1;
+  
+    font-weight: bold;
+}
+
+.reply-input> .icon{
+    display: inline-block;
+    padding-right: 1rem;
+}
+
