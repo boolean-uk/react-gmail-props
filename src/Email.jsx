@@ -39,8 +39,32 @@ function Email(props) {
           onChange={() => toggleStar(props.email)}
         />
       </div>
-      <div className="sender">{props.email.sender}</div>
-      <div className="title">{props.email.title}</div>
+      <div
+        className="sender"
+        // Want to display email if clicked
+        onClick={() => {
+          props.setSelectedEmail(props.email);
+          // Email read if not already read
+          if (!props.email.read) {
+            toggleRead(props.email);
+          }
+        }}
+      >
+        {props.email.sender}
+      </div>
+      <div
+        className="title"
+        // Want to display email if clicked
+        onClick={() => {
+          props.setSelectedEmail(props.email);
+          // Email read if not already read
+          if (!props.email.read) {
+            toggleRead(props.email);
+          }
+        }}
+      >
+        {props.email.title}
+      </div>
     </li>
   );
 }
@@ -48,6 +72,7 @@ function Email(props) {
 Email.propTypes = {
   email: PropTypes.object,
   setEmails: PropTypes.func,
+  setSelectedEmail: PropTypes.func,
 };
 
 export default Email;

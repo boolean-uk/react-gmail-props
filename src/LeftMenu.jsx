@@ -11,14 +11,22 @@ function LeftMenu(props) {
       <ul className="inbox-list">
         <li
           className={`item ${props.currentTab === "inbox" ? "active" : ""}`}
-          onClick={() => props.setCurrentTab("inbox")}
+          onClick={() => {
+            props.setCurrentTab("inbox");
+            // Want to close displayed email if clicked
+            props.setSelectedEmail(null);
+          }}
         >
           <span className="label">Inbox</span>
           <span className="count">{unreadEmails.length}</span>
         </li>
         <li
           className={`item ${props.currentTab === "starred" ? "active" : ""}`}
-          onClick={() => props.setCurrentTab("starred")}
+          onClick={() => {
+            props.setCurrentTab("starred");
+            // Want to close displayed email if clicked
+            props.setSelectedEmail(null);
+          }}
         >
           <span className="label">Starred</span>
           <span className="count">{starredEmails.length}</span>
@@ -44,6 +52,7 @@ LeftMenu.propTypes = {
   setHideRead: PropTypes.func,
   currentTab: PropTypes.string,
   setCurrentTab: PropTypes.func,
+  setSelectedEmail: PropTypes.func,
 };
 
 export default LeftMenu;

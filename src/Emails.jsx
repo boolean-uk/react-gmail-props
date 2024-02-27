@@ -19,7 +19,12 @@ function Emails(props) {
     <main className="emails">
       <ul>
         {filteredEmails.map((email, index) => (
-          <Email key={index} email={email} setEmails={props.setEmails} />
+          <Email
+            key={index}
+            email={email}
+            setEmails={props.setEmails}
+            setSelectedEmail={props.setSelectedEmail}
+          />
         ))}
       </ul>
     </main>
@@ -31,6 +36,7 @@ Emails.propTypes = {
   hideRead: PropTypes.bool,
   currentTab: PropTypes.string,
   setEmails: PropTypes.func,
+  setSelectedEmail: PropTypes.func,
 };
 
 export default Emails;
