@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types'
 
+import '../styles/Email.css'
+
 function Email({ email, toggleRead, toggleStar }) {
     return (
       <li className={`email ${email.read ? "read" : "unread"}`}>
