@@ -12,6 +12,8 @@ const getReadEmails = emails => emails.filter(email => !email.read)
 
 const getStarredEmails = emails => emails.filter(email => email.starred)
 
+const getSearchedEmails = emails => emails.filter(email => email.title === search)
+
 function App() {
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
@@ -30,6 +32,9 @@ function App() {
   if (currentTab === 'starred')
     filteredEmails = getStarredEmails(filteredEmails)
 
+  if (search !== '') 
+    filteredEmails = getSearchedEmails(filteredEmails)
+
   return (
     <div className="app">
       <header className="header">
@@ -45,7 +50,7 @@ function App() {
         </div>
 
         <div className="search">
-          <input className="search-bar" placeholder="Search mail"/>
+          <input className="search-bar" placeholder="Search mail" onSubmit={(e) => setSearch(e.value)}/>
         </div>
       </header>
       <LeftMenu 
@@ -57,6 +62,7 @@ function App() {
         starredEmails={starredEmails}
       />
       {}
+      {/* If an email is open, render a back button and the email*/}
         {openEmail 
         ? 
         <div className="open-email">
