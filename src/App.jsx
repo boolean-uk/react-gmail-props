@@ -48,9 +48,16 @@ function App() {
   if (currentTab === "starred")
     filteredEmails = getStarredEmails(filteredEmails);
 
+  const handleSearch = (query) => {
+    const filtered = initialEmails.filter((email) =>
+      email.title.toLowerCase().includes(query.toLowerCase())
+    );
+    setEmails(filtered);
+  };
+
   return (
     <div className="app">
-      <Header />
+      <Header handleSearch={handleSearch} />
       <Navigation
         currentTab={currentTab}
         setCurrentTab={setCurrentTab}
@@ -60,9 +67,7 @@ function App() {
         setHideRead={setHideRead}
       />
       {selectedEmail ? (
-        <EmailDisplay
-          handleReturnInbox={handleReturnInbox}
-        />
+        <EmailDisplay handleReturnInbox={handleReturnInbox} />
       ) : (
         <Emails
           filteredEmails={filteredEmails}
