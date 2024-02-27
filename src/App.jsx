@@ -49,13 +49,35 @@ function App() {
 
 
 
+  // Extension 2 start
 
+  // Stora and updater of search state
+  const [search, setSearch] = useState("");
+
+  // Updates search state when search bar changes in heder component
+  const  searcher = e => {
+    setSearch(e.target.value)
+  }
+
+  // Function for filtering emails based on search. chacks of any of the email title includes the search, in lower case 
+  // search finds email title and/or sender
+  const getSearchEmails = filteredEmails => filteredEmails.filter(email => 
+    email.title.toLowerCase().includes(search.toLocaleLowerCase()) ||
+    email.sender.toLowerCase().includes(search.toLocaleLowerCase()))
+
+  // If search bar is empty do nothing
+  // If not empty, then filter already filtered emails with the filter search email function
+  if (search !== "") filteredEmails = getSearchEmails(filteredEmails)
+
+  // The sercher function is passed into the header component below
+
+  // End Extension 2
 
 
   return (
     <div className="app">
       
-      < Header />
+      < Header searcher={searcher}/>
     
       < LeftMenu 
         currentTab={currentTab}

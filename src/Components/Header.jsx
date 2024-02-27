@@ -1,4 +1,4 @@
-function Header() {
+function Header({searcher}) {
     return ( 
         <header className="header">
         <div className="left-menu">
@@ -13,7 +13,10 @@ function Header() {
         </div>
 
         <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
+          <input 
+            className="search-bar" 
+            placeholder="Search mail" 
+            onChange={searcher}/>
         </div>
       </header>
      );
