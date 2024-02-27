@@ -20,7 +20,7 @@ export default function App() {
   const unreadEmails = emails.filter(email => !email.read)
   const starredEmails = emails.filter(email => email.starred)
 
-  let filteredEmails = emails.filter(email => email.title.toLowerCase().includes(searchInput.toLowerCase()));
+  let filteredEmails = emails.filter(email => email.title.toLowerCase().includes(searchInput));
 
   if (hideRead) filteredEmails = getReadEmails(filteredEmails)
 

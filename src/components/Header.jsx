@@ -19,7 +19,7 @@ export default function Header({ searchInput, setSearchInput }) {
           className="search-bar" 
           placeholder="Search mail" 
           value={searchInput} 
-          onChange={(e) => setSearchInput(e.target.value)}
+          onChange={(e) => setSearchInput(e.target.value.toLowerCase())}
         />
       </div>
     </header>
