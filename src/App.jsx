@@ -2,9 +2,10 @@ import { useState } from 'react'
 
 import initialEmails from './data/emails'
 import Emails from './Emails'
+import EmailDisplayed from './EmailDisplayed'
 
 import './styles/App.css'
-import EmailDisplayed from './EmailDisplayed'
+import backButton from './assets/back.png'
 
 const getReadEmails = emails => emails.filter(email => !email.read)
 
@@ -75,14 +76,17 @@ function App() {
       {}
         {openEmail 
         ? 
-        <>
-          <button className="back" onClick={() => setOpenEmail(null)}>Back</button>
+        <div className="open-email">
+          <button className="back" onClick={() => setOpenEmail(null)}>
+          </button>
           <EmailDisplayed
             title={openEmail.title}
             sender={openEmail.sender}
             setOpenEmail={setOpenEmail}
+            contents={openEmail.contents}
+            email={openEmail.email}
           /> 
-        </>
+        </div>
         : <Emails
           filteredEmails={filteredEmails}
           initialEmails={initialEmails}

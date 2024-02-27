@@ -1,0 +1,24 @@
+.title {
+    padding: 1rem;
+  }
+  
+  .title h1 {
+    padding-left: 56px;
+  
+    font-weight: normal;
+  }
+
+  
+.email-body .content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .email-body .content img {
+    width: 100%;
+  }
+
+  .app > .emails {
+    grid-area: emails;
+    padding: 10px 0;
+  }

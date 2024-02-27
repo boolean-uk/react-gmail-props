@@ -1,9 +1,15 @@
+import EmailContent from './EmailContent'
+
 function EmailDisplayed(props) {
     return(
         <>
         <div className="email-open">
-            <h1 className="email-title">{props.title}</h1>
-            <h3 className="email-sender">{props.sender}</h3>
+            <EmailContent 
+                title={props.title}
+                sender={props.sender}
+                contents={props.contents}
+                email={props.email}
+            />
         </div>
         </>
     )

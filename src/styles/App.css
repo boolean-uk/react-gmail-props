@@ -72,3 +72,16 @@
 .app > .left-menu .inbox-list .item.toggle {
   background-color: transparent;
 }
+
+.back {
+  opacity: 70%;
+  width: 50px;
+  height: 50px;
+  background-image: URL('src/assets/back.png');
+  background-size: cover;
+  border: none;
+}
+
+.back:hover {
+  opacity: 100%;
+}

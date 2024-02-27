@@ -24,7 +24,10 @@ function Email(props) {
               </div>
               <div className="sender">{props.email.sender}</div>
               <div className="title"
-                onClick={() => props.setOpenEmail(props.email)}
+                onClick={() => {
+                    props.setOpenEmail(props.email)
+                    if (!props.email.read) props.toggleRead(props.email)
+                }}
               >{props.email.title}</div>
         </li>
     )

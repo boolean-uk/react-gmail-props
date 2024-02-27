@@ -19,8 +19,6 @@ function Emails(props) {
         props.setEmails(updatedEmails)
     }
 
-    
-
     return (
         <main className="emails">
         <ul>

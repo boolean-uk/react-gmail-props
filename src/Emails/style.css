@@ -1,9 +1,9 @@
-.app > .emails {
+.app > .open-email {
     grid-area: emails;
     padding: 10px 0;
   }
   
-  .app > .emails > ul {
+  .app > .open-email > ul {
     list-style: none;
     display: grid;
   }
