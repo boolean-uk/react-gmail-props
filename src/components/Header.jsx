@@ -32,7 +32,7 @@ const Header = (props) => {
           <input className="search-bar" placeholder="Search mail" 
           onChange={(e) => {
             
-            const updatedEmails = initialEmails.filter(email => email.sender.toLowerCase().includes(e.target.value.toLowerCase()))
+            const updatedEmails = initialEmails.filter(email => email.title.toLowerCase().includes(e.target.value.toLowerCase()))
             setEmails(updatedEmails)
           }
           }/>
