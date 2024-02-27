@@ -1,0 +1,18 @@
+.email-body .content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+.email-body .content img {
+    width: 100%;
+  }
+  
+.title {
+  padding: 1rem;
+}
+
+.title h1 {
+  padding-left: 56px;
+
+  font-weight: normal;
+}
