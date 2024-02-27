@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import initialEmails from "./data/emails";
 
@@ -8,15 +8,14 @@ import LeftMenu from "./components/menus/left_menu/LeftMenu";
 import Emails from "./components/menus/emails/Emails";
 import EmailViewer from "./components/menus/emails/EmailViewer";
 
-const getReadEmails = (emails) => emails.filter((email) => !email.read);
-
-const getStarredEmails = (emails) => emails.filter((email) => email.starred);
 
 function App() {
   const [emails, setEmails] = useState(initialEmails);
+  const [filteredEmails, setFilteredEmails] = useState([]);
   const [hideRead, setHideRead] = useState(false);
   const [currentTab, setCurrentTab] = useState("inbox");
   const [displayedEmail, setDisplayedEmail] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("")
 
   const unreadEmails = emails.filter((email) => !email.read);
   const starredEmails = emails.filter((email) => email.starred);
@@ -39,16 +38,23 @@ function App() {
     setEmails(updatedEmails);
   };
 
-  let filteredEmails = emails;
-
-  if (hideRead) filteredEmails = getReadEmails(filteredEmails);
-
-  if (currentTab === "starred")
-    filteredEmails = getStarredEmails(filteredEmails);
+  useEffect(() => {
+    let filteredList = emails
+    if (searchQuery.length > 0) {
+      filteredList = filteredList.filter((email) => email.title.toUpperCase().includes(searchQuery.toUpperCase()) || email.sender.toUpperCase().includes(searchQuery.toUpperCase()));
+    }
+    if (currentTab === "starred") {
+      filteredList = filteredList.filter((email) => email.starred);
+    }
+    if (hideRead) {
+      filteredList = filteredList.filter((email) => !email.read);
+    }
+    setFilteredEmails(filteredList)
+  }, [emails, hideRead, currentTab, searchQuery])
 
   return (
     <div className="app">
-      <HeaderMenu />
+      <HeaderMenu searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
       <LeftMenu
         currentTab={currentTab}
         unreadEmailsCount={unreadEmails.count}

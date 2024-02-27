@@ -5,7 +5,6 @@ function Email({ emailData, toggleRead, toggleStar, setDisplayedEmail}) {
     <li
       key={emailData.id}
       className={`email ${emailData.read ? "read" : "unread"}`}
-      onClick={() => setDisplayedEmail(emailData)}
     >
       <div className="select">
         <input
@@ -23,8 +22,8 @@ function Email({ emailData, toggleRead, toggleStar, setDisplayedEmail}) {
           onChange={() => toggleStar(emailData)}
         />
       </div>
-      <div className="sender">{emailData.sender}</div>
-      <div className="title">{emailData.title}</div>
+      <div className="sender" onClick={() => setDisplayedEmail(emailData)}>{emailData.sender}</div>
+      <div className="title" onClick={() => setDisplayedEmail(emailData)}>{emailData.title}</div>
     </li>
   );
 }
