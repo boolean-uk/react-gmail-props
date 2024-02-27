@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 
-function Email({ emailData, toggleRead, toggleStar }) {
+function Email({ emailData, toggleRead, toggleStar, setDisplayedEmail}) {
   return (
     <li
       key={emailData.id}
       className={`email ${emailData.read ? "read" : "unread"}`}
+      onClick={() => setDisplayedEmail(emailData)}
     >
       <div className="select">
         <input
@@ -32,6 +33,7 @@ Email.propTypes = {
   emailData: PropTypes.object,
   toggleRead: PropTypes.func,
   toggleStar: PropTypes.func,
+  setDisplayedEmail: PropTypes.func
 };
 
 export default Email;
