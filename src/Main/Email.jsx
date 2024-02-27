@@ -1,4 +1,9 @@
 function Email(props) {
+  const openMail = (targetEmail) => {
+    props.setReadEmail(true);
+    props.setSelected(targetEmail);
+  };
+
   return (
     <li
       key={props.key}
@@ -20,8 +25,10 @@ function Email(props) {
           onChange={() => props.toggleStar(props.email)}
         />
       </div>
-      <div className="sender">{props.email.sender}</div>
-      <div className="title">{props.email.title}</div>
+      <div className="combined" onClick={() => openMail(props.email)}>
+        <div className="sender">{props.email.sender}</div>
+        <div className="title">{props.email.title}</div>
+      </div>
     </li>
   );
 }

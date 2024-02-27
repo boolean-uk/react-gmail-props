@@ -3,8 +3,8 @@
 
   display: grid;
   grid-template:
-    'header header' 50px
-    'left-menu emails' 1fr /
+    "header header" 50px
+    "left-menu emails" 1fr /
     180px 1fr;
 }
 
@@ -114,8 +114,26 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 49%;
+  margin-right: 300px;
 }
-
+.email .sender {
+  width: 49%;
+}
+.email .combined {
+  display: flex;
+  width: 900px;
+  height: 40px;
+}
+.email .combined:hover {
+  z-index: 1;
+  cursor: pointer;
+}
+.icon:hover {
+  box-shadow: 1px 5px 5px 0 #12f10240;
+  z-index: 5;
+  cursor: pointer;
+}
 .email .star-checkbox {
   appearance: none;
   position: relative;
@@ -129,7 +147,7 @@
 
 .email .star-checkbox:checked::before,
 .email .star-checkbox::before {
-  content: '';
+  content: "";
   background-size: cover;
   width: 20px;
   height: 20px;
