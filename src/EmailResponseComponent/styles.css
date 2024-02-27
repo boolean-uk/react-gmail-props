@@ -1,0 +1,102 @@
+.response-box {
+  display: flex;
+  flex-direction: row;
+  width: 1190px;
+  justify-content: flex-start;
+}
+
+.response-box-image-left {
+  width: 50px;
+  height: 50px;
+}
+
+.response-box-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  border: 1px solid gray;
+  border-radius: 10px;
+  height: 185px;
+  width: 1000px;
+  margin-bottom: 25px;
+  padding-bottom: 45px;
+}
+
+.response-box-main-top-div {
+  display: flex;
+  justify-content: flex-start;
+  height: 35px;
+}
+
+.img5 {
+  height: 70%;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+.email-div {
+  font-size: 13px;
+  margin-top: 8px;
+  color: gray;
+}
+
+.img6 {
+  margin-left: auto;
+  padding-right: 5px;
+  padding-top: 5px;
+  height: 70%;
+}
+
+.text-area {
+  border: none;
+  resize: vertical;
+  min-height: 60px;
+}
+
+.text-area:hover {
+  border: 0.5px solid gray;
+}
+
+.response-box-main-middle-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-top: auto;
+  height: 35px;
+}
+
+.img4 {
+  margin-left: 13px;
+  height: 20px;
+  width: 30px;
+}
+
+.response-box-main-bottom-div {
+  display: flex;
+  justify-content: flex-start;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  padding: 0 10px;
+}
+
+.img1 {
+  height: 90%;
+  object-fit: contain;
+}
+
+#clickableImage {
+  cursor: pointer;
+}
+
+.img2 {
+  height: 85%;
+}
+
+.img3 {
+  height: 80%;
+  margin-left: auto;
+}
