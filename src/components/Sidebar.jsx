@@ -37,7 +37,7 @@ export default function Sidebar({ currentTab, setCurrentTab, unreadEmails, starr
 }
 
 Sidebar.propTypes = {
-  currentTab: PropTypes.string.isRequired,
+  currentTab: PropTypes.string,
   setCurrentTab: PropTypes.func.isRequired,
   unreadEmails: PropTypes.array.isRequired,
   starredEmails: PropTypes.array.isRequired,

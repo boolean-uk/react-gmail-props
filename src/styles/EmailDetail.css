@@ -1,0 +1,20 @@
+.email-detail {
+  padding: 30px;
+  border: 1px solid lightgray;
+  border-top: 0;
+}
+
+.email-detail h2 {
+  margin-bottom: 10px;
+}
+
+.email-detail > .sender {
+  color: rgb(79, 79, 79);
+  font-style: italic;
+  padding-bottom: 10px;
+  border-bottom: 1px solid lightgray;
+}
+
+.email-detail > .content {
+  padding-top: 10px;
+}

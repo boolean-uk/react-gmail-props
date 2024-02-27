@@ -26,13 +26,13 @@ input {
   grid-auto-flow: column;
   align-items: center;
   justify-content: left;
+  cursor: pointer;
 }
 
 .app > .header > .left-menu .menu-icon {
   width: 25px;
   height: 25px;
   margin: 10px;
-  cursor: pointer;
 }
 
 .app > .header > .search {
@@ -50,7 +50,8 @@ input {
 
 .app > .emails {
   grid-area: emails;
-  padding: 10px 0;
+  padding: 0px 0;
+  border-left: 1px solid lightgray;
 }
 
 .app > .emails > ul {
@@ -94,13 +95,34 @@ input {
 }
 
 .email {
-  display: grid;
+  display: flex;
   grid-template-columns: 30px 30px 150px 1fr;
-  padding: 10px;
   background-color: white;
+  padding-left: 10px;
+  padding-right: 10px;
   font-size: 0.9rem;
 
   border-bottom: solid 1px #00000020;
+}
+
+.email > .email-listing-info {
+  width: 100%;
+  cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.star {
+  width: 13px;
+  height: 17.33px;
+  margin-bottom: 1px;
+}
+
+.email-buttons {
+  display: flex;
+  gap: 5px;
+  padding-right: 18px;
+  place-items: center;
 }
 
 .email:first-child {

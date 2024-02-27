@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Email from "./Email";
 
-export default function EmailList({ setEmails, filteredEmails }) {
+export default function EmailList({ setEmails, filteredEmails, setSelectedEmail }) {
   const toggleRead = targetEmail => {
     const updatedEmails = emails =>
       emails.map(email =>
@@ -24,7 +24,12 @@ export default function EmailList({ setEmails, filteredEmails }) {
     <main className="emails">
       <ul>
         {filteredEmails.map((email, index) => (
-          <Email key={index} email={email} toggleRead={toggleRead} toggleStar={toggleStar} />
+          <Email 
+            key={index} 
+            email={email} 
+            toggleRead={toggleRead} 
+            toggleStar={toggleStar}
+            setSelectedEmail={setSelectedEmail} />
         ))}
       </ul>
     </main>
@@ -33,5 +38,6 @@ export default function EmailList({ setEmails, filteredEmails }) {
 
 EmailList.propTypes = {
   filteredEmails: PropTypes.array.isRequired,
-  setEmails: PropTypes.func.isRequired
+  setEmails: PropTypes.func.isRequired,
+  setSelectedEmail: PropTypes.func.isRequired
 };
