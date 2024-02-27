@@ -3,6 +3,7 @@ import { useState } from 'react'
 import initialEmails from './data/emails'
 import Emails from './Emails'
 import EmailDisplayed from './EmailDisplayed'
+import LeftMenu from './LeftMenu'
 
 import './styles/App.css'
 import backButton from './assets/back.png'
@@ -16,9 +17,11 @@ function App() {
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
   const [openEmail, setOpenEmail] = useState()
+  const [search, setSearch] = useState('')
   
   const unreadEmails = emails.filter(email => !email.read)
   const starredEmails = emails.filter(email => email.starred)
+  const searchedEmails = emails.filter(email => (search.length !== 0) ? email.title === search : email)
 
   let filteredEmails = emails
 
@@ -42,37 +45,17 @@ function App() {
         </div>
 
         <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
+          <input className="search-bar" placeholder="Search mail"/>
         </div>
       </header>
-      <nav className="left-menu">
-        <ul className="inbox-list">
-          <li
-            className={`item ${currentTab === 'inbox' ? 'active' : ''}`}
-            onClick={() => setCurrentTab('inbox')}
-          >
-            <span className="label">Inbox</span>
-            <span className="count">{unreadEmails.length}</span>
-          </li>
-          <li
-            className={`item ${currentTab === 'starred' ? 'active' : ''}`}
-            onClick={() => setCurrentTab('starred')}
-          >
-            <span className="label">Starred</span>
-            <span className="count">{starredEmails.length}</span>
-          </li>
-
-          <li className="item toggle">
-            <label htmlFor="hide-read">Hide read</label>
-            <input
-              id="hide-read"
-              type="checkbox"
-              checked={hideRead}
-              onChange={e => setHideRead(e.target.checked)}
-            />
-          </li>
-        </ul>
-      </nav>
+      <LeftMenu 
+        currentTab={currentTab}
+        setCurrentTab={setCurrentTab}
+        unreadEmails={unreadEmails}
+        hideRead={hideRead}
+        setHideRead={setHideRead}
+        starredEmails={starredEmails}
+      />
       {}
         {openEmail 
         ? 
