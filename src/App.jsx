@@ -33,9 +33,7 @@ function App() {
 
       <NavComponent
       emails={emails}
-      currentTab={currentTab}
       setCurrentTab={setCurrentTab}
-      hideRead={hideRead}
       setHideRead={setHideRead}
       />
 
