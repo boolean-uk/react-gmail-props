@@ -1,8 +1,10 @@
 import { useState } from 'react'
 
-import initialEmails from './data/emails'
+import initialEmails from '../data/emails'
+import Emails from './Emails'
+import DisplayEmail from './DisplayEmail'
 
-import './styles/App.css'
+import '../styles/App.css'
 
 const getReadEmails = emails => emails.filter(email => !email.read)
 
@@ -12,6 +14,11 @@ function App() {
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
+  const [selectedEmail, setSelectedEmail] = useState({
+    selected: false,
+    email: null
+  })
+  const [searchQuery, setSearchQuery] = useState('')
 
   const unreadEmails = emails.filter(email => !email.read)
   const starredEmails = emails.filter(email => email.starred)
@@ -34,7 +41,23 @@ function App() {
     setEmails(updatedEmails)
   }
 
+  const toggleOpenEmail = targetEmail => {
+    console.log(targetEmail);
+    setSelectedEmail({ selected: true, email: targetEmail })
+  }
+
+  const closeOpenEmail = () => {
+    if (selectedEmail.selected) {
+      setSelectedEmail({ selected: false, email: null })
+    }
+  }
+
   let filteredEmails = emails
+
+  filteredEmails = filteredEmails.filter(email =>
+    email.sender.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    email.title.toLowerCase().includes(searchQuery.toLowerCase())
+  )
 
   if (hideRead) filteredEmails = getReadEmails(filteredEmails)
 
@@ -56,7 +79,12 @@ function App() {
         </div>
 
         <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
+          <input
+            className="search-bar"
+            placeholder="Search mail"
+            value={searchQuery}
+            onChange={e => setSearchQuery(e.target.value)}
+          />
         </div>
       </header>
       <nav className="left-menu">
@@ -87,35 +115,7 @@ function App() {
           </li>
         </ul>
       </nav>
-      <main className="emails">
-        <ul>
-          {filteredEmails.map((email, index) => (
-            <li
-              key={index}
-              className={`email ${email.read ? 'read' : 'unread'}`}
-            >
-              <div className="select">
-                <input
-                  className="select-checkbox"
-                  type="checkbox"
-                  checked={email.read}
-                  onChange={() => toggleRead(email)}
-                />
-              </div>
-              <div className="star">
-                <input
-                  className="star-checkbox"
-                  type="checkbox"
-                  checked={email.starred}
-                  onChange={() => toggleStar(email)}
-                />
-              </div>
-              <div className="sender">{email.sender}</div>
-              <div className="title">{email.title}</div>
-            </li>
-          ))}
-        </ul>
-      </main>
+      {selectedEmail.selected ? (<DisplayEmail email={selectedEmail.email} closeOpenEmail={closeOpenEmail} />) : (<Emails setSelectedEmail={toggleOpenEmail} toggleRead={toggleRead} toggleStar={toggleStar} filteredEmails={filteredEmails} />)}
     </div>
   )
 }
