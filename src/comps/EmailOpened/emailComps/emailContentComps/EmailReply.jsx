@@ -1,3 +1,5 @@
+import '../../../../styles/Reply.css'
+
 function EmailReply() {
     return (
         <div className="reply-email">
@@ -6,7 +8,7 @@ function EmailReply() {
                 <div className="subject">Subject: <span>Re: Welcome to Flaticon</span></div>
             </div>
             <div className="reply-body">
-                <textarea placeholder="Write your reply..."></textarea>
+                <textarea placeholder="'stop spamming me!'..."></textarea>
             </div>
             <div className="reply-actions">
                 <button className="send-btn">Send</button>

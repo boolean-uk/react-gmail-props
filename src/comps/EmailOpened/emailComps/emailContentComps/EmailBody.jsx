@@ -1,13 +1,17 @@
-import flaticonWelcomeImage from '../../../../assets/images/flaticon-welcome-image.png'
+import PropTypes from 'prop-types'
 
-function EmailBody() {
+function EmailBody({body}) {
     return (
       <section className="email-body">
         <div className="content">
-          <img src={flaticonWelcomeImage} alt="Flaticon welcome message" />
+          {body /* I have trouble formatting, spent 30 minutes trying. that's too many minutes */}
         </div>
       </section>
     )
+}
+
+EmailBody.propTypes = {
+  body: PropTypes.string.isRequired
 }
 
 export default EmailBody

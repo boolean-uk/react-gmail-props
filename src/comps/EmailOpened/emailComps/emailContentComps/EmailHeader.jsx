@@ -1,19 +1,20 @@
 import backArrow from '../../../../assets/icons/back-arrow.png'
 import rateStarButton from '../../../../assets/icons/rate-star-button.png'
 import rubbishButton from '../../../../assets/icons/rubbish-bin-delete-button.png'
+import PropTypes from 'prop-types'
 
-function EmailHeader() {
+function EmailHeader( {sender, address} ) {
     return (
         <header className="email-content--header">
             <div className="avatar"></div>
             <div className="email-info">
               <div className="sender-info">
-                <h2>Freepik Company</h2>
-                <em>&lt;no-reply@freepik.com&gt;</em>
+                <h2> {sender} </h2>
+                <em>&lt; {address} &gt;</em>
               </div>
               <div className="user-info">
                 <p>
-                  to me <em>&lt;nicolas@boolean.co.uk&gt;</em>
+                  to me <em>&lt;Nigel@boolean.co.uk&gt;</em>
                 </p>
               </div>
             </div>
@@ -43,6 +44,11 @@ function EmailHeader() {
             </div>
         </header>
     )
+}
+
+EmailHeader.propTypes = {
+  sender: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired
 }
 
 export default EmailHeader

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import Email from './Email.jsx'
 import '../styles/Emails.css'
 
-function Emails({ emails, setEmails, hideRead, currentTab }) {
+function Emails({ emails, setEmails, hideRead, currentTab, openMail}) {
     let filteredEmails = emails
     const getReadEmails = emails => emails.filter(email => !email.read)
     const getStarredEmails = emails => emails.filter(email => email.starred)
@@ -43,6 +43,7 @@ function Emails({ emails, setEmails, hideRead, currentTab }) {
                 index={index}
                 toggleRead={toggleRead}
                 toggleStar={toggleStar}
+                openMail={openMail}
             />
           ))}
         </ul>
@@ -52,15 +53,18 @@ function Emails({ emails, setEmails, hideRead, currentTab }) {
 
 Emails.propTypes = {
     emails: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        read: PropTypes.bool.isRequired,
-        starred: PropTypes.bool.isRequired,
-        sender: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired
+      id: PropTypes.number.isRequired,
+      sender: PropTypes.string.isRequired,
+      address: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      starred: PropTypes.bool.isRequired,
+      read: PropTypes.bool.isRequired
     })).isRequired,
     setEmails: PropTypes.func.isRequired,
     hideRead: PropTypes.bool.isRequired,
-    currentTab: PropTypes.string.isRequired
+    currentTab: PropTypes.string.isRequired,
+    openMail: PropTypes.func.isRequired
 }
 
 export default Emails
