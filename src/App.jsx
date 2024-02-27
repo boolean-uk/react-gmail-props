@@ -74,10 +74,15 @@ function App() {
       </nav>
       {}
         {openEmail 
-        ? <EmailDisplayed
-          title={openEmail.title}
-          sender={openEmail.sender}
-        /> 
+        ? 
+        <>
+          <button className="back" onClick={() => setOpenEmail(null)}>Back</button>
+          <EmailDisplayed
+            title={openEmail.title}
+            sender={openEmail.sender}
+            setOpenEmail={setOpenEmail}
+          /> 
+        </>
         : <Emails
           filteredEmails={filteredEmails}
           initialEmails={initialEmails}
