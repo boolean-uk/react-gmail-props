@@ -1,4 +1,6 @@
-export default function Header() {
+import PropTypes from 'prop-types';
+
+export default function Header({ searchInput, setSearchInput }) {
   return (
     <header className="header">
       <div className="left-menu">
@@ -13,8 +15,18 @@ export default function Header() {
       </div>
 
       <div className="search">
-        <input className="search-bar" placeholder="Search mail" />
+        <input 
+          className="search-bar" 
+          placeholder="Search mail" 
+          value={searchInput} 
+          onChange={(e) => setSearchInput(e.target.value)}
+        />
       </div>
     </header>
   )
 }
+
+Header.propTypes = {
+  searchInput: PropTypes.string.isRequired,
+  setSearchInput: PropTypes.func.isRequired
+};

@@ -15,11 +15,12 @@ export default function App() {
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
+  const [searchInput, setSearchInput] = useState('')
 
   const unreadEmails = emails.filter(email => !email.read)
   const starredEmails = emails.filter(email => email.starred)
 
-  let filteredEmails = emails
+  let filteredEmails = emails.filter(email => email.title.toLowerCase().includes(searchInput.toLowerCase()));
 
   if (hideRead) filteredEmails = getReadEmails(filteredEmails)
 
@@ -28,7 +29,10 @@ export default function App() {
 
   return (
     <div className="app">
-      <Header />
+      <Header 
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}
+      />
 
       <Sidebar 
         currentTab={currentTab} 
