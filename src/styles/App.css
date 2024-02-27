@@ -144,3 +144,34 @@
 .email .star-checkbox:checked::before {
   background-image: url(https://www.gstatic.com/images/icons/material/system/2x/star_googyellow500_20dp.png);
 }
+
+.email-display {
+  padding-left: 1rem;
+}
+
+.email-display > .title {
+  padding: 1rem 0rem;
+  font-weight: 600
+}
+
+.email-return-button {
+  margin-top: 0.5rem;
+  padding: 0.1rem;
+}
+
+.email-info {
+  margin-top: 0.5rem;
+}
+
+.email-display > .body {
+  margin: 0rem 0rem;
+
+}
+
+.email-actions {
+  margin-top: 0.5rem;
+}
+
+.email-actions > .forward {
+  margin-left: 0.5rem;
+}
