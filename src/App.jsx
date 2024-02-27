@@ -3,6 +3,8 @@ import { useState } from 'react'
 import initialEmails from './data/emails'
 
 import './styles/App.css'
+import EmailsComponent from './components/EmailsComponent'
+import HeaderComponent from './components/HeaderComponent';
 
 const getReadEmails = emails => emails.filter(email => !email.read)
 
@@ -13,6 +15,14 @@ function App() {
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
 
+  //Extension2
+  //State to store seach query
+  const [searchQuery, setSearchQuery] = useState('') 
+  // Function to handle search action when the search button is clicked
+  const handleSearch = (e) => {
+    console.log(e.target.value)
+    setSearchQuery(e.target.value)
+  }
   const unreadEmails = emails.filter(email => !email.read)
   const starredEmails = emails.filter(email => email.starred)
 
@@ -34,6 +44,23 @@ function App() {
     setEmails(updatedEmails)
   }
 
+  //Extension2 
+  //Function to filter emails based on the search query
+
+  const filterEmailsBySearch = (e) => {
+    return ( 
+      e.filter(email => {
+      email.title.toLowerCase().includes(searchQuery.toLocaleLowerCase())
+    }
+      
+    ))
+  }
+
+  
+
+
+
+
   let filteredEmails = emails
 
   if (hideRead) filteredEmails = getReadEmails(filteredEmails)
@@ -41,24 +68,21 @@ function App() {
   if (currentTab === 'starred')
     filteredEmails = getStarredEmails(filteredEmails)
 
+    const text = filteredEmails.filter((email) => {
+      return (
+        email.title
+          .toLocaleLowerCase()
+          .indexOf(searchQuery.toLocaleLowerCase()) !== -1
+      );
+    });
+
+    if (searchQuery) filteredEmails = text // Apply search filter  
+
+
   return (
     <div className="app">
-      <header className="header">
-        <div className="left-menu">
-          <svg className="menu-icon" focusable="false" viewBox="0 0 24 24">
-            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-          </svg>
-
-          <img
-            src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r2.png"
-            alt="gmail logo"
-          />
-        </div>
-
-        <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
-        </div>
-      </header>
+      {/* Render HeaderComponent with handleSearch prop */}
+      <HeaderComponent handleSearch={handleSearch}/>
       <nav className="left-menu">
         <ul className="inbox-list">
           <li
@@ -87,35 +111,9 @@ function App() {
           </li>
         </ul>
       </nav>
-      <main className="emails">
-        <ul>
-          {filteredEmails.map((email, index) => (
-            <li
-              key={index}
-              className={`email ${email.read ? 'read' : 'unread'}`}
-            >
-              <div className="select">
-                <input
-                  className="select-checkbox"
-                  type="checkbox"
-                  checked={email.read}
-                  onChange={() => toggleRead(email)}
-                />
-              </div>
-              <div className="star">
-                <input
-                  className="star-checkbox"
-                  type="checkbox"
-                  checked={email.starred}
-                  onChange={() => toggleStar(email)}
-                />
-              </div>
-              <div className="sender">{email.sender}</div>
-              <div className="title">{email.title}</div>
-            </li>
-          ))}
-        </ul>
-      </main>
+      {/* Render EmailsComponent with filteredEmails */}
+      <EmailsComponent filteredEmails ={filteredEmails} toggleStar={toggleStar} toggleRead={toggleRead} />
+      
     </div>
   )
 }

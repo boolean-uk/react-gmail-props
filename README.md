@@ -33,3 +33,4 @@ You'll use props to break down our app into smaller components by passing down r
 
 ## Extension 2
 - Get the **search** input to work in the `header` section so that users can **search for emails by title**
+
