@@ -3,7 +3,7 @@ import Email from "./Email";
 
 import "../styles/Emails.css";
 
-function Emails({ filteredEmails, toggleRead, toggleStar }) {
+function Emails({ filteredEmails, toggleRead, toggleStar, selectEmail }) {
   return (
     <main className="emails">
       <ul>
@@ -13,6 +13,7 @@ function Emails({ filteredEmails, toggleRead, toggleStar }) {
             email={email}
             toggleRead={toggleRead}
             toggleStar={toggleStar}
+            selectEmail={selectEmail}
           />
         ))}
       </ul>
@@ -24,6 +25,7 @@ Emails.propTypes = {
   filteredEmails: PropTypes.array,
   toggleRead: PropTypes.func,
   toggleStar: PropTypes.func,
+  selectEmail: PropTypes.func,
 };
 
 export default Emails;
