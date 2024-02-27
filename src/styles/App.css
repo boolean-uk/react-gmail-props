@@ -3,8 +3,8 @@
 
   display: grid;
   grid-template:
-    'header header' 50px
-    'left-menu emails' 1fr /
+    "header header" 50px
+    "left-menu emails" 1fr /
     180px 1fr;
 }
 
@@ -129,7 +129,7 @@
 
 .email .star-checkbox:checked::before,
 .email .star-checkbox::before {
-  content: '';
+  content: "";
   background-size: cover;
   width: 20px;
   height: 20px;
@@ -143,4 +143,33 @@
 
 .email .star-checkbox:checked::before {
   background-image: url(https://www.gstatic.com/images/icons/material/system/2x/star_googyellow500_20dp.png);
+}
+
+.detailed-email {
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  padding: 10px;
+  background-color: white;
+  font-size: 0.9rem;
+}
+.actions > button {
+  justify-self: right;
+  align-self: center;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff000050;
+  color: #ff0000;
+  font-weight: 600;
+  cursor: pointer;
+}
+.detailed-email-exit-button {
+  border: none;
+  float: left;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+}
+.detailed-email-exit-button:hover svg path {
+  fill: #007bff; /* Change to whatever color you want */
 }
