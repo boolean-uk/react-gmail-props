@@ -1,0 +1,18 @@
+.email-header {
+    display: grid;
+    grid-template-columns: 70px auto;
+    grid-template-rows: 40px 60px;
+    align-items: center;
+
+}
+  
+.email-header img {
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+
+}
+  
+.email-header h2 {
+    margin: 0;
+}
