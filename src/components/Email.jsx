@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function Email({ index, email, toggleStar, toggleRead }) {
+function Email({ index, email, toggleStar, toggleRead, setEmailData }) {
     return (
         <>
         <li 
@@ -23,8 +23,8 @@ function Email({ index, email, toggleStar, toggleRead }) {
                 onChange={() => toggleStar(email)}
             />
             </div>
-            <div className="sender">{email.sender}</div>
-            <div className="title">{email.title}</div>
+            <div className="sender" onClick={() => setEmailData(email)}>{email.sender}</div>
+            <div className="title" onClick={() => setEmailData(email)}>{email.title}</div>
         </li>
         </>
   )

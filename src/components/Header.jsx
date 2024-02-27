@@ -1,6 +1,12 @@
 import React from 'react'
 
-function Header() {
+function Header({searchWord, setSearchWord}) {
+
+  const handleSearchChange = (event) => {
+    console.log(event.target.value)
+    setSearchWord(event.target.value)
+  }
+
   return (
     <>
     <header className="header">
@@ -16,7 +22,11 @@ function Header() {
         </div>
 
         <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
+          <input 
+          className="search-bar" 
+          placeholder="Search mail" 
+          value={searchWord}
+          onChange={handleSearchChange} />
         </div>
     </header>
     </>
