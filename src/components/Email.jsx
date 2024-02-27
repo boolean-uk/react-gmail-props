@@ -1,30 +1,30 @@
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
-import '../styles/Email.css'
+import "../styles/Email.css";
 
 function Email({ email, toggleRead, toggleStar }) {
-    return (
-      <li className={`email ${email.read ? "read" : "unread"}`}>
-        <div className="select">
-          <input
-            className="select-checkbox"
-            type="checkbox"
-            checked={email.read}
-            onChange={() => toggleRead(email)}
-          />
-        </div>
-        <div className="star">
-          <input
-            className="star-checkbox"
-            type="checkbox"
-            checked={email.starred}
-            onChange={() => toggleStar(email)}
-          />
-        </div>
-        <div className="sender">{email.sender}</div>
-        <div className="title">{email.title}</div>
-      </li>
-    );
+  return (
+    <li className={`email ${email.read ? "read" : "unread"}`}>
+      <div className="select">
+        <input
+          className="select-checkbox"
+          type="checkbox"
+          checked={email.read}
+          onChange={() => toggleRead(email)}
+        />
+      </div>
+      <div className="star">
+        <input
+          className="star-checkbox"
+          type="checkbox"
+          checked={email.starred}
+          onChange={() => toggleStar(email)}
+        />
+      </div>
+      <div className="sender">{email.sender}</div>
+      <div className="title">{email.title}</div>
+    </li>
+  );
 }
 
 Email.propTypes = {
@@ -38,4 +38,4 @@ Email.propTypes = {
   toggleStar: PropTypes.func,
 };
 
-export default Email
+export default Email;
