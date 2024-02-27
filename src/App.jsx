@@ -4,6 +4,7 @@ import initialEmails from './data/emails'
 
 import './styles/App.css'
 import Emails from './emails/Emails.jsx'
+import DisplayedEmail from './displayedEmail/DisplayedEmail.jsx'
 
 const getReadEmails = emails => emails.filter(email => !email.read)
 
@@ -14,6 +15,7 @@ function App() {
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
+  const [selectedEmail, setSelectedEmail] = useState('')
   const [searchWord, setSearchWord] = useState('')
 
   const unreadEmails = emails.filter(email => !email.read)
@@ -50,6 +52,12 @@ function App() {
   if (currentTab === 'starred')
     filteredEmails = getStarredEmails(filteredEmails)
 
+  let content = '';
+  if(selectedEmail === '') {
+    content = <Emails filteredEmails={filteredEmails} toggleRead={toggleRead} toggleStar={toggleStar} setSelectedEmail={setSelectedEmail} />
+  } else {
+    content = <DisplayedEmail selectedEmail={selectedEmail} setSelectedEmail={setSelectedEmail}/>
+  }
 
   return (
     <div className="app">
@@ -97,7 +105,7 @@ function App() {
           </li>
         </ul>
       </nav>
-      <Emails filteredEmails={filteredEmails} toggleRead={toggleRead} toggleStar={toggleStar}/>
+      {content}
     </div>
   )
 }
