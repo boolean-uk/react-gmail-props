@@ -1,6 +1,6 @@
 import '../styles/App.css'
 
-function Header({ onSearch}){
+function Header({ onSearch }){
     return(
         <header className="header">
         <div className="left-menu">
