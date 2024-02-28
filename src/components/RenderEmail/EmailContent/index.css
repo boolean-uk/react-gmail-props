@@ -60,11 +60,11 @@
   font-weight: bold;
 }
 
-.title {
+.email-view .title {
   padding: 1rem;
 }
 
-.title h1 {
+.email-view .title h1 {
   padding-left: 56px;
 
   font-weight: normal;
