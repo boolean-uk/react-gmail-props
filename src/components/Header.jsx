@@ -1,6 +1,6 @@
 import '../styles/App.css'
 
-function Header(){
+function Header({ onSearch}){
     return(
         <header className="header">
         <div className="left-menu">
@@ -15,7 +15,11 @@ function Header(){
         </div>
 
         <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
+          <input 
+            type="text"
+            placeholder="Search for email title"
+            onChange={(e) => onSearch(e.target.value)} 
+            />
         </div>
       </header>
     )

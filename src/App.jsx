@@ -15,6 +15,7 @@ function App() {
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
+  const [searchQuery, setSearchQuery] = useState('')
 
   const unreadEmails = emails.filter(email => !email.read)
   const starredEmails = emails.filter(email => email.starred)
@@ -44,9 +45,14 @@ function App() {
   if (currentTab === 'starred')
     filteredEmails = getStarredEmails(filteredEmails)
 
+  if (searchQuery) {
+    filteredEmails = filteredEmails.filter(email =>
+      email.title.toLowerCase().includes(searchQuery.toLowerCase()))
+  }
+
   return (
     <div className="app">
-      <Header />
+      <Header onSearch={(query) => setSearchQuery(query)}/>
       <LeftMenu currentTab={currentTab} setCurrentTab={setCurrentTab} 
         unreadEmails={unreadEmails} starredEmails={starredEmails} 
         setHideRead={setHideRead}/>
