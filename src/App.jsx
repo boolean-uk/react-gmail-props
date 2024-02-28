@@ -23,24 +23,6 @@ function App() {
 
   let filteredEmails = emails
 
-  const toggleStar = (targetEmail) => {
-    const updatedEmails = (emails) =>
-      emails.map((email) =>
-        email.id === targetEmail.id
-          ? { ...email, starred: !email.starred }
-          : email
-      );
-    setEmails(updatedEmails);
-  };
-
-  const toggleRead = (targetEmail) => {
-    const updatedEmails = (emails) =>
-      emails.map((email) =>
-        email.id === targetEmail.id ? { ...email, read: !email.read } : email
-      );
-    setEmails(updatedEmails);
-  };
-
   if (hideRead) filteredEmails = getReadEmails(filteredEmails)
 
   if (currentTab === 'starred')
@@ -61,9 +43,9 @@ function App() {
       />
 
       <Emails
+        emails={emails}
+        setEmails={setEmails}
         filteredEmails={filteredEmails}
-        toggleStar={toggleStar}
-        toggleRead={toggleRead}
       />
     </div>
   );

@@ -1,5 +1,6 @@
-function LeftMenu(props) {
+import PropTypes from "prop-types";
 
+function LeftMenu(props) {
   return (
     <nav className="left-menu">
       <ul className="inbox-list">
@@ -31,5 +32,14 @@ function LeftMenu(props) {
     </nav>
   );
 }
+
+LeftMenu.propTypes = {
+  currentTab: PropTypes.string,
+  setCurrentTab: PropTypes.func,
+  hideRead: PropTypes.string,
+  setHideRead: PropTypes.func,
+  unreadEmails: PropTypes.object,
+  starredEmails: PropTypes.object,
+};
 
 export default LeftMenu;
