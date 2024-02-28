@@ -6,7 +6,8 @@ export default [
     starred: false,
     read: true,
     text: "",
-    img: null,
+    img: "https://th.bing.com/th/id/OIP.4Ad-tdA5Q0vOeglplrwHFQHaDs?rs=1&pid=ImgDetMain",
+    email: "zoom@gmail.com",
   },
   {
     id: 2,
@@ -14,8 +15,9 @@ export default [
     title: `Sean Davison has joined your Personal Meeting Room`,
     starred: false,
     read: false,
-    text: "email 2",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum purus vitae nisl aliquam, sit amet tempor quam gravida. Integer volutpat lacus non metus bibendum, ac aliquet lectus sollicitudin. Vivamus at mi ac magna malesuada faucibus nec vitae justo. Vestibulum euismod, ex id consectetur hendrerit, mauris tortor blandit ipsum, sed congue odio urna non purus. Nullam auctor mi ac justo fermentum, nec eleifend libero vestibulum. Duis rhoncus augue sit amet justo ultrices, id rhoncus sem lobortis. Cras sit amet fringilla velit. Nunc tristique lorem nec mi viverra lobortis. Nulla vestibulum fermentum magna, eget dictum eros fermentum nec. Integer dapibus nec nunc nec tincidunt. Sed lacinia est quis nisi sodales ultricies. Donec tincidunt aliquet mauris, in tincidunt ex sodales a. Sed ut turpis eget lacus elementum elementum eget non mi.",
     img: null,
+    email: "zoom@gmail.com",
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ export default [
     read: true,
     text: "email 3",
     img: null,
+    email: "notion@gmail.com",
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ export default [
     read: false,
     text: "email 4",
     img: null,
+    email: "the-calendly-team@gmail.com",
   },
   {
     id: 5,
@@ -43,5 +47,6 @@ export default [
     read: false,
     text: "email 5",
     img: null,
+    email: "patrick@gmail.com",
   },
 ];

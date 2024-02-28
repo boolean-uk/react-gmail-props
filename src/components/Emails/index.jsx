@@ -3,9 +3,9 @@ import EmailView from "../RenderEmail/EmailView";
 import "./index.css";
 
 function Emails(props) {
-  if (props.currentEmail === null) {
-    return (
-      <main className="emails">
+  return (
+    <main className="emails">
+      {props.currentEmail === null && (
         <ul>
           {props.filteredEmails.map((email, index) => (
             <Email
@@ -16,15 +16,15 @@ function Emails(props) {
             />
           ))}
         </ul>
-      </main>
-    );
-  } else {
-    return (
-      <main className="emails">
-        <EmailView setCurrentEmail = {props.setCurrentEmail} currentEmail = {props.currentEmail}/>
-      </main>
-    );
-  }
+      )}
+      {props.currentEmail !== null && (
+        <EmailView
+          setCurrentEmail={props.setCurrentEmail}
+          currentEmail={props.currentEmail}
+        />
+      )}
+    </main>
+  );
 }
 
 export default Emails;

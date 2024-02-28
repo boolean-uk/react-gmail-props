@@ -2,7 +2,6 @@ import "./index.css";
 
 import EmailActionIcons from "../EmailActionIcons";
 import EmailRespond from "../Respond";
-import RenderEmailContent from "../RenderEmailContent";
 
 function EmailContent(props) {
   
@@ -16,7 +15,7 @@ function EmailContent(props) {
         <div className="email-info">
           <div className="sender-info">
             <h2>{props.currentEmail.sender}</h2>
-            <em>&lt;no-reply@freepik.com&gt;</em>
+            <em>&lt;{props.currentEmail.email}&gt;</em>
           </div>
           <div className="user-info">
             <p>
@@ -30,15 +29,20 @@ function EmailContent(props) {
         <EmailActionIcons />
       </header>
       <section className="email-body">
-        <RenderEmailContent currentEmail = {props.currentEmail} />
-      </section>
+      <div className="content">
+        <div>{props.currentEmail.text}</div>
+        {props.currentEmail.img !== null && (<img src={props.currentEmail.img} alt="email image" />)}
+      </div>      </section>
       <section className="email-actions">
         <button>Reply</button>
         <button>Forward</button>
       </section>
-      <EmailRespond />
+      <EmailRespond currentEmail={props.currentEmail }/>
     </article>
   );
 }
 
 export default EmailContent;
+
+
+

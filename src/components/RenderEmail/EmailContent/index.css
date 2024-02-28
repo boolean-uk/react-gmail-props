@@ -35,8 +35,10 @@
 }
 
 .email-body .content {
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 1220px;
+  margin-left: 80px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .email-body .content img {

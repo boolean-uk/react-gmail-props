@@ -8,14 +8,14 @@ import UpperRightIcons from "./UpperRightIcons";
 import avatar from "../../../assets/icons/avatar.png";
 import seeMore from "../../../assets/icons/see-more.png";
 
-function EmailRespond() {
+function EmailRespond(props) {
   return (
     <article className="email-respond">
       <div>
         <img src={avatar} className="avatar-icon" />
         <div className="respond-container">
           <textarea className="text-box"></textarea>
-          <UpperLeftIcons />
+          <UpperLeftIcons currentEmail={props.currentEmail}/>
           <UpperRightIcons />
           <BottomLeftIcons />
           <BottomRightIcons />

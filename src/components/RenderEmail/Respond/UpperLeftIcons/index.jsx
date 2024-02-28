@@ -1,6 +1,7 @@
 import responseTypeButton from "../../../../assets/icons/response-type.png";
 
-function UpperLeftIcons() {
+function UpperLeftIcons(props) {
+  let defaultValue = `${props.currentEmail.sender} (${props.currentEmail.email})`;
   return (
     <ul className="upper-left-icons">
       <li>
@@ -12,7 +13,7 @@ function UpperLeftIcons() {
         <input
           type="text"
           className="send-to"
-          defaultValue="Freepik Company (no-reply@freepik.com)"
+          defaultValue={defaultValue}
         />
       </li>
     </ul>
