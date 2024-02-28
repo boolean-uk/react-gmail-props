@@ -5,7 +5,7 @@ import initialEmails from './data/emails'
 import './styles/App.css'
 
 import Emails from './components/Emails.jsx'
-import OpenEmail from './components/OpenEmail/index.jsx'
+import OpenEmail from './components/OpenEmail1/index.jsx'
 
 const getReadEmails = emails => emails.filter(email => !email.read)
 
@@ -16,6 +16,8 @@ function App() {
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
   const [showOpenMail, setShowOpenMail] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchFilteredEmails, setSearchFilteredEmails] = useState(initialEmails)
 
   const unreadEmails = emails.filter(email => !email.read)
   const starredEmails = emails.filter(email => email.starred)
@@ -40,6 +42,18 @@ function App() {
 
   let filteredEmails = emails
 
+  function handleInputChange(event) {
+    const query = event.target.value; 
+    setSearchQuery(query)
+    console.log(query)
+
+    const filtered = searchFilteredEmails.filter(email =>
+    email.title.toLowerCase().includes(query.toLowerCase())
+    )
+
+    setEmails(filtered)
+  }
+
   if (hideRead) filteredEmails = getReadEmails(filteredEmails)
 
   if (currentTab === 'starred')
@@ -59,7 +73,7 @@ function App() {
         </div>
 
         <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
+          <input className="search-bar" placeholder="Search mail" value={searchQuery} onChange={handleInputChange}/>
         </div>
       </header>
       <nav className="left-menu">
