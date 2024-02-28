@@ -1,5 +1,6 @@
 import { useState } from 'react'
-
+import Emails from "./Components/Emails";
+import DisplayEmail from './Components/DisplayEmail';
 import initialEmails from './data/emails'
 
 import './styles/App.css'
@@ -13,27 +14,13 @@ function App() {
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
 
+  const [selectedEmail, setSelectedEmail] = useState(null)
+  const [searchTerm, setSearchTerm] = useState('')
+
   const unreadEmails = emails.filter(email => !email.read)
   const starredEmails = emails.filter(email => email.starred)
 
-  const toggleStar = targetEmail => {
-    const updatedEmails = emails =>
-      emails.map(email =>
-        email.id === targetEmail.id
-          ? { ...email, starred: !email.starred }
-          : email
-      )
-    setEmails(updatedEmails)
-  }
-
-  const toggleRead = targetEmail => {
-    const updatedEmails = emails =>
-      emails.map(email =>
-        email.id === targetEmail.id ? { ...email, read: !email.read } : email
-      )
-    setEmails(updatedEmails)
-  }
-
+  
   let filteredEmails = emails
 
   if (hideRead) filteredEmails = getReadEmails(filteredEmails)
@@ -41,6 +28,10 @@ function App() {
   if (currentTab === 'starred')
     filteredEmails = getStarredEmails(filteredEmails)
 
+    filteredEmails = filteredEmails.filter(email => {
+      return email.title.toLowerCase().includes(searchTerm.toLowerCase())
+    })
+    
   return (
     <div className="app">
       <header className="header">
@@ -56,7 +47,7 @@ function App() {
         </div>
 
         <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
+          <input className="search-bar" placeholder="Search mail"  onChange={(e) => { setSearchTerm(e.target.value) }}/>
         </div>
       </header>
       <nav className="left-menu">
@@ -87,36 +78,17 @@ function App() {
           </li>
         </ul>
       </nav>
-      <main className="emails">
-        <ul>
-          {filteredEmails.map((email, index) => (
-            <li
-              key={index}
-              className={`email ${email.read ? 'read' : 'unread'}`}
-            >
-              <div className="select">
-                <input
-                  className="select-checkbox"
-                  type="checkbox"
-                  checked={email.read}
-                  onChange={() => toggleRead(email)}
-                />
-              </div>
-              <div className="star">
-                <input
-                  className="star-checkbox"
-                  type="checkbox"
-                  checked={email.starred}
-                  onChange={() => toggleStar(email)}
-                />
-              </div>
-              <div className="sender">{email.sender}</div>
-              <div className="title">{email.title}</div>
-            </li>
-          ))}
-        </ul>
-      </main>
+
+      {selectedEmail ? (
+        <DisplayEmail email={selectedEmail} onClick={() => setSelectedEmail(null)} />
+      )
+        :
+        (
+          <Emails emails={filteredEmails} setEmails={setEmails} setSelectedEmail={setSelectedEmail} />
+        )
+      }
     </div>
+    
   )
 }
 
