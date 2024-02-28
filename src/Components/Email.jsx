@@ -19,8 +19,12 @@ function Email(props) {
           onChange={() => props.toggleStar(props.email)}
         />
       </div>
-      <div className="sender">{props.email.sender}</div>
-      <div className="title">{props.email.title}</div>
+      <div className="sender" onClick={() => props.setSelected(props.email)}>
+        {props.email.sender}
+      </div>
+      <div className="title" onClick={() => props.setSelected(props.email)}>
+        {props.email.title}
+      </div>
     </li>
   );
 }
@@ -29,6 +33,7 @@ Email.propTypes = {
   email: PropTypes.object,
   toggleRead: PropTypes.func,
   toggleStar: PropTypes.func,
+  setSelected: PropTypes.func,
 };
 
 export default Email;
