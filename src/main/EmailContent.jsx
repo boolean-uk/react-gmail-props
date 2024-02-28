@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import '../styles/EmailContent.css'
 
 export default function EmailContent(props) {
@@ -16,6 +17,7 @@ export default function EmailContent(props) {
 
   const handleReturnInboxClick = () => {
     props.setEmails(props.initialEmails)
+    props.setSelectedEmail(null)
   }
 
   return (
@@ -28,6 +30,7 @@ export default function EmailContent(props) {
         value={replyText}
         onChange={handleReplyChange}
         placeholder="Type your reply here"
+        className="reply-input"
       />
       <button className="send-reply" onClick={handleReplyClick}>
         Send Reply

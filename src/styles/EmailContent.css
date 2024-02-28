@@ -1,47 +1,47 @@
 .email-content {
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
-  
-  .email-sender {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .email-title {
-    margin-bottom: 10px;
-  }
-  
-  .email-body {
-    margin-bottom: 20px;
-  }
-  
-  .reply-input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .send-reply {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  .return-to-inbox {
-    background-color: #fbbc05;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.email-sender {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.email-title {
+  margin-bottom: 10px;
+}
+
+.email-body {
+  margin-bottom: 20px;
+}
+
+.reply-input {
+  width: 100%; /* Make the input text box 100% width */
+  padding: 12px; /* Increase padding for larger input */
+  margin-bottom: 20px; /* Increase margin-bottom */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px; /* Increase font size */
+}
+
+.send-reply {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.return-to-inbox {
+  background-color: #fbbc05;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}

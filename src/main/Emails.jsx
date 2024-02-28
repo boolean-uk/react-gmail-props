@@ -33,6 +33,7 @@ export default function Emails(props) {
       </ul>
       {selectedEmail && <EmailContent 
                           email={selectedEmail}
+                          setSelectedEmail={setSelectedEmail}
                           setEmails={props.setEmails}
                           initialEmails={props.initialEmails}/>
                           }
