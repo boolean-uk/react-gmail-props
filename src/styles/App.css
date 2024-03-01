@@ -85,7 +85,7 @@
 
 .email {
   display: grid;
-  grid-template-columns: 30px 30px 150px 1fr;
+  grid-template-columns: 30px 30px 150px 1fr 100px;
   padding: 10px;
   background-color: white;
   font-size: 0.9rem;
