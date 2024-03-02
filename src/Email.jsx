@@ -1,29 +1,29 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react';
-
-const Email = ({ email, toggleRead, toggleStar }) => {
+function Email(props) {
+  
   return (
-    <li className={`email ${email.read ? 'read' : 'unread'}`}>
+    <li
+      key={props.index}
+      className={`email ${props.email.read ? 'read' : 'unread'}`}
+      >
       <div className="select">
-        <input
+          <input
           className="select-checkbox"
           type="checkbox"
-          checked={email.read}
-          onChange={() => toggleRead(email)}
-        />
+          checked={props.email.read}
+          onChange={() => props.toggleRead(props.email)}
+          />
       </div>
       <div className="star">
-        <input
+          <input
           className="star-checkbox"
           type="checkbox"
-          checked={email.starred}
-          onChange={() => toggleStar(email)}
-        />
+          checked={props.email.starred}
+          onChange={() => props.toggleStar(props.email)}
+          />
       </div>
-      <div className="sender">{email.sender}</div>
-      <div className="title">{email.title}</div>
+      <div className="sender">{props.email.sender}</div>
+      <div className="title">{props.email.title}</div>
     </li>
-  );
-};
-
-export default Email;
+  )
+}
+export default Email
