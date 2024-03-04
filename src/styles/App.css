@@ -8,6 +8,10 @@
     180px 1fr;
 }
 
+input {
+  cursor: pointer;
+}
+
 .app > .header {
   grid-area: header;
 
@@ -22,6 +26,7 @@
   grid-auto-flow: column;
   align-items: center;
   justify-content: left;
+  cursor: pointer;
 }
 
 .app > .header > .left-menu .menu-icon {
@@ -41,11 +46,13 @@
   background-color: rgb(240, 240, 240);
   padding: 0 10px;
   font-size: 1rem;
+  cursor: text;
 }
 
 .app > .emails {
   grid-area: emails;
-  padding: 10px 0;
+  padding: 0px 0;
+  border-left: 1px solid lightgray;
 }
 
 .app > .emails > ul {
@@ -70,6 +77,7 @@
   grid-auto-flow: column;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -81,16 +89,41 @@
 
 .app > .left-menu .inbox-list .item.toggle {
   background-color: transparent;
+  margin-top: 0px;
+  padding-top: 18px;
+  border-radius: 0;
+  border-top: 1px solid lightgray;
 }
 
 .email {
-  display: grid;
+  display: flex;
   grid-template-columns: 30px 30px 150px 1fr;
-  padding: 10px;
   background-color: white;
+  padding-left: 10px;
+  padding-right: 10px;
   font-size: 0.9rem;
 
   border-bottom: solid 1px #00000020;
+}
+
+.email > .email-listing-info {
+  width: 100%;
+  cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.star {
+  width: 13px;
+  height: 17.33px;
+  margin-bottom: 1px;
+}
+
+.email-buttons {
+  display: flex;
+  gap: 5px;
+  padding-right: 18px;
+  place-items: center;
 }
 
 .email:first-child {
@@ -121,6 +154,7 @@
   position: relative;
   display: grid;
   align-content: center;
+  cursor: pointer;
 }
 
 .email .star-checkbox:focus {
